@@ -264,5 +264,69 @@
       "url": "https://leetcode.com/problems/task-scheduler/",
       "note": "Greedy scheduling driven by a max-heap of remaining task frequencies."
     }
+  ],
+  "modified-binary-search": [
+    {
+      "title": "Search in Rotated Sorted Array",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+      "note": "The canonical version — figure out which half is sorted, then decide where the target could be."
+    },
+    {
+      "title": "Search in Rotated Sorted Array II",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/",
+      "note": "Duplicates can make both halves look 'sorted' — when nums[lo] === nums[mid] === nums[hi], shrink the window by one from each side instead."
+    },
+    {
+      "title": "Find Minimum in Rotated Sorted Array",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+      "note": "No target to find — just locate the rotation point by comparing mid against the right edge."
+    },
+    {
+      "title": "Find Peak Element",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-peak-element/",
+      "note": "Binary search on a condition (uphill vs downhill slope) rather than on sorted order directly."
+    },
+    {
+      "title": "Koko Eating Bananas",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/koko-eating-bananas/",
+      "note": "Binary search over the answer space itself — search for the smallest eating speed that satisfies a feasibility check."
+    }
+  ],
+  "subsets": [
+    {
+      "title": "Subsets",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/subsets/",
+      "note": "The exact include/exclude recursion tree visualized above."
+    },
+    {
+      "title": "Subsets II",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/subsets-ii/",
+      "note": "Duplicates in the input need a sort-first + skip-same-sibling rule to avoid duplicate subsets."
+    },
+    {
+      "title": "Permutations",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/permutations/",
+      "note": "Same backtracking shape, but the branching factor is 'which unused element goes next' instead of include/exclude."
+    },
+    {
+      "title": "Combination Sum",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/combination-sum/",
+      "note": "Adds real pruning — abandon a branch the moment the running sum exceeds the target."
+    },
+    {
+      "title": "Palindrome Partitioning",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/palindrome-partitioning/",
+      "note": "The 'choice' at each step is where to cut next, constrained by the palindrome check as the pruning rule."
+    }
   ]
 }

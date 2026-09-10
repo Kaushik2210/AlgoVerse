@@ -475,6 +475,108 @@ export function topKSteps(stream: number[], k: number): StepSequence<TopKVizStat
   return steps;
 }
 
+// ---------------------------------------------------------------------------
+// Modified Binary Search — search a rotated sorted array. There's no single
+// sorted [lo, hi] range anymore, but at least one half of any window always
+// is — check which, then decide whether the target could be in it.
+// ---------------------------------------------------------------------------
+export function modifiedBinarySearchSteps(
+  input: number[],
+  target: number
+): StepSequence<ArrayVizState> {
+  const array = [...input];
+  const steps: StepSequence<ArrayVizState> = [];
+  let lo = 0;
+  let hi = array.length - 1;
+  let comparisons = 0;
+
+  steps.push({
+    state: snapshotArr({ array, range: [lo, hi] }),
+    narration: `Searching for ${target} in a rotated sorted array. There's no single sorted range — but at least one half of any [lo, hi] window is always sorted.`,
+    highlightedLine: 2,
+    stats: { comparisons },
+  });
+
+  while (lo <= hi) {
+    const mid = Math.floor((lo + hi) / 2);
+    comparisons++;
+    steps.push({
+      state: snapshotArr({ array, comparing: [mid], range: [lo, hi] }),
+      narration: `mid = ${mid}, array[mid] = ${array[mid]}.`,
+      highlightedLine: 4,
+      stats: { comparisons },
+    });
+
+    if (array[mid] === target) {
+      steps.push({
+        state: snapshotArr({ array, found: mid }),
+        narration: `Found ${target} at index ${mid}.`,
+        highlightedLine: 5,
+        stats: { comparisons },
+      });
+      return steps;
+    }
+
+    if (array[lo] <= array[mid]) {
+      steps.push({
+        state: snapshotArr({ array, comparing: [lo, mid], range: [lo, hi] }),
+        narration: `array[lo]=${array[lo]} <= array[mid]=${array[mid]} → the left half [${lo}..${mid}] is sorted.`,
+        highlightedLine: 8,
+        stats: { comparisons },
+      });
+      if (array[lo] <= target && target < array[mid]) {
+        steps.push({
+          state: snapshotArr({ array, range: [lo, mid - 1] }),
+          narration: `${target} falls inside the sorted left half [${array[lo]}, ${array[mid]}) → search there.`,
+          highlightedLine: 9,
+          stats: { comparisons },
+        });
+        hi = mid - 1;
+      } else {
+        steps.push({
+          state: snapshotArr({ array, range: [mid + 1, hi] }),
+          narration: `${target} is outside the sorted left half → it must be in the right half, if anywhere.`,
+          highlightedLine: 11,
+          stats: { comparisons },
+        });
+        lo = mid + 1;
+      }
+    } else {
+      steps.push({
+        state: snapshotArr({ array, comparing: [mid, hi], range: [lo, hi] }),
+        narration: `array[lo]=${array[lo]} > array[mid]=${array[mid]} → the right half (${mid}..${hi}] is sorted instead.`,
+        highlightedLine: 13,
+        stats: { comparisons },
+      });
+      if (array[mid] < target && target <= array[hi]) {
+        steps.push({
+          state: snapshotArr({ array, range: [mid + 1, hi] }),
+          narration: `${target} falls inside the sorted right half (${array[mid]}, ${array[hi]}] → search there.`,
+          highlightedLine: 14,
+          stats: { comparisons },
+        });
+        lo = mid + 1;
+      } else {
+        steps.push({
+          state: snapshotArr({ array, range: [lo, mid - 1] }),
+          narration: `${target} is outside the sorted right half → it must be in the left half, if anywhere.`,
+          highlightedLine: 16,
+          stats: { comparisons },
+        });
+        hi = mid - 1;
+      }
+    }
+  }
+
+  steps.push({
+    state: snapshotArr({ array }),
+    narration: `${target} is not in the array.`,
+    highlightedLine: 19,
+    stats: { comparisons },
+  });
+  return steps;
+}
+
 export const PATTERN_CODE = {
   twoPointers: `function maxArea(heights) {
   let left = 0, right = heights.length - 1;
@@ -554,6 +656,30 @@ export const PATTERN_CODE = {
     }
   }
   return result;
+}`,
+  modifiedBinarySearch: `function search(nums, target) {
+  let lo = 0, hi = nums.length - 1;
+  while (lo <= hi) {
+    const mid = Math.floor((lo + hi) / 2);
+    if (nums[mid] === target) return mid;
+
+    if (nums[lo] <= nums[mid]) {
+      // left half [lo..mid] is sorted
+      if (nums[lo] <= target && target < nums[mid]) {
+        hi = mid - 1;
+      } else {
+        lo = mid + 1;
+      }
+    } else {
+      // right half (mid..hi] is sorted
+      if (nums[mid] < target && target <= nums[hi]) {
+        lo = mid + 1;
+      } else {
+        hi = mid - 1;
+      }
+    }
+  }
+  return -1;
 }`,
   topK: `function topKLargest(stream, k) {
   const minHeap = []; // size-k min-heap
