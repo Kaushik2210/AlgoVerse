@@ -50,6 +50,13 @@ export const NAV_ITEMS: NavItem[] = [
     description: "Push, pop, peek, and balanced parentheses via LIFO",
   },
   {
+    slug: "queues",
+    title: "Queues",
+    href: "/dsa/queues",
+    category: "structure",
+    description: "Simple & circular queues with wraparound",
+  },
+  {
     slug: "two-pointers",
     title: "Two Pointers",
     href: "/patterns/two-pointers",
