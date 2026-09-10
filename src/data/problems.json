@@ -75,6 +75,82 @@
       "note": "Monotonic deque inside a fixed window — the hard-mode version of this pattern."
     }
   ],
+  "fast-slow-pointers": [
+    {
+      "title": "Linked List Cycle",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/linked-list-cycle/",
+      "note": "The canonical Floyd's cycle detection — if fast ever equals slow, there's a loop."
+    },
+    {
+      "title": "Middle of the Linked List",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+      "note": "Slow lands on the middle exactly when fast (moving 2x) reaches the end."
+    },
+    {
+      "title": "Linked List Cycle II",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/linked-list-cycle-ii/",
+      "note": "Detect the cycle, then reset one pointer to head — they meet at the cycle's start."
+    },
+    {
+      "title": "Happy Number",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/happy-number/",
+      "note": "No linked list at all — the 'next' function is digit-square-sum, but the cycle-detection trick still applies."
+    },
+    {
+      "title": "Palindrome Linked List",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/palindrome-linked-list/",
+      "note": "Fast/slow finds the middle in one pass, then reverse the second half and compare."
+    },
+    {
+      "title": "Find the Duplicate Number",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-the-duplicate-number/",
+      "note": "Treat array values as 'next' pointers — a duplicate value forces a cycle to exist."
+    }
+  ],
+  "monotonic-stack": [
+    {
+      "title": "Next Greater Element I",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/next-greater-element-i/",
+      "note": "The textbook warm-up — build the next-greater map with a single decreasing stack pass."
+    },
+    {
+      "title": "Daily Temperatures",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/daily-temperatures/",
+      "note": "Same next-greater idea, but the stack stores indices so you can compute a distance."
+    },
+    {
+      "title": "Next Greater Element II",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/next-greater-element-ii/",
+      "note": "Circular array variant — iterate 2n times, indexing with i % n."
+    },
+    {
+      "title": "Largest Rectangle in Histogram",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+      "note": "A monotonic increasing stack of bar indices — popping resolves the rectangle's right boundary."
+    },
+    {
+      "title": "Trapping Rain Water",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/trapping-rain-water/",
+      "note": "A decreasing stack of walls — popping resolves a trapped-water 'bucket' between two taller bars."
+    },
+    {
+      "title": "Remove K Digits",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/remove-k-digits/",
+      "note": "Greedily pop larger digits off an increasing stack to build the smallest possible number."
+    }
+  ],
   "tree-bfs": [
     {
       "title": "Binary Tree Level Order Traversal",

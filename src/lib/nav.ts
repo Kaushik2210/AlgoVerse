@@ -84,6 +84,20 @@ export const NAV_ITEMS: NavItem[] = [
     category: "pattern",
     description: "Level-order traversal pattern",
   },
+  {
+    slug: "fast-slow-pointers",
+    title: "Fast & Slow Pointers",
+    href: "/patterns/fast-slow-pointers",
+    category: "pattern",
+    description: "Cycle detection & finding the middle in one pass",
+  },
+  {
+    slug: "monotonic-stack",
+    title: "Monotonic Stack",
+    href: "/patterns/monotonic-stack",
+    category: "pattern",
+    description: "Next greater/smaller element in O(n)",
+  },
 ];
 
 export const STRUCTURE_ITEMS = NAV_ITEMS.filter((i) => i.category === "structure");

@@ -15,6 +15,10 @@ export interface LinkedListVizState {
   found?: number;
   /** index being removed */
   removing?: number;
+  /** index of the slow pointer (fast & slow pointers pattern) */
+  slow?: number;
+  /** index of the fast pointer (fast & slow pointers pattern) */
+  fast?: number;
 }
 
 let idCounter = 0;

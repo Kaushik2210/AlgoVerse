@@ -1,6 +1,8 @@
 import type { StepSequence } from "./types";
 import type { ArrayVizState } from "./arrays";
 import { buildBST, type BSTVizState } from "./bst";
+import type { LinkedListVizState, LinkedListNode } from "./linkedList";
+import type { StackVizState } from "./stack";
 
 function snapshotArr(state: ArrayVizState): ArrayVizState {
   return { ...state, array: [...state.array] };
@@ -149,6 +151,133 @@ export function treeBfsDemoSteps(values: number[]): StepSequence<BSTVizState> {
   return steps;
 }
 
+// ---------------------------------------------------------------------------
+// Fast & Slow Pointers — finding the middle of a linked list (Floyd's slow/
+// fast technique; the same pointer race also detects cycles, covered in the
+// theory section since a flat node list can't represent a real cycle).
+// ---------------------------------------------------------------------------
+let fastSlowIdCounter = 0;
+function fastSlowNid() {
+  fastSlowIdCounter++;
+  return `fs${fastSlowIdCounter}`;
+}
+
+export function fastSlowMiddleSteps(values: number[]): StepSequence<LinkedListVizState> {
+  const nodes: LinkedListNode[] = values.map((v) => ({ id: fastSlowNid(), value: v }));
+  const n = nodes.length;
+  const steps: StepSequence<LinkedListVizState> = [];
+  let slow = 0;
+  let fast = 0;
+
+  steps.push({
+    state: { nodes: [...nodes], slow, fast },
+    narration: "Both pointers start at the head. Slow advances 1 node per tick, fast advances 2.",
+    highlightedLine: 2,
+    stats: { slow, fast },
+  });
+
+  while (fast < n - 1) {
+    slow += 1;
+    fast += 2;
+    if (fast > n - 1) fast = n - 1;
+    steps.push({
+      state: { nodes: [...nodes], slow, fast },
+      narration: `Slow hops to index ${slow}. Fast hops to index ${fast}.`,
+      highlightedLine: 4,
+      stats: { slow, fast },
+    });
+  }
+
+  steps.push({
+    state: { nodes: [...nodes], found: slow },
+    narration: `Fast pointer ran out of room at the end — slow is sitting at the middle: index ${slow} (value ${nodes[slow]?.value}).`,
+    highlightedLine: 7,
+    stats: { slow, fast },
+  });
+
+  return steps;
+}
+
+// ---------------------------------------------------------------------------
+// Monotonic Stack — Next Greater Element demonstration, rendered as an array
+// (current scan position + resolved indices) alongside the stack of indices
+// still waiting for their next greater element.
+// ---------------------------------------------------------------------------
+export interface MonotonicStackVizState {
+  arr: ArrayVizState;
+  stack: StackVizState;
+}
+
+let monoIdCounter = 0;
+function monoNid() {
+  monoIdCounter++;
+  return `mono${monoIdCounter}`;
+}
+
+export function monotonicStackDemoSteps(values: number[]): StepSequence<MonotonicStackVizState> {
+  const arr = [...values];
+  const result: number[] = Array(arr.length).fill(-1);
+  const stackIdx: number[] = [];
+  const stackItems: { id: string; value: number }[] = [];
+  const resolvedIdx: number[] = [];
+  const steps: StepSequence<MonotonicStackVizState> = [];
+
+  function snapshot(comparing?: number[]): MonotonicStackVizState {
+    return {
+      arr: { array: [...arr], comparing, sorted: [...resolvedIdx] },
+      stack: { items: stackItems.map((it) => ({ ...it })) },
+    };
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration:
+      "Scanning left to right. The stack holds indices still waiting to find their 'next greater element'.",
+    highlightedLine: 1,
+    stats: { stackSize: 0 },
+  });
+
+  for (let i = 0; i < arr.length; i++) {
+    steps.push({
+      state: snapshot([i]),
+      narration: `Looking at index ${i} (value ${arr[i]}).`,
+      highlightedLine: 3,
+      stats: { stackSize: stackItems.length },
+    });
+
+    while (stackIdx.length > 0 && arr[stackIdx[stackIdx.length - 1]] < arr[i]) {
+      const poppedIdx = stackIdx.pop()!;
+      stackItems.pop();
+      result[poppedIdx] = arr[i];
+      resolvedIdx.push(poppedIdx);
+      steps.push({
+        state: snapshot([i]),
+        narration: `${arr[i]} > ${arr[poppedIdx]} (index ${poppedIdx}) — pop it. Its next greater element is ${arr[i]}.`,
+        highlightedLine: 5,
+        stats: { stackSize: stackItems.length },
+      });
+    }
+
+    stackIdx.push(i);
+    stackItems.push({ id: monoNid(), value: arr[i] });
+    steps.push({
+      state: snapshot([i]),
+      narration: `Push index ${i} (value ${arr[i]}) — its next greater element isn't known yet.`,
+      highlightedLine: 8,
+      stats: { stackSize: stackItems.length },
+    });
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration: `Scan complete. The ${stackItems.length} index(es) still on the stack have no next greater element (-1). Result: [${result.join(", ")}]`,
+    highlightedLine: 10,
+    stats: { stackSize: stackItems.length },
+  });
+
+  return steps;
+}
+
 export const PATTERN_CODE = {
   twoPointers: `function maxArea(heights) {
   let left = 0, right = heights.length - 1;
@@ -179,6 +308,38 @@ export const PATTERN_CODE = {
     result.push(node.value);
     if (node.left) queue.push(node.left);
     if (node.right) queue.push(node.right);
+  }
+  return result;
+}`,
+  fastSlowMiddle: `function middleNode(head) {
+  let slow = head;
+  let fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow; // the middle node
+}`,
+  fastSlowCycle: `function hasCycle(head) {
+  let slow = head;
+  let fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) return true; // pointers met — cycle!
+  }
+  return false; // fast reached the end — no cycle
+}`,
+  monotonicStack: `function nextGreaterElements(arr) {
+  const result = new Array(arr.length).fill(-1);
+  const stack = []; // holds indices, values kept increasing bottom→top
+
+  for (let i = 0; i < arr.length; i++) {
+    while (stack.length && arr[stack[stack.length - 1]] < arr[i]) {
+      const idx = stack.pop();
+      result[idx] = arr[i];
+    }
+    stack.push(i);
   }
   return result;
 }`,
