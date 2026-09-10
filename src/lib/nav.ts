@@ -98,6 +98,41 @@ export const NAV_ITEMS: NavItem[] = [
     category: "pattern",
     description: "Next greater/smaller element in O(n)",
   },
+  {
+    slug: "heaps",
+    title: "Heaps",
+    href: "/dsa/heaps",
+    category: "structure",
+    description: "Min/max heap insert & extract, array + tree views in sync",
+  },
+  {
+    slug: "graphs",
+    title: "Graphs",
+    href: "/dsa/graphs",
+    category: "structure",
+    description: "Adjacency list, BFS & DFS traversal",
+  },
+  {
+    slug: "tries",
+    title: "Tries",
+    href: "/dsa/tries",
+    category: "structure",
+    description: "Prefix tree insert & search with word-path highlighting",
+  },
+  {
+    slug: "merge-intervals",
+    title: "Merge Intervals",
+    href: "/patterns/merge-intervals",
+    category: "pattern",
+    description: "Sort + sweep overlapping ranges into merged intervals",
+  },
+  {
+    slug: "top-k-elements",
+    title: "Top K Elements",
+    href: "/patterns/top-k-elements",
+    category: "pattern",
+    description: "Size-k heap keeps the K largest/smallest without a full sort",
+  },
 ];
 
 export const STRUCTURE_ITEMS = NAV_ITEMS.filter((i) => i.category === "structure");

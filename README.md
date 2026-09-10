@@ -66,18 +66,25 @@ src/
 - Reusable **Visualizer Engine** — step-sequence driven playback controls (play/pause/
   step/scrub/speed), narration panel, live stats readout, and an optional highlighted
   code panel — shared by every visualization instead of bespoke per-topic code.
-- Six fully fleshed out reference modules: **Arrays & Sorting**, **Linked Lists**,
-  **Binary Search Trees**, **Stacks**, **Queues**, **Hash Tables** — theory, complexity
-  tables, pitfalls, a live custom-input visualizer, syntax-highlighted code, and a quiz.
+- Nine fully fleshed out reference modules: **Arrays & Sorting**, **Linked Lists**,
+  **Binary Search Trees**, **Stacks**, **Queues**, **Hash Tables**, **Heaps**,
+  **Graphs**, **Tries** — theory, complexity tables, pitfalls, a live custom-input
+  visualizer, syntax-highlighted code, and a quiz.
   - Stacks cover push/pop/peek plus a balanced-parentheses LIFO demo.
   - Queues cover a simple queue and a circular queue with a live wraparound
-    visualization (priority queues are discussed conceptually only — a real
-    implementation is deferred until Heaps ships).
+    visualization.
   - Hash Tables visualize hashing, collision chaining as growing bucket rows, load
     factor, and resize/rehash.
-- Five pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
-  **Fast & Slow Pointers**, **Monotonic Stack** — recognition signals, a visual
-  blueprint, an annotated code template, and curated LeetCode problems.
+  - Heaps cover min/max-heap insert (bubble up) and extract-root (bubble down),
+    with a dual array + tree view kept in sync against the same underlying data.
+  - Graphs cover an adjacency list representation with BFS and DFS traversal,
+    visualizing the frontier expanding and the visited set growing.
+  - Tries cover insert and search, with the character path lighting up as it's
+    walked and a distinct end-of-word marker.
+- Seven pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
+  **Fast & Slow Pointers**, **Monotonic Stack**, **Merge Intervals**, **Top K
+  Elements** — recognition signals, a visual blueprint, an annotated code
+  template, and curated LeetCode problems.
 - **Mission Map** — collapsible skill-tree sidebar tracking per-module progress.
 - **Command palette** (`Ctrl/Cmd K`) to jump to any structure, pattern, or page.
 - Progress/XP/streak tracking persisted locally via Zustand.
@@ -88,9 +95,13 @@ src/
 
 This is a deliberately scoped first pass. Deferred for later:
 
-- The rest of the structure catalog (heaps, graphs, tries)
-- The remaining pattern library (15+ patterns)
-- A full priority queue / heap implementation and visualizer
+- Weighted graph algorithms — Dijkstra, Bellman-Ford, Floyd-Warshall
+- Minimum spanning tree (Prim's / Kruskal's)
+- Topological sort
+- Union-Find / disjoint set
+- Segment trees & Fenwick trees
+- Self-balancing tree rotations (AVL, red-black)
+- The remaining pattern library (~13 patterns)
 - Monaco-based live code editor
 - KaTeX for formal complexity proofs
 - Recharts-based analytics/heatmap dashboard
