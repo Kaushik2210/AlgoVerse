@@ -66,11 +66,18 @@ src/
 - Reusable **Visualizer Engine** — step-sequence driven playback controls (play/pause/
   step/scrub/speed), narration panel, live stats readout, and an optional highlighted
   code panel — shared by every visualization instead of bespoke per-topic code.
-- Three fully fleshed out reference modules: **Arrays & Sorting**, **Linked Lists**,
-  **Binary Search Trees** — theory, complexity tables, pitfalls, a live custom-input
-  visualizer, syntax-highlighted code, and a quiz.
-- Three pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS** — recognition
-  signals, a visual blueprint, an annotated code template, and curated LeetCode problems.
+- Six fully fleshed out reference modules: **Arrays & Sorting**, **Linked Lists**,
+  **Binary Search Trees**, **Stacks**, **Queues**, **Hash Tables** — theory, complexity
+  tables, pitfalls, a live custom-input visualizer, syntax-highlighted code, and a quiz.
+  - Stacks cover push/pop/peek plus a balanced-parentheses LIFO demo.
+  - Queues cover a simple queue and a circular queue with a live wraparound
+    visualization (priority queues are discussed conceptually only — a real
+    implementation is deferred until Heaps ships).
+  - Hash Tables visualize hashing, collision chaining as growing bucket rows, load
+    factor, and resize/rehash.
+- Five pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
+  **Fast & Slow Pointers**, **Monotonic Stack** — recognition signals, a visual
+  blueprint, an annotated code template, and curated LeetCode problems.
 - **Mission Map** — collapsible skill-tree sidebar tracking per-module progress.
 - **Command palette** (`Ctrl/Cmd K`) to jump to any structure, pattern, or page.
 - Progress/XP/streak tracking persisted locally via Zustand.
@@ -81,8 +88,9 @@ src/
 
 This is a deliberately scoped first pass. Deferred for later:
 
-- The full structure catalog (stacks, queues, heaps, graphs, tries, hash maps)
-- The remaining pattern library (20+ patterns)
+- The rest of the structure catalog (heaps, graphs, tries)
+- The remaining pattern library (15+ patterns)
+- A full priority queue / heap implementation and visualizer
 - Monaco-based live code editor
 - KaTeX for formal complexity proofs
 - Recharts-based analytics/heatmap dashboard
