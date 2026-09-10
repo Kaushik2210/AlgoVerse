@@ -3,6 +3,7 @@ import type { ArrayVizState } from "./arrays";
 import { buildBST, type BSTVizState } from "./bst";
 import type { LinkedListVizState, LinkedListNode } from "./linkedList";
 import type { StackVizState } from "./stack";
+import type { HeapVizState } from "./heap";
 
 function snapshotArr(state: ArrayVizState): ArrayVizState {
   return { ...state, array: [...state.array] };
@@ -278,6 +279,202 @@ export function monotonicStackDemoSteps(values: number[]): StepSequence<Monotoni
   return steps;
 }
 
+// ---------------------------------------------------------------------------
+// Merge Intervals — sort by start, sweep left to right, merge overlapping
+// intervals into a running "current" interval.
+// ---------------------------------------------------------------------------
+export interface Interval {
+  id: string;
+  start: number;
+  end: number;
+}
+
+export interface IntervalVizState {
+  intervals: Interval[];
+  /** ids currently being compared against the running merge */
+  comparing?: string[];
+  /** ids that are finalized, merged results */
+  merged?: string[];
+  min: number;
+  max: number;
+}
+
+let intervalIdCounter = 0;
+function intervalNid() {
+  intervalIdCounter++;
+  return `iv${intervalIdCounter}`;
+}
+
+export function mergeIntervalsSteps(raw: [number, number][]): StepSequence<IntervalVizState> {
+  const sorted = [...raw].sort((a, b) => a[0] - b[0]);
+  const intervals: Interval[] = sorted.map(([start, end]) => ({ id: intervalNid(), start, end }));
+  const steps: StepSequence<IntervalVizState> = [];
+  const min = Math.min(...sorted.map((s) => s[0]));
+  const max = Math.max(...sorted.map((s) => s[1]));
+  const mergedIds: string[] = [];
+
+  function snapshot(comparing?: string[]): IntervalVizState {
+    return { intervals: intervals.map((iv) => ({ ...iv })), comparing, merged: [...mergedIds], min, max };
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration: `Sort ${intervals.length} intervals by start value, then sweep left to right.`,
+    highlightedLine: 1,
+    stats: { count: intervals.length },
+  });
+
+  if (intervals.length === 0) return steps;
+
+  let current = intervals[0];
+  mergedIds.push(current.id);
+  steps.push({
+    state: snapshot([current.id]),
+    narration: `Start with [${current.start}, ${current.end}] as the running merged interval.`,
+    highlightedLine: 3,
+  });
+
+  for (let i = 1; i < intervals.length; i++) {
+    const next = intervals[i];
+    steps.push({
+      state: snapshot([current.id, next.id]),
+      narration: `Compare running interval [${current.start}, ${current.end}] with [${next.start}, ${next.end}].`,
+      highlightedLine: 5,
+    });
+
+    if (next.start <= current.end) {
+      current.end = Math.max(current.end, next.end);
+      next.start = current.start;
+      next.end = current.end;
+      mergedIds.push(next.id);
+      steps.push({
+        state: snapshot([current.id, next.id]),
+        narration: `${next.start <= current.end ? "Overlaps" : "Touches"} — merge into [${current.start}, ${current.end}].`,
+        highlightedLine: 6,
+      });
+    } else {
+      steps.push({
+        state: snapshot([current.id, next.id]),
+        narration: `[${next.start}, ${next.end}] starts after the running interval ends — no overlap. Close out [${current.start}, ${current.end}] and start fresh.`,
+        highlightedLine: 8,
+      });
+      current = next;
+      mergedIds.push(current.id);
+    }
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration: "Sweep complete — every overlapping run has been merged into one interval.",
+    highlightedLine: 10,
+  });
+  return steps;
+}
+
+// ---------------------------------------------------------------------------
+// Top K Elements — maintain a size-k min-heap while scanning a stream; any
+// value larger than the heap's root displaces the root, so the heap always
+// holds the k largest values seen so far.
+// ---------------------------------------------------------------------------
+export interface TopKVizState {
+  heap: HeapVizState;
+  /** index into the stream currently being considered */
+  streamIndex?: number;
+  stream: number[];
+}
+
+function siftUpMin(arr: number[]) {
+  let i = arr.length - 1;
+  while (i > 0) {
+    const p = Math.floor((i - 1) / 2);
+    if (arr[i] < arr[p]) {
+      [arr[i], arr[p]] = [arr[p], arr[i]];
+      i = p;
+    } else break;
+  }
+}
+
+function siftDownMin(arr: number[]) {
+  let i = 0;
+  while (true) {
+    const l = 2 * i + 1;
+    const r = 2 * i + 2;
+    let smallest = i;
+    if (l < arr.length && arr[l] < arr[smallest]) smallest = l;
+    if (r < arr.length && arr[r] < arr[smallest]) smallest = r;
+    if (smallest === i) break;
+    [arr[i], arr[smallest]] = [arr[smallest], arr[i]];
+    i = smallest;
+  }
+}
+
+export function topKSteps(stream: number[], k: number): StepSequence<TopKVizState> {
+  const heap: number[] = [];
+  const steps: StepSequence<TopKVizState> = [];
+
+  function snapshot(streamIndex?: number, extra?: Partial<HeapVizState>): TopKVizState {
+    return { heap: { array: [...heap], ...extra }, streamIndex, stream };
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration: `Maintain a min-heap of size ${k}. It will always hold the ${k} largest values seen so far.`,
+    highlightedLine: 1,
+    stats: { k },
+  });
+
+  for (let i = 0; i < stream.length; i++) {
+    const value = stream[i];
+    steps.push({
+      state: snapshot(i),
+      narration: `Looking at ${value} (stream index ${i}).`,
+      highlightedLine: 3,
+      stats: { heapSize: heap.length },
+    });
+
+    if (heap.length < k) {
+      heap.push(value);
+      siftUpMin(heap);
+      steps.push({
+        state: snapshot(i, { target: heap.length - 1 }),
+        narration: `Heap has fewer than ${k} elements — push ${value} straight in.`,
+        highlightedLine: 4,
+        stats: { heapSize: heap.length },
+      });
+    } else if (value > heap[0]) {
+      steps.push({
+        state: snapshot(i, { comparing: [0] }),
+        narration: `${value} > heap root ${heap[0]} — it belongs in the top ${k}. Replace the root and heapify down.`,
+        highlightedLine: 6,
+        stats: { heapSize: heap.length },
+      });
+      heap[0] = value;
+      siftDownMin(heap);
+      steps.push({
+        state: snapshot(i, { settled: 0 }),
+        narration: `Root replaced with ${value} and sifted down to restore the min-heap property.`,
+        highlightedLine: 7,
+        stats: { heapSize: heap.length },
+      });
+    } else {
+      steps.push({
+        state: snapshot(i, { comparing: [0] }),
+        narration: `${value} <= heap root ${heap[0]} — it's not in the top ${k}. Discard it.`,
+        highlightedLine: 9,
+        stats: { heapSize: heap.length },
+      });
+    }
+  }
+
+  steps.push({
+    state: snapshot(undefined),
+    narration: `Scan complete. The heap holds the ${k} largest values: [${[...heap].sort((a, b) => b - a).join(", ")}]`,
+    highlightedLine: 11,
+    stats: { heapSize: heap.length },
+  });
+  return steps;
+}
+
 export const PATTERN_CODE = {
   twoPointers: `function maxArea(heights) {
   let left = 0, right = heights.length - 1;
@@ -342,5 +539,34 @@ export const PATTERN_CODE = {
     stack.push(i);
   }
   return result;
+}`,
+  mergeIntervals: `function mergeIntervals(intervals) {
+  intervals.sort((a, b) => a[0] - b[0]);
+  const result = [intervals[0]];
+
+  for (let i = 1; i < intervals.length; i++) {
+    const current = result[result.length - 1];
+    const next = intervals[i];
+    if (next[0] <= current[1]) {
+      current[1] = Math.max(current[1], next[1]);
+    } else {
+      result.push(next);
+    }
+  }
+  return result;
+}`,
+  topK: `function topKLargest(stream, k) {
+  const minHeap = []; // size-k min-heap
+
+  for (const value of stream) {
+    if (minHeap.length < k) {
+      heapPush(minHeap, value);
+    } else if (value > minHeap[0]) {
+      minHeap[0] = value;
+      heapifyDown(minHeap);
+    }
+    // else: value can't be in the top k, discard
+  }
+  return minHeap; // the k largest values, in heap order
 }`,
 };

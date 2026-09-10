@@ -188,5 +188,81 @@
       "url": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/",
       "note": "Level order traversal while linking siblings as you drain the queue."
     }
+  ],
+  "merge-intervals": [
+    {
+      "title": "Merge Intervals",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/merge-intervals/",
+      "note": "The canonical version — sort by start, sweep, merge overlapping runs."
+    },
+    {
+      "title": "Insert Interval",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/insert-interval/",
+      "note": "Same merge logic, but you're inserting one new interval into an already-sorted, already-merged list."
+    },
+    {
+      "title": "Non-overlapping Intervals",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/non-overlapping-intervals/",
+      "note": "Sort by end time instead of start — greedily keep the interval that ends soonest."
+    },
+    {
+      "title": "Meeting Rooms II",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/meeting-rooms-ii/",
+      "note": "Track concurrent overlap count with a min-heap of end times, or a start/end sweep line."
+    },
+    {
+      "title": "Interval List Intersections",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/interval-list-intersections/",
+      "note": "Two-pointer sweep across two already-sorted interval lists, emitting overlap ranges."
+    },
+    {
+      "title": "Minimum Number of Arrows to Burst Balloons",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/",
+      "note": "Sort by end coordinate — a variant of the greedy non-overlapping-intervals idea."
+    }
+  ],
+  "top-k-elements": [
+    {
+      "title": "Kth Largest Element in an Array",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+      "note": "The textbook warm-up — a size-k min-heap gives you the kth largest directly at the root."
+    },
+    {
+      "title": "Top K Frequent Elements",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+      "note": "Count frequencies first, then run the same size-k min-heap pattern over the counts."
+    },
+    {
+      "title": "K Closest Points to Origin",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/k-closest-points-to-origin/",
+      "note": "Same pattern with a max-heap of size k keyed on distance instead of raw value."
+    },
+    {
+      "title": "Kth Smallest Element in a Sorted Matrix",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/",
+      "note": "A twist on top-K — a min-heap seeded with each row's first element, popped k times."
+    },
+    {
+      "title": "Find K Pairs with Smallest Sums",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/",
+      "note": "Heap holds candidate pairs instead of raw numbers — same size-k pruning idea."
+    },
+    {
+      "title": "Task Scheduler",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/task-scheduler/",
+      "note": "Greedy scheduling driven by a max-heap of remaining task frequencies."
+    }
   ]
 }
