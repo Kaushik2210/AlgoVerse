@@ -57,6 +57,13 @@ export const NAV_ITEMS: NavItem[] = [
     description: "Simple & circular queues with wraparound",
   },
   {
+    slug: "hash-tables",
+    title: "Hash Tables",
+    href: "/dsa/hash-tables",
+    category: "structure",
+    description: "Hashing, chaining collisions, load factor & resize",
+  },
+  {
     slug: "two-pointers",
     title: "Two Pointers",
     href: "/patterns/two-pointers",
