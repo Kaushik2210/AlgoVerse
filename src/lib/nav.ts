@@ -43,6 +43,13 @@ export const NAV_ITEMS: NavItem[] = [
     description: "BST insert, delete, search, traversals",
   },
   {
+    slug: "stacks",
+    title: "Stacks",
+    href: "/dsa/stacks",
+    category: "structure",
+    description: "Push, pop, peek, and balanced parentheses via LIFO",
+  },
+  {
     slug: "two-pointers",
     title: "Two Pointers",
     href: "/patterns/two-pointers",
