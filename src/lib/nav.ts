@@ -217,6 +217,34 @@ export const NAV_ITEMS: NavItem[] = [
     category: "structure",
     description: "Hash map + doubly linked list kept in sync for O(1) get/put with LRU eviction",
   },
+  {
+    slug: "minimum-spanning-tree",
+    title: "Minimum Spanning Tree",
+    href: "/dsa/minimum-spanning-tree",
+    category: "structure",
+    description: "Prim's and Kruskal's algorithms, side by side on the same weighted graph",
+  },
+  {
+    slug: "topological-sort",
+    title: "Topological Sort",
+    href: "/dsa/topological-sort",
+    category: "structure",
+    description: "Kahn's algorithm — in-degree counting and a zero-in-degree queue over a DAG",
+  },
+  {
+    slug: "bellman-ford",
+    title: "Bellman-Ford",
+    href: "/dsa/bellman-ford",
+    category: "structure",
+    description: "Single-source shortest paths with negative edge weights and negative-cycle detection",
+  },
+  {
+    slug: "floyd-warshall",
+    title: "Floyd-Warshall",
+    href: "/dsa/floyd-warshall",
+    category: "structure",
+    description: "All-pairs shortest paths via dynamic programming over an NxN distance matrix",
+  },
 ];
 
 export const STRUCTURE_ITEMS = NAV_ITEMS.filter((i) => i.category === "structure");

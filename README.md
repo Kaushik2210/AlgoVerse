@@ -66,13 +66,17 @@ src/
 - Reusable **Visualizer Engine** — step-sequence driven playback controls (play/pause/
   step/scrub/speed), narration panel, live stats readout, and an optional highlighted
   code panel — shared by every visualization instead of bespoke per-topic code.
-- Nineteen fully fleshed out reference modules: **Arrays & Sorting**, **Linked
-  Lists**, **Binary Search Trees**, **Stacks**, **Queues**, **Hash Tables**,
-  **Heaps**, **Graphs**, **Tries**, **Union-Find**, **Shortest Paths
-  (Dijkstra)**, **Backtracking**, **AVL Trees**, **Red-Black Trees**,
+- Twenty-three fully fleshed out reference modules: **Arrays & Sorting**,
+  **Linked Lists**, **Binary Search Trees**, **Stacks**, **Queues**, **Hash
+  Tables**, **Heaps**, **Graphs**, **Tries**, **Union-Find**, **Shortest
+  Paths (Dijkstra)**, **Backtracking**, **AVL Trees**, **Red-Black Trees**,
   **Segment Trees**, **Fenwick Trees**, **Skip Lists**, **Bloom Filters**,
-  **LRU Cache** — theory, complexity tables, pitfalls, a live custom-input
-  visualizer, syntax-highlighted code, and a quiz.
+  **LRU Cache**, **Minimum Spanning Tree (Prim's & Kruskal's)**,
+  **Topological Sort**, **Bellman-Ford**, **Floyd-Warshall** — theory,
+  complexity tables, pitfalls, a live custom-input visualizer,
+  syntax-highlighted code, and a quiz. This completes the originally-planned
+  Data Structures track (N-ary trees remain a minor, intentionally deferred
+  omission — see roadmap).
   - Stacks cover push/pop/peek plus a balanced-parentheses LIFO demo.
   - Queues cover a simple queue and a circular queue with a live wraparound
     visualization.
@@ -89,7 +93,7 @@ src/
     demo that visibly flattens a deliberately long chain.
   - Shortest Paths covers Dijkstra's algorithm on a small weighted graph, with
     a live distance table kept in sync against the graph view as nodes are
-    relaxed and finalized (Bellman-Ford and Floyd-Warshall remain deferred).
+    relaxed and finalized.
   - Backtracking covers recursion via subset generation (include/exclude),
     with a growing/collapsing recursion tree synced live against an actual
     call-stack panel.
@@ -120,6 +124,26 @@ src/
     (recency order), rendered in sync — get/put move nodes to the front and
     eviction removes from the back once over capacity, matching the classic
     capacity-2 trace.
+  - Minimum Spanning Tree covers both Prim's (grown from a chosen start
+    node, always crossing the frontier via the cheapest edge) and Kruskal's
+    (globally sorted edges + union-find cycle detection) on the same
+    weighted graph, with a toggle between the two — verified independently
+    to produce the same total tree weight from completely different edge
+    orderings.
+  - Topological Sort covers Kahn's algorithm on a small DAG, visualizing
+    live in-degree counts, the zero-in-degree queue, and the resulting
+    linear order, reusing the graph view with directed-edge arrows.
+  - Bellman-Ford covers single-source shortest paths with negative edge
+    weights via repeated full-graph relaxation, with a toggle between a
+    standard negative-edges-no-cycle scenario and a genuine negative-cycle
+    scenario that gets correctly flagged by the extra (V-th) relaxation
+    pass.
+  - Floyd-Warshall covers all-pairs shortest paths via dynamic programming
+    over an NxN distance matrix, with a dedicated `MatrixView` renderer
+    highlighting the pivot row/column and the exact cell being checked as
+    each intermediate vertex is considered — verified against Bellman-Ford
+    run from every node (the demo graph has negative edges, so Dijkstra
+    isn't a valid cross-check here).
 - Nine pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
   **Fast & Slow Pointers**, **Monotonic Stack**, **Merge Intervals**, **Top K
   Elements**, **Modified Binary Search**, **Subsets (Backtracking)** —
@@ -133,19 +157,32 @@ src/
 
 ## Roadmap
 
-This is a deliberately scoped, incrementally-growing build. Deferred for later:
+The originally-planned **Data Structures** track is now essentially
+complete — every core structure and graph algorithm from the initial scope
+is built, verified, and shipped. What's left is genuinely deferred, not
+quietly dropped:
 
-- Remaining weighted graph algorithms — Bellman-Ford, Floyd-Warshall
-  (Dijkstra is now built)
-- Minimum spanning tree (Prim's / Kruskal's)
-- Topological sort
-- The remaining pattern library (~11 patterns, mostly DP-focused)
-- Monaco-based live code editor
-- KaTeX for formal complexity proofs
-- Recharts-based analytics/heatmap dashboard
-- Audio/sound design toggle
-- Multi-language code snippets beyond JavaScript
-- Gamified "boss battle" challenge mode
+- **N-ary trees** — a minor omission. Every other tree variant (BST, AVL,
+  Red-Black, Segment, Fenwick) is built; general N-ary trees were never
+  circled back to.
+- **The rest of the pattern library** — 9 patterns are built (Two Pointers,
+  Sliding Window, Tree BFS, Fast & Slow Pointers, Monotonic Stack, Merge
+  Intervals, Top K Elements, Modified Binary Search, Subsets/Backtracking).
+  Roughly 20 more from the standard LeetCode pattern list, mostly
+  DP-focused, are not started.
+- **Monaco-based live code editor** — code panels are static,
+  syntax-highlighted (Shiki), not editable/runnable.
+- **KaTeX** for formal complexity proofs — complexity is currently shown as
+  plain tables + prose, not rendered math notation.
+- **Recharts-based analytics/heatmap dashboard** — progress tracking exists
+  (Zustand + localStorage, Mission Map, ProgressRing) but there's no charted
+  history or activity heatmap view.
+- **Audio/sound design toggle** — not implemented; there is no sound in the
+  app at all yet.
+- **Multi-language code snippets** — every code panel is JavaScript only.
+- **Gamified "boss battle" challenge mode** — XP/streak tracking exists as
+  a foundation, but there's no distinct challenge-mode game loop built on
+  top of it.
 
 ## Screenshots
 
