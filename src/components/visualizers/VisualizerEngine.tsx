@@ -69,6 +69,7 @@ export default function VisualizerEngine<T>({
   useEffect(() => {
     if (!playing) return;
     if (index >= lastIndex) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- stop autoplay once the sequence naturally ends
       setPlaying(false);
       return;
     }

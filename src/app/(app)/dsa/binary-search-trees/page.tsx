@@ -116,7 +116,7 @@ export default function BinarySearchTreesPage() {
             binary search, but on a tree instead of a flat array.
           </p>
           <p>
-            The catch: a BST's performance depends entirely on its shape. Insert
+            The catch: a BST&apos;s performance depends entirely on its shape. Insert
             sorted data into a naive BST and it degenerates into a linked list —
             no better than O(n). Balanced variants (AVL, red-black trees) add
             rotation logic to guarantee O(log n) no matter the insertion order.
@@ -127,9 +127,9 @@ export default function BinarySearchTreesPage() {
           <p>
             A binary search tree is a binary tree where each node stores a key such
             that, for every node <code className="font-mono-data text-cyan">N</code>: all
-            keys in <code className="font-mono-data text-cyan">N.left</code>'s subtree are{" "}
+            keys in <code className="font-mono-data text-cyan">N.left</code>&apos;s subtree are{" "}
             <code className="font-mono-data text-cyan">&lt; N.key</code>, and all keys in{" "}
-            <code className="font-mono-data text-cyan">N.right</code>'s subtree are{" "}
+            <code className="font-mono-data text-cyan">N.right</code>&apos;s subtree are{" "}
             <code className="font-mono-data text-cyan">&gt; N.key</code>.
           </p>
           <p>

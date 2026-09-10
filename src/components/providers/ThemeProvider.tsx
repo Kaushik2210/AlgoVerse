@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { MotionConfig } from "framer-motion";
 import { useThemeStore } from "@/lib/store/theme";
+import { useMounted } from "@/lib/hooks/useMounted";
 
 export default function ThemeProvider({
   children,
@@ -9,9 +11,7 @@ export default function ThemeProvider({
   children: React.ReactNode;
 }) {
   const theme = useThemeStore((s) => s.theme);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   useEffect(() => {
     if (!mounted) return;
@@ -23,5 +23,6 @@ export default function ThemeProvider({
     }
   }, [theme, mounted]);
 
-  return <>{children}</>;
+  // Respects prefers-reduced-motion for every Framer Motion animation in the tree.
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }

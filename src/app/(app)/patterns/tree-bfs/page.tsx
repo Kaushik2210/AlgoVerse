@@ -35,7 +35,7 @@ export default function TreeBfsPage() {
         <h1 className="text-2xl font-bold font-mono-data">Tree BFS</h1>
         <p className="text-text-muted mt-2 text-sm max-w-xl">
           Traverse a tree level by level using a queue — the go-to pattern whenever
-          "shallowest," "level," or "shortest path in an unweighted structure" shows
+          &ldquo;shallowest,&rdquo; &ldquo;level,&rdquo; or &ldquo;shortest path in an unweighted structure&rdquo; shows
           up in a problem.
         </p>
       </header>
@@ -55,7 +55,7 @@ export default function TreeBfsPage() {
         <p>
           Below: a queue starts with just the root. Each iteration dequeues one
           node, visits it, then enqueues its children (left, then right) — so the
-          queue always contains exactly one level's worth of "next up" nodes at a
+          queue always contains exactly one level&apos;s worth of &ldquo;next up&rdquo; nodes at a
           time, which is what produces the level-by-level visit order.
         </p>
       </TheorySection>

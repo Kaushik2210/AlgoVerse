@@ -1,21 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { Flame, Moon, Sun, Orbit } from "lucide-react";
 import CommandPalette from "@/components/ui/CommandPalette";
 import { useThemeStore } from "@/lib/store/theme";
 import { useProgressStore } from "@/lib/store/progress";
+import { useMounted } from "@/lib/hooks/useMounted";
 
 export default function TopBar() {
   const theme = useThemeStore((s) => s.theme);
   const toggleTheme = useThemeStore((s) => s.toggleTheme);
   const streak = useProgressStore((s) => s.streak);
   const touchStreak = useProgressStore((s) => s.touchStreak);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
 
   useEffect(() => {
-    setMounted(true);
     touchStreak();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

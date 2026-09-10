@@ -1,21 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Boxes, Waypoints, Check } from "lucide-react";
 import { STRUCTURE_ITEMS, PATTERN_ITEMS } from "@/lib/nav";
 import { useProgressStore } from "@/lib/store/progress";
+import { useMounted } from "@/lib/hooks/useMounted";
 import { cn } from "@/lib/utils";
 
 export default function MissionMap() {
   const [collapsed, setCollapsed] = useState(false);
   const pathname = usePathname();
   const modules = useProgressStore((s) => s.modules);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   const percentFor = (slug: string) => (mounted ? modules[slug]?.percent ?? 0 : 0);
 

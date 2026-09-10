@@ -9,7 +9,11 @@ export default function ArrayBars({ state }: { state: ArrayVizState }) {
   const max = Math.max(...array, 1);
 
   return (
-    <div className="w-full flex items-end justify-center gap-1.5 h-52" role="img" aria-label="Array visualization">
+    <div
+      className="w-full flex items-end justify-start sm:justify-center gap-1.5 h-52 overflow-x-auto"
+      role="img"
+      aria-label="Array visualization"
+    >
       {array.map((value, i) => {
         const inRange = !range || (i >= range[0] && i <= range[1]);
         const isComparing = comparing.includes(i);

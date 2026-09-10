@@ -35,7 +35,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground relative overflow-x-hidden">
         <ThemeProvider>
           <ParticleField />
-          <div className="hud-grid pointer-events-none fixed inset-0 -z-10 opacity-40" />
+          <div
+            aria-hidden="true"
+            className="hud-grid pointer-events-none fixed inset-0 -z-10 opacity-40"
+          />
           <TopBar />
           <div className="flex-1 flex flex-col">{children}</div>
         </ThemeProvider>

@@ -23,6 +23,7 @@ export default function CommandPalette() {
     function onKeyDown(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
+        setActiveIndex(0);
         setOpen((o) => !o);
       }
       if (e.key === "Escape") setOpen(false);
@@ -42,7 +43,15 @@ export default function CommandPalette() {
     );
   }, [query]);
 
-  useEffect(() => setActiveIndex(0), [query, open]);
+  function updateQuery(next: string) {
+    setQuery(next);
+    setActiveIndex(0);
+  }
+
+  function openPalette() {
+    setActiveIndex(0);
+    setOpen(true);
+  }
 
   function go(href: string) {
     router.push(href);
@@ -65,7 +74,7 @@ export default function CommandPalette() {
   return (
     <>
       <button
-        onClick={() => setOpen(true)}
+        onClick={openPalette}
         aria-label="Open command palette"
         className="hidden sm:flex items-center gap-2 glass rounded-lg px-3 py-1.5 text-xs text-text-muted hover:text-foreground hover:border-cyan/40 transition-colors font-mono-data"
       >
@@ -74,6 +83,13 @@ export default function CommandPalette() {
         <kbd className="ml-2 rounded border border-glass-border-token px-1.5 py-0.5 text-[10px]">
           Ctrl K
         </kbd>
+      </button>
+      <button
+        onClick={openPalette}
+        aria-label="Open command palette"
+        className="sm:hidden flex items-center justify-center rounded-lg border border-glass-border-token p-2 text-text-muted hover:text-cyan hover:border-cyan/40 transition-colors"
+      >
+        <Search size={16} />
       </button>
 
       <AnimatePresence>
@@ -101,7 +117,7 @@ export default function CommandPalette() {
                 <input
                   autoFocus
                   value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  onChange={(e) => updateQuery(e.target.value)}
                   onKeyDown={onKeyDown}
                   placeholder="Search structures, patterns, pages..."
                   className="flex-1 bg-transparent outline-none text-sm font-mono-data placeholder:text-text-muted"
