@@ -168,6 +168,27 @@ export const NAV_ITEMS: NavItem[] = [
     category: "pattern",
     description: "Include/exclude recursion tree generating every subset",
   },
+  {
+    slug: "avl-trees",
+    title: "AVL Trees",
+    href: "/dsa/avl-trees",
+    category: "structure",
+    description: "Self-balancing BST with height/balance-factor tracking and LL/RR/LR/RL rotations",
+  },
+  {
+    slug: "red-black-trees",
+    title: "Red-Black Trees",
+    href: "/dsa/red-black-trees",
+    category: "structure",
+    description: "Self-balancing BST via color-based invariants, insertion fixup with recoloring + rotations",
+  },
+  {
+    slug: "segment-trees",
+    title: "Segment Trees",
+    href: "/dsa/segment-trees",
+    category: "structure",
+    description: "Range-sum queries and point updates in O(log n), array + tree views in sync",
+  },
 ];
 
 export const STRUCTURE_ITEMS = NAV_ITEMS.filter((i) => i.category === "structure");

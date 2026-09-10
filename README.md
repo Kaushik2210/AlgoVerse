@@ -66,10 +66,11 @@ src/
 - Reusable **Visualizer Engine** — step-sequence driven playback controls (play/pause/
   step/scrub/speed), narration panel, live stats readout, and an optional highlighted
   code panel — shared by every visualization instead of bespoke per-topic code.
-- Twelve fully fleshed out reference modules: **Arrays & Sorting**, **Linked
+- Fifteen fully fleshed out reference modules: **Arrays & Sorting**, **Linked
   Lists**, **Binary Search Trees**, **Stacks**, **Queues**, **Hash Tables**,
   **Heaps**, **Graphs**, **Tries**, **Union-Find**, **Shortest Paths
-  (Dijkstra)**, **Backtracking** — theory, complexity tables, pitfalls, a live
+  (Dijkstra)**, **Backtracking**, **AVL Trees**, **Red-Black Trees**,
+  **Segment Trees** — theory, complexity tables, pitfalls, a live
   custom-input visualizer, syntax-highlighted code, and a quiz.
   - Stacks cover push/pop/peek plus a balanced-parentheses LIFO demo.
   - Queues cover a simple queue and a circular queue with a live wraparound
@@ -91,6 +92,16 @@ src/
   - Backtracking covers recursion via subset generation (include/exclude),
     with a growing/collapsing recursion tree synced live against an actual
     call-stack panel.
+  - AVL Trees cover insert and search with explicit height/balance-factor
+    recomputation and all four rotation cases (LL, RR, LR, RL), each node
+    rendered with its live balance factor (delete is deferred — see roadmap).
+  - Red-Black Trees cover insert and search with CLRS-style insertion fixup —
+    red-uncle recoloring and black-uncle triangle/line rotations — nodes
+    rendered in their actual red/black color, independent of the
+    active/visited/target pointer-state ring.
+  - Segment Trees cover bottom-up build, range-sum query, and point update,
+    with a dual array + tree view kept in sync, distinguishing fully-in-range,
+    partially-overlapping, and out-of-range nodes during a query.
 - Nine pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
   **Fast & Slow Pointers**, **Monotonic Stack**, **Merge Intervals**, **Top K
   Elements**, **Modified Binary Search**, **Subsets (Backtracking)** —
@@ -110,8 +121,7 @@ This is a deliberately scoped, incrementally-growing build. Deferred for later:
   (Dijkstra is now built)
 - Minimum spanning tree (Prim's / Kruskal's)
 - Topological sort
-- Segment trees & Fenwick trees
-- Self-balancing tree rotations (AVL, red-black)
+- Fenwick trees
 - Skip lists, bloom filters, LRU cache
 - The remaining pattern library (~11 patterns, mostly DP-focused)
 - Monaco-based live code editor
