@@ -22,9 +22,13 @@ function circleLayout(count: number) {
 }
 
 export default function GraphView({ state }: { state: GraphVizState }) {
-  const { nodes, edges, current, frontier = [], visited = [] } = state;
+  const { nodes, edges, current, frontier = [], visited = [], activeEdges = [] } = state;
   const positions = circleLayout(nodes.length);
   const posById = new Map(nodes.map((n, i) => [n.id, positions[i]]));
+
+  function isActiveEdge(from: string, to: string) {
+    return activeEdges.some(([a, b]) => (a === from && b === to) || (a === to && b === from));
+  }
 
   return (
     <div className="w-full flex flex-col items-center gap-3">
@@ -34,16 +38,33 @@ export default function GraphView({ state }: { state: GraphVizState }) {
             const from = posById.get(e.from);
             const to = posById.get(e.to);
             if (!from || !to) return null;
+            const active = isActiveEdge(e.from, e.to);
+            const midX = (from.x + to.x) / 2;
+            const midY = (from.y + to.y) / 2;
             return (
-              <line
-                key={i}
-                x1={from.x}
-                y1={from.y}
-                x2={to.x}
-                y2={to.y}
-                stroke="var(--color-glass-border)"
-                strokeWidth={2}
-              />
+              <g key={i}>
+                <line
+                  x1={from.x}
+                  y1={from.y}
+                  x2={to.x}
+                  y2={to.y}
+                  stroke={active ? "#00f0ff" : "var(--color-glass-border)"}
+                  strokeWidth={active ? 3 : 2}
+                />
+                {e.weight !== undefined && (
+                  <text
+                    x={midX}
+                    y={midY - 4}
+                    textAnchor="middle"
+                    className={cn(
+                      "font-mono-data text-[10px] font-semibold",
+                      active ? "fill-cyan" : "fill-text-muted"
+                    )}
+                  >
+                    {e.weight}
+                  </text>
+                )}
+              </g>
             );
           })}
           {nodes.map((node) => {

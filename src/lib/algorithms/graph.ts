@@ -8,6 +8,8 @@ export interface GraphNode {
 export interface GraphEdge {
   from: string;
   to: string;
+  /** optional edge weight, rendered as a label at the edge midpoint when present */
+  weight?: number;
 }
 
 export interface GraphVizState {
@@ -21,6 +23,8 @@ export interface GraphVizState {
   visited?: string[];
   /** visit order so far, for the readout */
   order?: string[];
+  /** edges to highlight this step (e.g. just relaxed), as [from, to] id pairs */
+  activeEdges?: [string, string][];
 }
 
 // A small fixed 6-node demo graph — undirected, connected, a couple of cycles
