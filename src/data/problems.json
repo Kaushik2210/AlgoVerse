@@ -1,0 +1,116 @@
+{
+  "two-pointers": [
+    {
+      "title": "Two Sum II - Input Array Is Sorted",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
+      "note": "The canonical converging two-pointer problem — sorted input is the tell."
+    },
+    {
+      "title": "Valid Palindrome",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/valid-palindrome/",
+      "note": "Pointers converge from both ends, skipping non-alphanumeric characters."
+    },
+    {
+      "title": "Container With Most Water",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/container-with-most-water/",
+      "note": "Greedy two pointers: always move the shorter wall inward."
+    },
+    {
+      "title": "3Sum",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/3sum/",
+      "note": "Fix one pointer, two-pointer sweep the rest — sort first."
+    },
+    {
+      "title": "Remove Duplicates from Sorted Array",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+      "note": "Fast/slow pointers moving in the same direction (in-place compaction)."
+    },
+    {
+      "title": "Trapping Rain Water",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/trapping-rain-water/",
+      "note": "Two pointers tracking running max height from both sides."
+    }
+  ],
+  "sliding-window": [
+    {
+      "title": "Best Time to Buy and Sell Stock",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+      "note": "A window of size 1 that tracks the running minimum — the simplest window."
+    },
+    {
+      "title": "Longest Substring Without Repeating Characters",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "note": "Classic variable-size window with a hash set tracking window contents."
+    },
+    {
+      "title": "Minimum Size Subarray Sum",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-size-subarray-sum/",
+      "note": "Shrink-while-valid pattern — grow right, shrink left once the sum condition holds."
+    },
+    {
+      "title": "Longest Repeating Character Replacement",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+      "note": "Window is valid as long as (window size - count of most frequent char) <= k."
+    },
+    {
+      "title": "Permutation in String",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/permutation-in-string/",
+      "note": "Fixed-size window with frequency-map comparison."
+    },
+    {
+      "title": "Sliding Window Maximum",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/sliding-window-maximum/",
+      "note": "Monotonic deque inside a fixed window — the hard-mode version of this pattern."
+    }
+  ],
+  "tree-bfs": [
+    {
+      "title": "Binary Tree Level Order Traversal",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+      "note": "The textbook version — queue, track level size, drain one level at a time."
+    },
+    {
+      "title": "Average of Levels in Binary Tree",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/average-of-levels-in-binary-tree/",
+      "note": "Same level-order skeleton, aggregate per level instead of collecting nodes."
+    },
+    {
+      "title": "Minimum Depth of Binary Tree",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/minimum-depth-of-binary-tree/",
+      "note": "BFS finds the shallowest leaf in O(n) without exploring the whole tree — beats DFS here."
+    },
+    {
+      "title": "Binary Tree Zigzag Level Order Traversal",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+      "note": "Level order with a direction flip every other level."
+    },
+    {
+      "title": "Binary Tree Right Side View",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/binary-tree-right-side-view/",
+      "note": "Level order traversal, keep only the last node visited per level."
+    },
+    {
+      "title": "Populating Next Right Pointers in Each Node",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/",
+      "note": "Level order traversal while linking siblings as you drain the queue."
+    }
+  ]
+}
