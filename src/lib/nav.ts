@@ -189,6 +189,34 @@ export const NAV_ITEMS: NavItem[] = [
     category: "structure",
     description: "Range-sum queries and point updates in O(log n), array + tree views in sync",
   },
+  {
+    slug: "fenwick-trees",
+    title: "Fenwick Trees",
+    href: "/dsa/fenwick-trees",
+    category: "structure",
+    description: "Binary indexed tree — prefix sums and point updates via lowbit index jumps",
+  },
+  {
+    slug: "skip-lists",
+    title: "Skip Lists",
+    href: "/dsa/skip-lists",
+    category: "structure",
+    description: "Layered linked list with probabilistic levels and a drop-down search path",
+  },
+  {
+    slug: "bloom-filters",
+    title: "Bloom Filters",
+    href: "/dsa/bloom-filters",
+    category: "structure",
+    description: "Probabilistic set membership via a shared bit array and multiple hash functions",
+  },
+  {
+    slug: "lru-cache",
+    title: "LRU Cache",
+    href: "/dsa/lru-cache",
+    category: "structure",
+    description: "Hash map + doubly linked list kept in sync for O(1) get/put with LRU eviction",
+  },
 ];
 
 export const STRUCTURE_ITEMS = NAV_ITEMS.filter((i) => i.category === "structure");

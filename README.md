@@ -66,12 +66,13 @@ src/
 - Reusable **Visualizer Engine** — step-sequence driven playback controls (play/pause/
   step/scrub/speed), narration panel, live stats readout, and an optional highlighted
   code panel — shared by every visualization instead of bespoke per-topic code.
-- Fifteen fully fleshed out reference modules: **Arrays & Sorting**, **Linked
+- Nineteen fully fleshed out reference modules: **Arrays & Sorting**, **Linked
   Lists**, **Binary Search Trees**, **Stacks**, **Queues**, **Hash Tables**,
   **Heaps**, **Graphs**, **Tries**, **Union-Find**, **Shortest Paths
   (Dijkstra)**, **Backtracking**, **AVL Trees**, **Red-Black Trees**,
-  **Segment Trees** — theory, complexity tables, pitfalls, a live
-  custom-input visualizer, syntax-highlighted code, and a quiz.
+  **Segment Trees**, **Fenwick Trees**, **Skip Lists**, **Bloom Filters**,
+  **LRU Cache** — theory, complexity tables, pitfalls, a live custom-input
+  visualizer, syntax-highlighted code, and a quiz.
   - Stacks cover push/pop/peek plus a balanced-parentheses LIFO demo.
   - Queues cover a simple queue and a circular queue with a live wraparound
     visualization.
@@ -102,6 +103,23 @@ src/
   - Segment Trees cover bottom-up build, range-sum query, and point update,
     with a dual array + tree view kept in sync, distinguishing fully-in-range,
     partially-overlapping, and out-of-range nodes during a query.
+  - Fenwick Trees (Binary Indexed Trees) cover build, prefix-sum query, and
+    point update via the classic lowbit (`i & -i`) index walk, visualizing
+    each index's responsibility range and the exact jump sequence as it
+    climbs (update) or descends (query).
+  - Skip Lists cover search and insert over a layered probabilistic linked
+    list, with the core visual being the "drop-down" zigzag path — moving
+    right along a level until the next node is too big, then dropping a
+    level — that gives expected O(log n) search without any rotations.
+  - Bloom Filters cover insert and lookup against a shared bit array via
+    multiple hash functions, including a curated example that produces a
+    genuine false positive (three independently-inserted items' bits happen
+    to line up for an item that was never added) — verified against the
+    actual hash implementation, not just asserted.
+  - LRU Cache combines a hash map (key → node) with a doubly linked list
+    (recency order), rendered in sync — get/put move nodes to the front and
+    eviction removes from the back once over capacity, matching the classic
+    capacity-2 trace.
 - Nine pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
   **Fast & Slow Pointers**, **Monotonic Stack**, **Merge Intervals**, **Top K
   Elements**, **Modified Binary Search**, **Subsets (Backtracking)** —
@@ -121,8 +139,6 @@ This is a deliberately scoped, incrementally-growing build. Deferred for later:
   (Dijkstra is now built)
 - Minimum spanning tree (Prim's / Kruskal's)
 - Topological sort
-- Fenwick trees
-- Skip lists, bloom filters, LRU cache
 - The remaining pattern library (~11 patterns, mostly DP-focused)
 - Monaco-based live code editor
 - KaTeX for formal complexity proofs
