@@ -140,6 +140,34 @@ export const NAV_ITEMS: NavItem[] = [
     category: "structure",
     description: "Union by rank + path compression, forest-of-trees visualization",
   },
+  {
+    slug: "shortest-paths",
+    title: "Shortest Paths (Dijkstra)",
+    href: "/dsa/shortest-paths",
+    category: "structure",
+    description: "Dijkstra's algorithm with a live distance table synced to the graph",
+  },
+  {
+    slug: "backtracking",
+    title: "Backtracking",
+    href: "/dsa/backtracking",
+    category: "structure",
+    description: "Recursion tree + call stack, visualized live via subset generation",
+  },
+  {
+    slug: "modified-binary-search",
+    title: "Modified Binary Search",
+    href: "/patterns/modified-binary-search",
+    category: "pattern",
+    description: "Search a rotated sorted array by finding which half is sorted",
+  },
+  {
+    slug: "subsets",
+    title: "Subsets (Backtracking)",
+    href: "/patterns/subsets",
+    category: "pattern",
+    description: "Include/exclude recursion tree generating every subset",
+  },
 ];
 
 export const STRUCTURE_ITEMS = NAV_ITEMS.filter((i) => i.category === "structure");

@@ -66,10 +66,11 @@ src/
 - Reusable **Visualizer Engine** — step-sequence driven playback controls (play/pause/
   step/scrub/speed), narration panel, live stats readout, and an optional highlighted
   code panel — shared by every visualization instead of bespoke per-topic code.
-- Nine fully fleshed out reference modules: **Arrays & Sorting**, **Linked Lists**,
-  **Binary Search Trees**, **Stacks**, **Queues**, **Hash Tables**, **Heaps**,
-  **Graphs**, **Tries** — theory, complexity tables, pitfalls, a live custom-input
-  visualizer, syntax-highlighted code, and a quiz.
+- Twelve fully fleshed out reference modules: **Arrays & Sorting**, **Linked
+  Lists**, **Binary Search Trees**, **Stacks**, **Queues**, **Hash Tables**,
+  **Heaps**, **Graphs**, **Tries**, **Union-Find**, **Shortest Paths
+  (Dijkstra)**, **Backtracking** — theory, complexity tables, pitfalls, a live
+  custom-input visualizer, syntax-highlighted code, and a quiz.
   - Stacks cover push/pop/peek plus a balanced-parentheses LIFO demo.
   - Queues cover a simple queue and a circular queue with a live wraparound
     visualization.
@@ -81,10 +82,20 @@ src/
     visualizing the frontier expanding and the visited set growing.
   - Tries cover insert and search, with the character path lighting up as it's
     walked and a distinct end-of-word marker.
-- Seven pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
+  - Union-Find covers union by rank and find with path compression, rendered
+    as a forest of small trees laid out side by side, with a dedicated find()
+    demo that visibly flattens a deliberately long chain.
+  - Shortest Paths covers Dijkstra's algorithm on a small weighted graph, with
+    a live distance table kept in sync against the graph view as nodes are
+    relaxed and finalized (Bellman-Ford and Floyd-Warshall remain deferred).
+  - Backtracking covers recursion via subset generation (include/exclude),
+    with a growing/collapsing recursion tree synced live against an actual
+    call-stack panel.
+- Nine pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
   **Fast & Slow Pointers**, **Monotonic Stack**, **Merge Intervals**, **Top K
-  Elements** — recognition signals, a visual blueprint, an annotated code
-  template, and curated LeetCode problems.
+  Elements**, **Modified Binary Search**, **Subsets (Backtracking)** —
+  recognition signals, a visual blueprint, an annotated code template, and
+  curated LeetCode problems.
 - **Mission Map** — collapsible skill-tree sidebar tracking per-module progress.
 - **Command palette** (`Ctrl/Cmd K`) to jump to any structure, pattern, or page.
 - Progress/XP/streak tracking persisted locally via Zustand.
@@ -93,15 +104,16 @@ src/
 
 ## Roadmap
 
-This is a deliberately scoped first pass. Deferred for later:
+This is a deliberately scoped, incrementally-growing build. Deferred for later:
 
-- Weighted graph algorithms — Dijkstra, Bellman-Ford, Floyd-Warshall
+- Remaining weighted graph algorithms — Bellman-Ford, Floyd-Warshall
+  (Dijkstra is now built)
 - Minimum spanning tree (Prim's / Kruskal's)
 - Topological sort
-- Union-Find / disjoint set
 - Segment trees & Fenwick trees
 - Self-balancing tree rotations (AVL, red-black)
-- The remaining pattern library (~13 patterns)
+- Skip lists, bloom filters, LRU cache
+- The remaining pattern library (~11 patterns, mostly DP-focused)
 - Monaco-based live code editor
 - KaTeX for formal complexity proofs
 - Recharts-based analytics/heatmap dashboard
