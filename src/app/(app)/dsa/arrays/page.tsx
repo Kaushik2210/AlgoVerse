@@ -16,8 +16,8 @@ import {
   mergeSortSteps,
   quickSortSteps,
   binarySearchSteps,
-  SORT_CODE,
 } from "@/lib/algorithms/arrays";
+import { SORT_CODE_SAMPLES } from "@/lib/codeSamples/arrays";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "arrays";
@@ -97,7 +97,7 @@ export default function ArraysPage() {
     }
   }, [algo, values, sortedForSearch, target]);
 
-  const code = SORT_CODE[algo];
+  const codeSamples = SORT_CODE_SAMPLES[algo];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -225,7 +225,7 @@ export default function ArraysPage() {
           <VisualizerEngine
             key={`${algo}-${values.join(",")}-${target}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <ArrayBars state={state} />}

@@ -14,12 +14,16 @@ import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import Slider from "@/components/ui/Slider";
 import CodePanel from "@/components/visualizers/CodePanel";
+import CodeTabs from "@/components/ui/CodeTabs";
 import type { StepSequence } from "@/lib/algorithms/types";
+import type { CodeSamples } from "@/lib/codeSamples/types";
 import { cn } from "@/lib/utils";
 
 interface VisualizerEngineProps<T> {
   steps: StepSequence<T>;
   code?: string;
+  /** Multi-language code samples (JS/Python/Java/C++). Takes priority over `code`. */
+  codeSamples?: CodeSamples;
   /** Render prop for the actual visual (array bars, tree, linked list, ...) */
   children: (state: T, stepIndex: number) => React.ReactNode;
   /** Called once when the last step is reached during playback or manual navigation */
@@ -34,6 +38,7 @@ const BASE_INTERVAL_MS = 900;
 export default function VisualizerEngine<T>({
   steps,
   code,
+  codeSamples,
   children,
   onComplete,
   className,
@@ -223,7 +228,11 @@ export default function VisualizerEngine<T>({
         </div>
       </GlassCard>
 
-      {code && <CodePanel code={code} highlightedLine={step.highlightedLine} />}
+      {codeSamples ? (
+        <CodeTabs codeSamples={codeSamples} highlightedLine={step.highlightedLine} />
+      ) : (
+        code && <CodePanel code={code} highlightedLine={step.highlightedLine} />
+      )}
     </div>
   );
 }
