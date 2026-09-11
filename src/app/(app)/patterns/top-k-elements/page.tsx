@@ -7,7 +7,8 @@ import { TheorySection, PitfallList } from "@/components/ui/TheorySection";
 import ProblemList, { type Problem } from "@/components/ui/ProblemList";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import HeapView from "@/components/visualizers/HeapView";
-import { topKSteps, PATTERN_CODE } from "@/lib/algorithms/patterns";
+import { topKSteps } from "@/lib/algorithms/patterns";
+import { PATTERN_CODE_SAMPLES } from "@/lib/codeSamples/patterns";
 import { useProgressStore } from "@/lib/store/progress";
 import problems from "@/data/problems.json";
 
@@ -70,7 +71,7 @@ export default function TopKElementsPage() {
 
       <VisualizerEngine
         steps={steps}
-        code={PATTERN_CODE.topK}
+        codeSamples={PATTERN_CODE_SAMPLES.topK}
         onComplete={() => completeModule(MODULE_SLUG)}
       >
         {(state) => (

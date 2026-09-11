@@ -7,7 +7,8 @@ import { TheorySection, PitfallList } from "@/components/ui/TheorySection";
 import ProblemList, { type Problem } from "@/components/ui/ProblemList";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import ArrayBars from "@/components/visualizers/ArrayBars";
-import { modifiedBinarySearchSteps, PATTERN_CODE } from "@/lib/algorithms/patterns";
+import { modifiedBinarySearchSteps } from "@/lib/algorithms/patterns";
+import { PATTERN_CODE_SAMPLES } from "@/lib/codeSamples/patterns";
 import { useProgressStore } from "@/lib/store/progress";
 import problems from "@/data/problems.json";
 
@@ -74,7 +75,7 @@ export default function ModifiedBinarySearchPage() {
 
       <VisualizerEngine
         steps={steps}
-        code={PATTERN_CODE.modifiedBinarySearch}
+        codeSamples={PATTERN_CODE_SAMPLES.modifiedBinarySearch}
         onComplete={() => completeModule(MODULE_SLUG)}
       >
         {(state) => <ArrayBars state={state} />}

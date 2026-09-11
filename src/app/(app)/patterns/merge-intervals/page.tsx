@@ -7,7 +7,8 @@ import { TheorySection, PitfallList } from "@/components/ui/TheorySection";
 import ProblemList, { type Problem } from "@/components/ui/ProblemList";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import IntervalView from "@/components/visualizers/IntervalView";
-import { mergeIntervalsSteps, PATTERN_CODE } from "@/lib/algorithms/patterns";
+import { mergeIntervalsSteps } from "@/lib/algorithms/patterns";
+import { PATTERN_CODE_SAMPLES } from "@/lib/codeSamples/patterns";
 import { useProgressStore } from "@/lib/store/progress";
 import problems from "@/data/problems.json";
 
@@ -75,7 +76,7 @@ export default function MergeIntervalsPage() {
 
       <VisualizerEngine
         steps={steps}
-        code={PATTERN_CODE.mergeIntervals}
+        codeSamples={PATTERN_CODE_SAMPLES.mergeIntervals}
         onComplete={() => completeModule(MODULE_SLUG)}
       >
         {(state) => <IntervalView state={state} />}
