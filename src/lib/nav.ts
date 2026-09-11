@@ -245,6 +245,20 @@ export const NAV_ITEMS: NavItem[] = [
     category: "structure",
     description: "All-pairs shortest paths via dynamic programming over an NxN distance matrix",
   },
+  {
+    slug: "dynamic-programming",
+    title: "Dynamic Programming",
+    href: "/dsa/dynamic-programming",
+    category: "structure",
+    description: "DP table + dependency arrows across Fibonacci, 0/1 Knapsack, and LCS",
+  },
+  {
+    slug: "sorting",
+    title: "Sorting Algorithms",
+    href: "/dsa/sorting",
+    category: "structure",
+    description: "Bubble, insertion, selection, merge, quick & heap sort — race mode compares them live",
+  },
 ];
 
 export const STRUCTURE_ITEMS = NAV_ITEMS.filter((i) => i.category === "structure");
