@@ -7,7 +7,8 @@ import { TheorySection, PitfallList } from "@/components/ui/TheorySection";
 import ProblemList, { type Problem } from "@/components/ui/ProblemList";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import ArrayBars from "@/components/visualizers/ArrayBars";
-import { slidingWindowDemoSteps, PATTERN_CODE } from "@/lib/algorithms/patterns";
+import { slidingWindowDemoSteps } from "@/lib/algorithms/patterns";
+import { PATTERN_CODE_SAMPLES } from "@/lib/codeSamples/patterns";
 import { useProgressStore } from "@/lib/store/progress";
 import problems from "@/data/problems.json";
 
@@ -66,7 +67,7 @@ export default function SlidingWindowPage() {
 
       <VisualizerEngine
         steps={steps}
-        code={PATTERN_CODE.slidingWindow}
+        codeSamples={PATTERN_CODE_SAMPLES.slidingWindow}
         onComplete={() => completeModule(MODULE_SLUG)}
       >
         {(state) => <ArrayBars state={state} />}

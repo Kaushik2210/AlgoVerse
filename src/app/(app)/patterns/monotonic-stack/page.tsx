@@ -8,7 +8,8 @@ import ProblemList, { type Problem } from "@/components/ui/ProblemList";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import ArrayBars from "@/components/visualizers/ArrayBars";
 import StackView from "@/components/visualizers/StackView";
-import { monotonicStackDemoSteps, PATTERN_CODE } from "@/lib/algorithms/patterns";
+import { monotonicStackDemoSteps } from "@/lib/algorithms/patterns";
+import { PATTERN_CODE_SAMPLES } from "@/lib/codeSamples/patterns";
 import { useProgressStore } from "@/lib/store/progress";
 import problems from "@/data/problems.json";
 
@@ -69,7 +70,7 @@ export default function MonotonicStackPage() {
 
       <VisualizerEngine
         steps={steps}
-        code={PATTERN_CODE.monotonicStack}
+        codeSamples={PATTERN_CODE_SAMPLES.monotonicStack}
         onComplete={() => completeModule(MODULE_SLUG)}
       >
         {(state) => (

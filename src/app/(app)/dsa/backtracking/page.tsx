@@ -9,7 +9,8 @@ import Quiz, { type QuizQuestion } from "@/components/ui/Quiz";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import RecursionTreeView from "@/components/visualizers/RecursionTreeView";
 import StackView from "@/components/visualizers/StackView";
-import { subsetsSteps, BACKTRACKING_CODE } from "@/lib/algorithms/backtracking";
+import { subsetsSteps } from "@/lib/algorithms/backtracking";
+import { BACKTRACKING_CODE_SAMPLES } from "@/lib/codeSamples/backtracking";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "backtracking";
@@ -215,7 +216,7 @@ export default function BacktrackingPage() {
           <VisualizerEngine
             key={valuesText}
             steps={steps}
-            code={BACKTRACKING_CODE}
+            codeSamples={BACKTRACKING_CODE_SAMPLES}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => (

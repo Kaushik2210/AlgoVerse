@@ -8,7 +8,8 @@ import ProblemList, { type Problem } from "@/components/ui/ProblemList";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import RecursionTreeView from "@/components/visualizers/RecursionTreeView";
 import StackView from "@/components/visualizers/StackView";
-import { subsetsSteps, BACKTRACKING_CODE } from "@/lib/algorithms/backtracking";
+import { subsetsSteps } from "@/lib/algorithms/backtracking";
+import { BACKTRACKING_CODE_SAMPLES } from "@/lib/codeSamples/backtracking";
 import { useProgressStore } from "@/lib/store/progress";
 import problems from "@/data/problems.json";
 
@@ -72,7 +73,7 @@ export default function SubsetsPage() {
 
       <VisualizerEngine
         steps={steps}
-        code={BACKTRACKING_CODE}
+        codeSamples={BACKTRACKING_CODE_SAMPLES}
         onComplete={() => completeModule(MODULE_SLUG)}
       >
         {(state) => (

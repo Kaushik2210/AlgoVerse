@@ -7,7 +7,8 @@ import { TheorySection, PitfallList } from "@/components/ui/TheorySection";
 import ProblemList, { type Problem } from "@/components/ui/ProblemList";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import BSTView from "@/components/visualizers/BSTView";
-import { treeBfsDemoSteps, PATTERN_CODE } from "@/lib/algorithms/patterns";
+import { treeBfsDemoSteps } from "@/lib/algorithms/patterns";
+import { PATTERN_CODE_SAMPLES } from "@/lib/codeSamples/patterns";
 import { useProgressStore } from "@/lib/store/progress";
 import problems from "@/data/problems.json";
 
@@ -62,7 +63,7 @@ export default function TreeBfsPage() {
 
       <VisualizerEngine
         steps={steps}
-        code={PATTERN_CODE.treeBfs}
+        codeSamples={PATTERN_CODE_SAMPLES.treeBfs}
         onComplete={() => completeModule(MODULE_SLUG)}
       >
         {(state) => <BSTView state={state} />}
