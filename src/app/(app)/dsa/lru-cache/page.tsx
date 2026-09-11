@@ -9,7 +9,8 @@ import { TheorySection, PitfallList, WhenToUse } from "@/components/ui/TheorySec
 import Quiz, { type QuizQuestion } from "@/components/ui/Quiz";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import LRUCacheView from "@/components/visualizers/LRUCacheView";
-import { runOpsSteps, LRU_CACHE_CODE, type LRUOp } from "@/lib/algorithms/lruCache";
+import { runOpsSteps, type LRUOp } from "@/lib/algorithms/lruCache";
+import { LRU_CACHE_CODE_SAMPLES } from "@/lib/codeSamples/lruCache";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "lru-cache";
@@ -99,7 +100,7 @@ export default function LRUCachePage() {
   }
 
   const steps = useMemo(() => runOpsSteps(Math.max(1, capacity), ops), [capacity, ops]);
-  const code = LRU_CACHE_CODE.ops;
+  const codeSamples = LRU_CACHE_CODE_SAMPLES.ops;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -238,7 +239,7 @@ export default function LRUCachePage() {
           <VisualizerEngine
             key={`${capacity}-${ops.map((o) => `${o.type}${o.key}${o.value ?? ""}`).join(",")}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <LRUCacheView state={state} />}

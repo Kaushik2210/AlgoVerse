@@ -9,7 +9,8 @@ import { TheorySection, PitfallList, WhenToUse } from "@/components/ui/TheorySec
 import Quiz, { type QuizQuestion } from "@/components/ui/Quiz";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import BloomFilterView from "@/components/visualizers/BloomFilterView";
-import { insertManySteps, lookupSteps, BLOOM_FILTER_CODE } from "@/lib/algorithms/bloomFilter";
+import { insertManySteps, lookupSteps } from "@/lib/algorithms/bloomFilter";
+import { BLOOM_FILTER_CODE_SAMPLES } from "@/lib/codeSamples/bloomFilter";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "bloom-filters";
@@ -109,7 +110,7 @@ export default function BloomFiltersPage() {
     }
   }, [op, items, lookupTarget]);
 
-  const code = BLOOM_FILTER_CODE[op];
+  const codeSamples = BLOOM_FILTER_CODE_SAMPLES[op];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -270,7 +271,7 @@ export default function BloomFiltersPage() {
           <VisualizerEngine
             key={`${op}-${items.join(",")}-${lookupTarget}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <BloomFilterView state={state} />}

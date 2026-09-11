@@ -14,8 +14,8 @@ import {
   findPathCompressionSteps,
   buildChainDemo,
   DSU_LABELS,
-  UNION_FIND_CODE,
 } from "@/lib/algorithms/unionFind";
+import { UNION_FIND_CODE_SAMPLES } from "@/lib/codeSamples/unionFind";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "union-find";
@@ -116,7 +116,7 @@ export default function UnionFindPage() {
     return findPathCompressionSteps(DSU_LABELS, chainParent, targetIdx);
   }, [op, pairs, chainParent, findTarget]);
 
-  const code = UNION_FIND_CODE[op];
+  const codeSamples = UNION_FIND_CODE_SAMPLES[op];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -286,7 +286,7 @@ export default function UnionFindPage() {
           <VisualizerEngine
             key={`${op}-${pairsText}-${findTarget}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <UnionFindView state={state} />}
