@@ -10,7 +10,8 @@ import { TheorySection, PitfallList, WhenToUse } from "@/components/ui/TheorySec
 import Quiz, { type QuizQuestion } from "@/components/ui/Quiz";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import QueueView from "@/components/visualizers/QueueView";
-import { simpleQueueSteps, circularQueueSteps, QUEUE_CODE } from "@/lib/algorithms/queue";
+import { simpleQueueSteps, circularQueueSteps } from "@/lib/algorithms/queue";
+import { QUEUE_CODE_SAMPLES } from "@/lib/codeSamples/queue";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "queues";
@@ -76,7 +77,7 @@ export default function QueuesPage() {
     return mode === "simple" ? simpleQueueSteps(values) : circularQueueSteps(capacity, values);
   }, [mode, values, capacity]);
 
-  const code = QUEUE_CODE[mode];
+  const codeSamples = QUEUE_CODE_SAMPLES[mode];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -213,7 +214,7 @@ export default function QueuesPage() {
           <VisualizerEngine
             key={`${mode}-${values.join(",")}-${capacity}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <QueueView state={state} />}

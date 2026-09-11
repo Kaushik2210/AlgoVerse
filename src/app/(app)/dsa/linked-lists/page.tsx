@@ -15,8 +15,8 @@ import {
   insertAtEndSteps,
   deleteValueSteps,
   reverseListSteps,
-  LINKED_LIST_CODE,
 } from "@/lib/algorithms/linkedList";
+import { LINKED_LIST_CODE_SAMPLES } from "@/lib/codeSamples/linkedList";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "linked-lists";
@@ -83,7 +83,7 @@ export default function LinkedListsPage() {
     }
   }, [op, values, target]);
 
-  const code = LINKED_LIST_CODE[op];
+  const codeSamples = LINKED_LIST_CODE_SAMPLES[op];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -208,7 +208,7 @@ export default function LinkedListsPage() {
           <VisualizerEngine
             key={`${op}-${values.join(",")}-${target}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <LinkedListView state={state} />}
