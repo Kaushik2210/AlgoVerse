@@ -15,8 +15,8 @@ import {
   searchSteps,
   deleteSteps,
   inorderSteps,
-  BST_CODE,
 } from "@/lib/algorithms/bst";
+import { BST_CODE_SAMPLES } from "@/lib/codeSamples/bst";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "binary-search-trees";
@@ -90,7 +90,7 @@ export default function BinarySearchTreesPage() {
     }
   }, [op, values, target]);
 
-  const code = BST_CODE[op];
+  const codeSamples = BST_CODE_SAMPLES[op];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -221,7 +221,7 @@ export default function BinarySearchTreesPage() {
           <VisualizerEngine
             key={`${op}-${values.join(",")}-${target}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <BSTView state={state} />}

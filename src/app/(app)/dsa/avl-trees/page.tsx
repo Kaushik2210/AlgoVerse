@@ -10,7 +10,8 @@ import { TheorySection, PitfallList, WhenToUse } from "@/components/ui/TheorySec
 import Quiz, { type QuizQuestion } from "@/components/ui/Quiz";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import AVLTreeView from "@/components/visualizers/AVLTreeView";
-import { insertSteps, searchSteps, AVL_CODE } from "@/lib/algorithms/avl";
+import { insertSteps, searchSteps } from "@/lib/algorithms/avl";
+import { AVL_CODE_SAMPLES } from "@/lib/codeSamples/avl";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "avl-trees";
@@ -88,7 +89,7 @@ export default function AVLTreesPage() {
     }
   }, [op, values, target]);
 
-  const code = AVL_CODE[op];
+  const codeSamples = AVL_CODE_SAMPLES[op];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -221,7 +222,7 @@ export default function AVLTreesPage() {
           <VisualizerEngine
             key={`${op}-${values.join(",")}-${target}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <AVLTreeView state={state} />}

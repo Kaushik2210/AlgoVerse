@@ -9,7 +9,8 @@ import { TheorySection, PitfallList, WhenToUse } from "@/components/ui/TheorySec
 import Quiz, { type QuizQuestion } from "@/components/ui/Quiz";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import TrieView from "@/components/visualizers/TrieView";
-import { trieInsertSteps, trieSearchSteps, TRIE_CODE } from "@/lib/algorithms/trie";
+import { trieInsertSteps, trieSearchSteps } from "@/lib/algorithms/trie";
+import { TRIE_CODE_SAMPLES } from "@/lib/codeSamples/trie";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "tries";
@@ -86,7 +87,7 @@ export default function TriesPage() {
     }
   }, [op, cleanWord]);
 
-  const code = TRIE_CODE[op];
+  const codeSamples = TRIE_CODE_SAMPLES[op];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -221,7 +222,7 @@ export default function TriesPage() {
           <VisualizerEngine
             key={`${op}-${cleanWord}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <TrieView state={state} />}
