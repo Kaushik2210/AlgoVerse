@@ -66,17 +66,18 @@ src/
 - Reusable **Visualizer Engine** — step-sequence driven playback controls (play/pause/
   step/scrub/speed), narration panel, live stats readout, and an optional highlighted
   code panel — shared by every visualization instead of bespoke per-topic code.
-- Twenty-three fully fleshed out reference modules: **Arrays & Sorting**,
+- Twenty-five fully fleshed out reference modules: **Arrays & Sorting**,
   **Linked Lists**, **Binary Search Trees**, **Stacks**, **Queues**, **Hash
   Tables**, **Heaps**, **Graphs**, **Tries**, **Union-Find**, **Shortest
   Paths (Dijkstra)**, **Backtracking**, **AVL Trees**, **Red-Black Trees**,
   **Segment Trees**, **Fenwick Trees**, **Skip Lists**, **Bloom Filters**,
   **LRU Cache**, **Minimum Spanning Tree (Prim's & Kruskal's)**,
-  **Topological Sort**, **Bellman-Ford**, **Floyd-Warshall** — theory,
-  complexity tables, pitfalls, a live custom-input visualizer,
-  syntax-highlighted code, and a quiz. This completes the originally-planned
-  Data Structures track (N-ary trees remain a minor, intentionally deferred
-  omission — see roadmap).
+  **Topological Sort**, **Bellman-Ford**, **Floyd-Warshall**, **Dynamic
+  Programming**, **Sorting Algorithms** — theory, complexity tables,
+  pitfalls, a live custom-input visualizer, syntax-highlighted code, and a
+  quiz. This completes the originally-planned Data Structures track
+  (N-ary trees remain a minor, intentionally deferred omission — see
+  roadmap).
   - Stacks cover push/pop/peek plus a balanced-parentheses LIFO demo.
   - Queues cover a simple queue and a circular queue with a live wraparound
     visualization.
@@ -144,6 +145,25 @@ src/
     each intermediate vertex is considered — verified against Bellman-Ford
     run from every node (the demo graph has negative edges, so Dijkstra
     isn't a valid cross-check here).
+  - Dynamic Programming covers three switchable examples on one shared
+    `DPTableView` grid renderer — Fibonacci (1D), 0/1 Knapsack (2D), and
+    Longest Common Subsequence (2D) — with the cell currently being
+    computed and the earlier cell(s) it depends on both highlighted every
+    step, so the recurrence relation is visible instead of just watching
+    numbers appear. Hand-verified: Fibonacci(6) = 0,1,1,2,3,5,8; the
+    knapsack example (weights [1,3,4,5], values [1,4,5,7], capacity 7)
+    gives 9; LCS("AGGTAB", "GXTXAYB") gives 4 (classic textbook instances,
+    chosen specifically because their answers are independently checkable).
+  - Sorting Algorithms covers Bubble, Insertion, Selection, Merge, Quick,
+    and Heap sort, with a complexity table comparing all six side by side.
+    A step-through mode drives any single algorithm through the shared
+    `ArrayBars` renderer; a race mode (new `SortRaceView`) runs 2-3
+    algorithms at once against the same input off one shared "tick" — each
+    one clamps to its own step count, so an algorithm that finishes in
+    fewer steps visibly finishes first, with live (real, not placeholder)
+    comparison and swap counters per algorithm. All six verified to
+    produce a correctly sorted array independent of the
+    step-sequence/visualization code.
 - Nine pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
   **Fast & Slow Pointers**, **Monotonic Stack**, **Merge Intervals**, **Top K
   Elements**, **Modified Binary Search**, **Subsets (Backtracking)** —
