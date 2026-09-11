@@ -12,8 +12,8 @@ import {
   dijkstraSteps,
   DIJKSTRA_NODES,
   DIJKSTRA_EDGES,
-  DIJKSTRA_CODE,
 } from "@/lib/algorithms/dijkstra";
+import { DIJKSTRA_CODE_SAMPLES } from "@/lib/codeSamples/dijkstra";
 import { useProgressStore } from "@/lib/store/progress";
 import { cn } from "@/lib/utils";
 
@@ -212,7 +212,7 @@ export default function ShortestPathsPage() {
           <VisualizerEngine
             key={start}
             steps={steps}
-            code={DIJKSTRA_CODE}
+            codeSamples={DIJKSTRA_CODE_SAMPLES}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => (

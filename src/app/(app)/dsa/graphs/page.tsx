@@ -15,8 +15,8 @@ import {
   buildAdjacency,
   DEMO_NODES,
   DEMO_EDGES,
-  GRAPH_CODE,
 } from "@/lib/algorithms/graph";
+import { GRAPH_CODE_SAMPLES } from "@/lib/codeSamples/graph";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "graphs";
@@ -90,7 +90,7 @@ export default function GraphsPage() {
     }
   }, [op, start]);
 
-  const code = GRAPH_CODE[op];
+  const codeSamples = GRAPH_CODE_SAMPLES[op];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-8 px-4 sm:px-6 py-8 max-w-[1400px] mx-auto">
@@ -232,7 +232,7 @@ export default function GraphsPage() {
           <VisualizerEngine
             key={`${op}-${start}`}
             steps={steps}
-            code={code}
+            codeSamples={codeSamples}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <GraphView state={state} />}

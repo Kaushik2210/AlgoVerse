@@ -7,7 +7,8 @@ import { TheorySection, PitfallList, WhenToUse } from "@/components/ui/TheorySec
 import Quiz, { type QuizQuestion } from "@/components/ui/Quiz";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import GraphView from "@/components/visualizers/GraphView";
-import { topologicalSortSteps, TOPO_NODES, TOPO_EDGES, TOPO_CODE } from "@/lib/algorithms/topologicalSort";
+import { topologicalSortSteps, TOPO_NODES, TOPO_EDGES } from "@/lib/algorithms/topologicalSort";
+import { TOPO_CODE_SAMPLES } from "@/lib/codeSamples/topologicalSort";
 import { useProgressStore } from "@/lib/store/progress";
 import { cn } from "@/lib/utils";
 
@@ -174,7 +175,7 @@ export default function TopologicalSortPage() {
         {steps && (
           <VisualizerEngine
             steps={steps}
-            code={TOPO_CODE}
+            codeSamples={TOPO_CODE_SAMPLES}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => (

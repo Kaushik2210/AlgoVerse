@@ -11,8 +11,8 @@ import {
   floydWarshallSteps,
   FLOYD_WARSHALL_NODES,
   FLOYD_WARSHALL_EDGES,
-  FLOYD_WARSHALL_CODE,
 } from "@/lib/algorithms/floydWarshall";
+import { FLOYD_WARSHALL_CODE_SAMPLES } from "@/lib/codeSamples/floydWarshall";
 import { useProgressStore } from "@/lib/store/progress";
 
 const MODULE_SLUG = "floyd-warshall";
@@ -193,7 +193,7 @@ export default function FloydWarshallPage() {
         {steps && (
           <VisualizerEngine
             steps={steps}
-            code={FLOYD_WARSHALL_CODE}
+            codeSamples={FLOYD_WARSHALL_CODE_SAMPLES}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => <MatrixView state={state} />}

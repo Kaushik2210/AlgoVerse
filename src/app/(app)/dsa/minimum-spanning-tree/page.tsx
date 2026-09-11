@@ -9,7 +9,8 @@ import { TheorySection, PitfallList, WhenToUse } from "@/components/ui/TheorySec
 import Quiz, { type QuizQuestion } from "@/components/ui/Quiz";
 import VisualizerEngine from "@/components/visualizers/VisualizerEngine";
 import GraphView from "@/components/visualizers/GraphView";
-import { primSteps, kruskalSteps, MST_NODES, MST_EDGES, MST_CODE } from "@/lib/algorithms/mst";
+import { primSteps, kruskalSteps, MST_NODES, MST_EDGES } from "@/lib/algorithms/mst";
+import { MST_CODE_SAMPLES } from "@/lib/codeSamples/mst";
 import { useProgressStore } from "@/lib/store/progress";
 import { cn } from "@/lib/utils";
 
@@ -235,7 +236,7 @@ export default function MinimumSpanningTreePage() {
           <VisualizerEngine
             key={`${algo}-${start}`}
             steps={steps}
-            code={MST_CODE[algo]}
+            codeSamples={MST_CODE_SAMPLES[algo]}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => (

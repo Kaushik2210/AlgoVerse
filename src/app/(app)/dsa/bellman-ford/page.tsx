@@ -15,8 +15,8 @@ import {
   BELLMAN_FORD_EDGES,
   BELLMAN_FORD_NEG_CYCLE_NODES,
   BELLMAN_FORD_NEG_CYCLE_EDGES,
-  BELLMAN_FORD_CODE,
 } from "@/lib/algorithms/bellmanFord";
+import { BELLMAN_FORD_CODE_SAMPLES } from "@/lib/codeSamples/bellmanFord";
 import { useProgressStore } from "@/lib/store/progress";
 import { cn } from "@/lib/utils";
 
@@ -233,7 +233,7 @@ export default function BellmanFordPage() {
           <VisualizerEngine
             key={scenario}
             steps={steps}
-            code={BELLMAN_FORD_CODE}
+            codeSamples={BELLMAN_FORD_CODE_SAMPLES}
             onComplete={() => setModuleProgress(MODULE_SLUG, { percent: 80 })}
           >
             {(state) => (
