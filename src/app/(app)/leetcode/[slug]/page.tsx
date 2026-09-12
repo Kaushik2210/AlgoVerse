@@ -57,15 +57,15 @@ export default async function LeetCodeProblemPage({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 items-start">
-          <GlassCard className="lg:sticky lg:top-[80px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 items-start min-w-0">
+          <GlassCard className="lg:sticky lg:top-[80px] min-w-0 overflow-hidden">
             <LeetCodeMarkdown content={problem.readme} />
           </GlassCard>
 
           <CodeTabs
             codeSamples={problem.code}
             langs={["python", "java", "cpp"]}
-            className="lg:sticky lg:top-[80px]"
+            className="lg:sticky lg:top-[80px] min-w-0"
           />
         </div>
       </div>
