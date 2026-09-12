@@ -2,12 +2,23 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Radar, Boxes, GitBranch, Waypoints, Gauge, Palette, Map } from "lucide-react";
+import {
+  ArrowRight,
+  Radar,
+  Boxes,
+  GitBranch,
+  Waypoints,
+  Gauge,
+  Palette,
+  Map,
+  Code2,
+} from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import ProgressRing from "@/components/ui/ProgressRing";
 import Badge from "@/components/ui/Badge";
 import { STRUCTURE_ITEMS, PATTERN_ITEMS } from "@/lib/nav";
+import { leetcodeIndex } from "@/lib/leetcode-index";
 import { useProgressStore } from "@/lib/store/progress";
 
 const FEATURES = [
@@ -142,6 +153,40 @@ export default function Home() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* LeetCode callout */}
+      <section className="px-6 pb-24">
+        <div className="mx-auto max-w-5xl">
+          <Link href="/leetcode">
+            <GlassCard
+              tilt
+              glow="cyan"
+              className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 hover:border-cyan/40 transition-colors"
+            >
+              <div className="flex items-start gap-4">
+                <span className="glass flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-cyan">
+                  <Code2 size={20} />
+                </span>
+                <div>
+                  <p className="font-mono-data text-sm uppercase tracking-wider text-cyan">
+                    LeetCode Vault
+                  </p>
+                  <p className="font-semibold text-base mt-1">
+                    {leetcodeIndex.length} problems solved and explained
+                  </p>
+                  <p className="text-xs text-text-muted mt-1 max-w-md leading-relaxed">
+                    Full approach write-ups plus Python, Java &amp; C++ solutions for every
+                    problem — searchable by number or title.
+                  </p>
+                </div>
+              </div>
+              <Button variant="secondary" className="shrink-0">
+                Browse Problems <ArrowRight size={15} className="ml-1.5" />
+              </Button>
+            </GlassCard>
+          </Link>
         </div>
       </section>
     </div>

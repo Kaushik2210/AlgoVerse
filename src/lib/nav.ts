@@ -2,7 +2,7 @@ export interface NavItem {
   slug: string;
   title: string;
   href: string;
-  category: "structure" | "pattern" | "page";
+  category: "structure" | "pattern" | "page" | "leetcode";
   description: string;
 }
 
@@ -259,7 +259,15 @@ export const NAV_ITEMS: NavItem[] = [
     category: "structure",
     description: "Bubble, insertion, selection, merge, quick & heap sort — race mode compares them live",
   },
+  {
+    slug: "leetcode",
+    title: "LeetCode",
+    href: "/leetcode",
+    category: "leetcode",
+    description: "Every solved problem, fully explained, with Python/Java/C++ solutions",
+  },
 ];
 
 export const STRUCTURE_ITEMS = NAV_ITEMS.filter((i) => i.category === "structure");
 export const PATTERN_ITEMS = NAV_ITEMS.filter((i) => i.category === "pattern");
+export const LEETCODE_NAV_ITEM = NAV_ITEMS.find((i) => i.category === "leetcode")!;

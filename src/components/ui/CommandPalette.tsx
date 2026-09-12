@@ -3,15 +3,28 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Search, CornerDownLeft, Component, Waypoints, FileText } from "lucide-react";
+import { Search, CornerDownLeft, Component, Waypoints, FileText, Code2 } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/nav";
+import { leetcodeIndex } from "@/lib/leetcode-index";
 import { cn } from "@/lib/utils";
 
 const iconFor = {
   structure: Component,
   pattern: Waypoints,
   page: FileText,
+  leetcode: Code2,
 };
+
+/** Command palette entries synthesized from the generated LeetCode index —
+ * lets `cmd+k` jump straight to a specific problem by number or title,
+ * without hand-wiring all 166+ into NAV_ITEMS. */
+const LEETCODE_RESULTS = leetcodeIndex.map((p) => ({
+  slug: `leetcode-${p.slug}`,
+  title: `#${p.number} ${p.title}`,
+  href: `/leetcode/${p.slug}`,
+  category: "leetcode" as const,
+  description: p.excerpt,
+}));
 
 export default function CommandPalette() {
   const [open, setOpen] = useState(false);
@@ -35,12 +48,22 @@ export default function CommandPalette() {
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return NAV_ITEMS;
-    return NAV_ITEMS.filter(
+
+    const navMatches = NAV_ITEMS.filter(
       (item) =>
         item.title.toLowerCase().includes(q) ||
         item.description.toLowerCase().includes(q) ||
         item.category.includes(q)
     );
+
+    // Only search individual LeetCode problems once the user is actually
+    // typing something specific — keeps the empty-query view focused on
+    // the site's main sections instead of dumping 166 problems into it.
+    const leetcodeMatches = LEETCODE_RESULTS.filter((item) =>
+      item.title.toLowerCase().includes(q)
+    ).slice(0, 8);
+
+    return [...navMatches, ...leetcodeMatches];
   }, [query]);
 
   function updateQuery(next: string) {
