@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { tokenizeLine, tokenColorClass } from "@/lib/highlight";
 import { LANG_LABELS, LANG_FILENAMES, LANGS, type CodeSamples } from "@/lib/codeSamples/types";
+import type { CodeLang } from "@/lib/highlight";
 import { useCodeLangStore } from "@/lib/store/codeLang";
 import { cn } from "@/lib/utils";
 
@@ -10,21 +12,38 @@ import { cn } from "@/lib/utils";
  * Multi-language code panel: a JS / Python / Java / C++ switcher above a
  * syntax-highlighted block. Remembers the last-picked language across pages
  * (persisted via zustand/localStorage) and animates the swap.
+ *
+ * By default it shows all four languages and shares the global (persisted)
+ * language pick across the whole site — that's what every DSA module page
+ * wants. Pass `langs` (e.g. LeetCode problems, which have no JS sample) to
+ * restrict the tab set; in that case the pick is local to this instance
+ * instead of touching the shared store.
  */
 export default function CodeTabs({
   codeSamples,
   highlightedLine,
   className,
+  langs,
 }: {
   codeSamples: CodeSamples;
   /** Only meaningful for the JS sample — the visualizer steps reference JS line numbers. */
   highlightedLine?: number;
   className?: string;
+  /** Restrict which language tabs are shown. Defaults to all four. */
+  langs?: CodeLang[];
 }) {
-  const lang = useCodeLangStore((s) => s.lang);
-  const selectLang = useCodeLangStore((s) => s.setLang);
+  const availableLangs = langs ?? LANGS;
+  const globalLang = useCodeLangStore((s) => s.lang);
+  const setGlobalLang = useCodeLangStore((s) => s.setLang);
+  const [localLang, setLocalLang] = useState<CodeLang>(availableLangs[0]);
 
-  const code = codeSamples[lang];
+  const usingLocalState = !!langs;
+  const lang = usingLocalState
+    ? (availableLangs.includes(localLang) ? localLang : availableLangs[0])
+    : globalLang;
+  const selectLang = usingLocalState ? setLocalLang : setGlobalLang;
+
+  const code = codeSamples[lang] || "";
   const lines = code.replace(/\n$/, "").split("\n");
 
   return (
@@ -41,7 +60,7 @@ export default function CodeTabs({
         <span className="ml-2 text-[11px] text-text-muted">{LANG_FILENAMES[lang]}</span>
 
         <div className="ml-auto flex items-center gap-1" role="tablist" aria-label="Code language">
-          {LANGS.map((l) => (
+          {availableLangs.map((l) => (
             <button
               key={l}
               type="button"
