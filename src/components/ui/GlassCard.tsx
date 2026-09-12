@@ -30,9 +30,10 @@ export default function GlassCard({
       )}
       whileHover={
         tilt
-          ? { rotateX: -2, rotateY: 2, scale: 1.01, transition: { duration: 0.25 } }
+          ? { rotateX: -2, rotateY: 2, scale: 1.015, y: -2, transition: { duration: 0.25 } }
           : undefined
       }
+      whileTap={tilt ? { scale: 0.99, transition: { duration: 0.1 } } : undefined}
       style={tilt ? { transformStyle: "preserve-3d", perspective: 800 } : undefined}
       {...props}
     >
