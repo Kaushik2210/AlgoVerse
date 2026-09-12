@@ -38,8 +38,12 @@
   --color-void-soft: #0a0f1e;
   --color-surface: #0d1326;
   --color-surface-light: #ffffff;
-  --color-bg-light: #f5f6fb;
-  --color-bg-light-soft: #eceefa;
+  /* A soft warm-neutral paper tone instead of stark white — reduces eye
+     strain and reads as considered/premium rather than "inverted dark
+     mode". Slightly warm (a touch of amber undertone) so it plays nicely
+     against the cyan/violet/amber accent trio. */
+  --color-bg-light: #f6f4ef;
+  --color-bg-light-soft: #ece8e0;
 
   /* semantic neon accents (dark-mode default — bright, glows well on navy) */
   --color-cyan: #00f0ff;
@@ -60,9 +64,11 @@
 
   /* glass */
   --color-glass-border: rgba(255, 255, 255, 0.08);
-  --color-glass-border-light: rgba(13, 19, 38, 0.08);
+  --color-glass-border-light: rgba(13, 19, 38, 0.1);
   --color-glass-bg: rgba(13, 19, 38, 0.55);
-  --color-glass-bg-light: rgba(255, 255, 255, 0.6);
+  /* more opaque than a bare tint so cards read as clearly "raised paper"
+     against the warm background rather than a faint wash of white-on-white */
+  --color-glass-bg-light: rgba(255, 255, 255, 0.74);
 
   --background: var(--color-void);
   --foreground: var(--color-text-primary);
@@ -116,14 +122,27 @@ body {
   border: 1px solid var(--color-glass-border);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .light .glass {
   background: var(--color-glass-bg-light);
   border: 1px solid var(--color-glass-border-light);
-  /* dark mode leans on backdrop glow; light mode leans on a soft drop
-     shadow so panels read as "raised" instead of just faintly tinted */
-  box-shadow: 0 1px 3px rgba(13, 19, 38, 0.06), 0 8px 24px -12px rgba(13, 19, 38, 0.12);
+  /* dark mode leans on backdrop glow; light mode leans on a layered drop
+     shadow plus a hairline inner highlight along the top edge, so panels
+     read as genuinely raised paper catching light — not just a faint
+     tinted rectangle. */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 2px rgba(38, 29, 13, 0.05),
+    0 14px 32px -16px rgba(38, 29, 13, 0.18);
+}
+
+.light .glass:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 2px 4px rgba(38, 29, 13, 0.06),
+    0 18px 38px -16px rgba(38, 29, 13, 0.22);
 }
 
 /*
