@@ -43,3 +43,6 @@ next-env.d.ts
 .vercel
 __pycache__/
 *.pyc
+
+# generated at build/dev time by scripts/generate-leetcode-index.mjs
+/src/data/leetcode/
