@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Flame, Moon, Sun, Orbit, Code2, LayoutDashboard } from "lucide-react";
 import CommandPalette from "@/components/ui/CommandPalette";
+import UserMenu from "@/components/navigation/UserMenu";
 import { useThemeStore } from "@/lib/store/theme";
 import { useStreakInfo, useLevelProgress } from "@/lib/store/selectors";
 import { useMounted } from "@/lib/hooks/useMounted";
@@ -74,6 +75,7 @@ export default function TopBar() {
           >
             {mounted && theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
           </button>
+          <UserMenu />
         </div>
       </div>
     </header>
