@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { STREAK_BADGES, earnedBadgesForStreak } from "@/lib/badges";
+import { earnedBadgesForStreak, badgeById } from "@/lib/badges";
 
 export interface ModuleProgress {
   /** 0-100 */
@@ -33,10 +33,19 @@ interface ProgressState {
   activityLog: ActivityEvent[];
   /** Badge ids already awarded/notified — prevents re-toasting on reload. */
   earnedBadgeIds: string[];
+  /** LeetCode problem slugs the user has marked solved — backs the
+   * LeetCode-milestone achievement plates. */
+  solvedLeetcodeIds: string[];
+  /** ISO date each badge id was first acknowledged — backs the "date
+   * earned" shown on shareable certificate pages. Badges earned before
+   * this field existed fall back to today's date the first time they're
+   * looked up (see badges.ts consumers). */
+  badgeEarnedAt: Record<string, string>;
 
   setModuleProgress: (slug: string, progress: Partial<ModuleProgress>) => void;
   completeModule: (slug: string, xpAward?: number) => void;
   recordQuizResult: (slug: string, score: number, total: number) => void;
+  toggleLeetcodeSolved: (slug: string) => void;
   touchStreak: () => void;
   totalXp: () => number;
   /** Marks a batch of newly-earned badges as acknowledged and grants their
@@ -88,6 +97,8 @@ export const useProgressStore = create<ProgressState>()(
       modules: {},
       activityLog: [],
       earnedBadgeIds: [],
+      solvedLeetcodeIds: [],
+      badgeEarnedAt: {},
 
       setModuleProgress: (slug, progress) =>
         set((s) => {
@@ -159,6 +170,16 @@ export const useProgressStore = create<ProgressState>()(
           };
         }),
 
+      toggleLeetcodeSolved: (slug) =>
+        set((s) => {
+          const solved = s.solvedLeetcodeIds.includes(slug);
+          return {
+            solvedLeetcodeIds: solved
+              ? s.solvedLeetcodeIds.filter((id) => id !== slug)
+              : [...s.solvedLeetcodeIds, slug],
+          };
+        }),
+
       touchStreak: () =>
         set((s) => {
           const today = todayISO();
@@ -186,24 +207,27 @@ export const useProgressStore = create<ProgressState>()(
           const newIds = ids.filter((id) => !s.earnedBadgeIds.includes(id));
           if (newIds.length === 0) return {};
           const bonusXp = newIds.reduce((sum, id) => {
-            const def = STREAK_BADGES.find((b) => b.id === id);
+            const def = badgeById(id);
             return sum + (def?.xpBonus ?? 0);
           }, 0);
           const today = todayISO();
           let log = s.activityLog;
+          const earnedAt = { ...s.badgeEarnedAt };
           for (const id of newIds) {
-            const def = STREAK_BADGES.find((b) => b.id === id);
+            const def = badgeById(id);
             log = appendActivity(log, {
               date: today,
               type: "badge",
               amount: def?.xpBonus ?? 0,
               label: id,
             });
+            earnedAt[id] = today;
           }
           return {
             earnedBadgeIds: [...s.earnedBadgeIds, ...newIds],
             xp: s.xp + bonusXp,
             activityLog: log,
+            badgeEarnedAt: earnedAt,
           };
         }),
 
@@ -232,6 +256,8 @@ export const useProgressStore = create<ProgressState>()(
           earnedBadgeIds:
             s?.earnedBadgeIds ??
             earnedBadgesForStreak(s?.longestStreak ?? s?.streak ?? 0).map((b) => b.id),
+          solvedLeetcodeIds: s?.solvedLeetcodeIds ?? [],
+          badgeEarnedAt: s?.badgeEarnedAt ?? {},
         };
       },
     }

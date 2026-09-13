@@ -1,84 +1,195 @@
 /**
- * Streak-milestone badge definitions. Purely data — earned/locked state is
- * derived from store state (see src/lib/store/selectors.ts), never stored
+ * Achievement plate definitions — streak milestones, XP ranks, and LeetCode
+ * problem-count milestones. Purely data — earned/locked state is derived
+ * from store state (see src/lib/store/selectors.ts), never stored
  * redundantly here.
+ *
+ * Visual tiers map 1:1 onto BadgePlate's `tier` prop
+ * (src/components/badges/BadgePlate.tsx), which owns the actual hex-shield
+ * gradients/icons for each tier name.
  */
+
+export type PlateTier = "copper" | "bronze" | "silver" | "gold" | "holo" | "rank" | "target";
 
 export interface BadgeDef {
   id: string;
-  days: number;
+  /** Threshold this badge represents — days of streak, level, or problems solved. */
+  threshold: number;
+  /** One-word rank name shown large under the plate, e.g. "IGNITION". */
   name: string;
+  /** Short pill label above/below the name, e.g. "COPPER · 3-DAY". */
+  tierLabel: string;
   description: string;
   /** Bonus XP granted the moment this badge is earned. */
   xpBonus: number;
-  /** Visual tier — "legendary" gets the extra-special treatment in the case. */
-  tier: "bronze" | "silver" | "gold" | "legendary";
+  tier: PlateTier;
 }
 
+/** Streak-milestone plates — earned daily, tier scales with commitment. */
 export const STREAK_BADGES: BadgeDef[] = [
   {
     id: "streak-3",
-    days: 3,
-    name: "First Contact",
-    description: "Sustained operations for 3 consecutive days.",
+    threshold: 3,
+    name: "IGNITION",
+    tierLabel: "COPPER · 3-DAY",
+    description: "First spark. Three days straight.",
     xpBonus: 25,
-    tier: "bronze",
-  },
-  {
-    id: "streak-7",
-    days: 7,
-    name: "Holding the Line",
-    description: "One full week of continuous operations.",
-    xpBonus: 50,
-    tier: "bronze",
+    tier: "copper",
   },
   {
     id: "streak-10",
-    days: 10,
-    name: "Deep Cover",
-    description: "Ten consecutive days in the field.",
+    threshold: 10,
+    name: "MOMENTUM",
+    tierLabel: "BRONZE · 10-DAY",
+    description: "Ten days. The habit is forming.",
     xpBonus: 75,
-    tier: "silver",
+    tier: "bronze",
   },
   {
     id: "streak-30",
-    days: 30,
-    name: "Veteran Operative",
-    description: "Thirty days of unbroken commitment.",
+    threshold: 30,
+    name: "OVERCLOCKED",
+    tierLabel: "SILVER · 30-DAY",
+    description: "A full month. No skipped days.",
     xpBonus: 150,
     tier: "silver",
   },
   {
     id: "streak-60",
-    days: 60,
-    name: "Iron Discipline",
-    description: "Sixty days without a single missed cycle.",
+    threshold: 60,
+    name: "UNSTOPPABLE",
+    tierLabel: "GOLD · 60-DAY",
+    description: "Sixty days. This is who you are now.",
     xpBonus: 300,
     tier: "gold",
   },
   {
     id: "streak-100",
-    days: 100,
-    name: "Centurion",
-    description: "One hundred consecutive days of operation.",
+    threshold: 100,
+    name: "SINGULARITY",
+    tierLabel: "HOLO · 100-DAY",
+    description: "One hundred days. Elite tier. Rare.",
     xpBonus: 500,
-    tier: "gold",
+    tier: "holo",
   },
   {
     id: "streak-365",
-    days: 365,
-    name: "Legend of the Verse",
-    description: "A full year of unbroken dedication to the mission.",
+    threshold: 365,
+    name: "IMMORTAL",
+    tierLabel: "LOCKED · 365-DAY",
+    description: "One full year. Very few reach this.",
     xpBonus: 1500,
-    tier: "legendary",
+    tier: "holo",
   },
 ];
 
+/** XP-rank plates — one per promotion in src/lib/leveling.ts's RANKS list
+ * (skipping "Recruit", the default rank everyone starts at). */
+export const XP_RANK_BADGES: BadgeDef[] = [
+  {
+    id: "rank-operative",
+    threshold: 6,
+    name: "OPERATIVE",
+    tierLabel: "RANK · LV 6",
+    description: "Promoted via XP. First rank up.",
+    xpBonus: 0,
+    tier: "rank",
+  },
+  {
+    id: "rank-specialist",
+    threshold: 16,
+    name: "SPECIALIST",
+    tierLabel: "RANK · LV 16",
+    description: "Promoted via XP. Rank up.",
+    xpBonus: 0,
+    tier: "rank",
+  },
+  {
+    id: "rank-commander",
+    threshold: 31,
+    name: "COMMANDER",
+    tierLabel: "RANK · LV 31",
+    description: "Promoted via XP. Rank up.",
+    xpBonus: 0,
+    tier: "rank",
+  },
+  {
+    id: "rank-architect",
+    threshold: 51,
+    name: "ARCHITECT",
+    tierLabel: "RANK · LV 51",
+    description: "Promoted via XP. Rank up.",
+    xpBonus: 0,
+    tier: "rank",
+  },
+  {
+    id: "rank-ascendant",
+    threshold: 76,
+    name: "ASCENDANT",
+    tierLabel: "RANK · LV 76",
+    description: "Promoted via XP. Top rank.",
+    xpBonus: 0,
+    tier: "rank",
+  },
+];
+
+/** LeetCode problem-solved milestone plates. */
+export const LEETCODE_BADGES: BadgeDef[] = [
+  {
+    id: "leetcode-50",
+    threshold: 50,
+    name: "MARKSMAN",
+    tierLabel: "SOLVED · 50",
+    description: "50 LeetCode problems cleared.",
+    xpBonus: 100,
+    tier: "target",
+  },
+  {
+    id: "leetcode-100",
+    threshold: 100,
+    name: "SHARPSHOOTER",
+    tierLabel: "SOLVED · 100",
+    description: "100 LeetCode problems cleared.",
+    xpBonus: 200,
+    tier: "target",
+  },
+  {
+    id: "leetcode-250",
+    threshold: 250,
+    name: "PRECISION",
+    tierLabel: "SOLVED · 250",
+    description: "250 LeetCode problems cleared.",
+    xpBonus: 400,
+    tier: "target",
+  },
+  {
+    id: "leetcode-500",
+    threshold: 500,
+    name: "DEADEYE",
+    tierLabel: "SOLVED · 500",
+    description: "500 LeetCode problems cleared.",
+    xpBonus: 800,
+    tier: "target",
+  },
+];
+
+export const ALL_BADGES: BadgeDef[] = [...STREAK_BADGES, ...XP_RANK_BADGES, ...LEETCODE_BADGES];
+
 export function badgeById(id: string): BadgeDef | undefined {
-  return STREAK_BADGES.find((b) => b.id === id);
+  return ALL_BADGES.find((b) => b.id === id);
 }
 
-/** Every badge whose threshold `streak` (or longer) satisfies, in ascending order. */
+/** Every streak badge whose threshold `streak` (or longer) satisfies, in ascending order. */
 export function earnedBadgesForStreak(bestStreak: number): BadgeDef[] {
-  return STREAK_BADGES.filter((b) => bestStreak >= b.days);
+  return STREAK_BADGES.filter((b) => bestStreak >= b.threshold);
+}
+
+/** Every XP-rank badge whose threshold `level` (or higher) satisfies. */
+export function earnedBadgesForLevel(level: number): BadgeDef[] {
+  return XP_RANK_BADGES.filter((b) => level >= b.threshold);
+}
+
+/** Every LeetCode milestone badge whose threshold `solvedCount` (or more) satisfies. */
+export function earnedBadgesForSolvedCount(solvedCount: number): BadgeDef[] {
+  return LEETCODE_BADGES.filter((b) => solvedCount >= b.threshold);
 }

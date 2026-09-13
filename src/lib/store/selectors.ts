@@ -4,7 +4,15 @@ import { useMemo } from "react";
 import { useProgressStore } from "@/lib/store/progress";
 import { useMounted } from "@/lib/hooks/useMounted";
 import { getLevelProgress, type LevelProgress } from "@/lib/leveling";
-import { STREAK_BADGES, earnedBadgesForStreak, type BadgeDef } from "@/lib/badges";
+import {
+  STREAK_BADGES,
+  XP_RANK_BADGES,
+  LEETCODE_BADGES,
+  earnedBadgesForStreak,
+  earnedBadgesForLevel,
+  earnedBadgesForSolvedCount,
+  type BadgeDef,
+} from "@/lib/badges";
 
 /**
  * Single seam between UI components and the persisted progress store.
@@ -58,6 +66,40 @@ export function useBadgeStates(): BadgeState[] {
     const earnedIds = new Set(earnedBadgesForStreak(best).map((b) => b.id));
     return STREAK_BADGES.map((b) => ({ ...b, earned: earnedIds.has(b.id) }));
   }, [mounted, longestStreak]);
+}
+
+/** XP-rank badges annotated with earned/locked, in threshold order. */
+export function useRankBadgeStates(): BadgeState[] {
+  const xp = useProgressStore((s) => s.xp);
+  const mounted = useMounted();
+  return useMemo(() => {
+    const level = mounted ? getLevelProgress(xp).level : 1;
+    const earnedIds = new Set(earnedBadgesForLevel(level).map((b) => b.id));
+    return XP_RANK_BADGES.map((b) => ({ ...b, earned: earnedIds.has(b.id) }));
+  }, [mounted, xp]);
+}
+
+/** Number of LeetCode problems the user has marked solved. */
+export function useLeetcodeSolvedCount(): number {
+  const solved = useProgressStore((s) => s.solvedLeetcodeIds);
+  const mounted = useMounted();
+  return mounted ? solved.length : 0;
+}
+
+/** LeetCode problem-count milestone badges annotated with earned/locked. */
+export function useLeetcodeBadgeStates(): BadgeState[] {
+  const solvedCount = useLeetcodeSolvedCount();
+  return useMemo(() => {
+    const earnedIds = new Set(earnedBadgesForSolvedCount(solvedCount).map((b) => b.id));
+    return LEETCODE_BADGES.map((b) => ({ ...b, earned: earnedIds.has(b.id) }));
+  }, [solvedCount]);
+}
+
+/** ISO date a given badge id was earned, or null if it hasn't been. */
+export function useBadgeEarnedAt(badgeId: string): string | null {
+  const earnedAt = useProgressStore((s) => s.badgeEarnedAt[badgeId]);
+  const mounted = useMounted();
+  return mounted ? (earnedAt ?? null) : null;
 }
 
 /** Badge ids the store has already recorded as earned (persisted, used to

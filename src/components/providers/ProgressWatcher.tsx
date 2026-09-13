@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useProgressStore } from "@/lib/store/progress";
 import { useToastStore } from "@/lib/store/toast";
 import { useMounted } from "@/lib/hooks/useMounted";
-import { earnedBadgesForStreak } from "@/lib/badges";
+import { earnedBadgesForStreak, earnedBadgesForSolvedCount } from "@/lib/badges";
 import { getLevelProgress } from "@/lib/leveling";
 
 /**
@@ -23,6 +23,7 @@ export default function ProgressWatcher() {
   const longestStreak = useProgressStore((s) => s.longestStreak);
   const earnedBadgeIds = useProgressStore((s) => s.earnedBadgeIds);
   const acknowledgeBadges = useProgressStore((s) => s.acknowledgeBadges);
+  const solvedLeetcodeCount = useProgressStore((s) => s.solvedLeetcodeIds.length);
   const xp = useProgressStore((s) => s.xp);
   const push = useToastStore((s) => s.push);
 
@@ -36,7 +37,10 @@ export default function ProgressWatcher() {
   // Badge unlock detection
   useEffect(() => {
     if (!mounted) return;
-    const nowEarned = earnedBadgesForStreak(longestStreak);
+    const nowEarned = [
+      ...earnedBadgesForStreak(longestStreak),
+      ...earnedBadgesForSolvedCount(solvedLeetcodeCount),
+    ];
     const newlyEarned = nowEarned.filter((b) => !earnedBadgeIds.includes(b.id));
     if (newlyEarned.length === 0) return;
 
@@ -50,7 +54,7 @@ export default function ProgressWatcher() {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mounted, longestStreak, earnedBadgeIds]);
+  }, [mounted, longestStreak, solvedLeetcodeCount, earnedBadgeIds]);
 
   // Level-up detection
   useEffect(() => {

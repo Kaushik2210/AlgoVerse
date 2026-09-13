@@ -273,6 +273,40 @@ body {
   animation: page-in 0.35s ease both;
 }
 
+/* Badge plate animations — hex-shield achievement plates (BadgePlate.tsx).
+   Shared here rather than per-instance <style> tags so every plate on a
+   page (badge case grid, certificate page) reuses one set of keyframes. */
+.badge-particle {
+  animation: badge-drift 6s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes badge-drift {
+  0%, 100% { transform: translateY(0) scale(1); opacity: var(--pop, 0.7); }
+  50% { transform: translateY(-6px) scale(1.15); opacity: 1; }
+}
+.badge-sheen {
+  animation: badge-sweep 3.4s ease-in-out infinite;
+}
+@keyframes badge-sweep {
+  0% { transform: translate(-140px, -140px) rotate(24deg); opacity: 0; }
+  35% { opacity: 0.9; }
+  55% { opacity: 0; }
+  100% { transform: translate(140px, 140px) rotate(24deg); opacity: 0; }
+}
+.badge-icon-pulse {
+  animation: badge-pulse 2.6s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes badge-pulse {
+  0%, 100% { filter: drop-shadow(0 0 2px currentColor); }
+  50% { filter: drop-shadow(0 0 7px currentColor); }
+}
+.badge-plate-locked .badge-sheen,
+.badge-plate-locked .badge-icon-pulse,
+.badge-plate-locked .badge-particle {
+  animation: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
