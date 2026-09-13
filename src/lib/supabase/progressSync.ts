@@ -76,3 +76,37 @@ export async function pushProgress(
     console.error("[progressSync] push failed:", error.message);
   }
 }
+
+export interface EarnedBadgeEntry {
+  badgeId: string;
+  /** ISO date/timestamp the badge was first earned locally. */
+  earnedAt: string;
+}
+
+/**
+ * Records newly-earned badges into the permanent `earned_badges` table —
+ * the source of truth for the public /c/[username]/[badgeId] certificate
+ * pages (see supabase/migrations/0003_public_certificates.sql). Upserts with
+ * `ignoreDuplicates` so it's safe to call repeatedly (e.g. a full backfill on
+ * every sign-in) without ever overwriting a badge's real original earn date.
+ */
+export async function pushEarnedBadges(
+  supabase: SupabaseClient,
+  userId: string,
+  entries: EarnedBadgeEntry[]
+): Promise<void> {
+  if (entries.length === 0) return;
+
+  const { error } = await supabase.from("earned_badges").upsert(
+    entries.map((e) => ({
+      user_id: userId,
+      badge_id: e.badgeId,
+      earned_at: e.earnedAt,
+    })),
+    { onConflict: "user_id,badge_id", ignoreDuplicates: true }
+  );
+
+  if (error) {
+    console.error("[progressSync] earned badge push failed:", error.message);
+  }
+}
