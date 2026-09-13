@@ -4,6 +4,8 @@ import "./globals.css";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import ParticleField from "@/components/ui/ParticleField";
 import TopBar from "@/components/navigation/TopBar";
+import ToastHost from "@/components/ui/ToastHost";
+import ProgressWatcher from "@/components/providers/ProgressWatcher";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -39,6 +41,8 @@ export default function RootLayout({
             aria-hidden="true"
             className="hud-grid pointer-events-none fixed inset-0 -z-10 opacity-40"
           />
+          <ProgressWatcher />
+          <ToastHost />
           <TopBar />
           <div className="flex-1 flex flex-col">{children}</div>
         </ThemeProvider>
