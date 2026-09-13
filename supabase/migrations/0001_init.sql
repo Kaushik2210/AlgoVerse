@@ -25,19 +25,40 @@ create policy "profiles are updatable by owner"
   with check (auth.uid() = id);
 
 -- Auto-create a profile row whenever a new auth user signs up.
+-- Handles a username collision by retrying with a numeric suffix instead of
+-- letting the whole signup fail with "Database error saving new user".
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
 security definer set search_path = public
 as $$
+declare
+  base_username text;
+  candidate_username text;
+  attempt int := 0;
 begin
-  insert into public.profiles (id, username, display_name)
-  values (
-    new.id,
-    coalesce(new.raw_user_meta_data ->> 'username', split_part(new.email, '@', 1)),
-    coalesce(new.raw_user_meta_data ->> 'username', split_part(new.email, '@', 1))
-  )
-  on conflict (id) do nothing;
+  base_username := coalesce(
+    nullif(trim(new.raw_user_meta_data ->> 'username'), ''),
+    split_part(new.email, '@', 1)
+  );
+  candidate_username := base_username;
+
+  loop
+    begin
+      insert into public.profiles (id, username, display_name)
+      values (new.id, candidate_username, base_username)
+      on conflict (id) do nothing;
+      exit;
+    exception when unique_violation then
+      attempt := attempt + 1;
+      candidate_username := base_username || attempt::text;
+      if attempt > 50 then
+        -- Give up trying to be pretty and fall back to something guaranteed unique.
+        candidate_username := base_username || '_' || replace(new.id::text, '-', '');
+      end if;
+    end;
+  end loop;
+
   return new;
 end;
 $$;
@@ -50,8 +71,7 @@ create trigger on_auth_user_created
 -- 2. progress -----------------------------------------------------------
 -- One row per user. Mirrors the shape of the local Zustand store
 -- (src/lib/store/progress.ts) directly, including modules and the activity
--- log as jsonb, so the whole row can be read/written in a single round trip
--- instead of syncing many tiny per-module or per-event rows.
+-- log as jsonb, so the whole thing round-trips in a single upsert.
 create table if not exists public.progress (
   user_id uuid primary key references auth.users (id) on delete cascade,
   xp integer not null default 0,
@@ -59,9 +79,7 @@ create table if not exists public.progress (
   longest_streak integer not null default 0,
   last_activity_date date,
   earned_badge_ids text[] not null default '{}',
-  -- Record<slug, { percent, completed, quizScore?, quizTotal?, lastVisited? }>
   modules jsonb not null default '{}'::jsonb,
-  -- ActivityEvent[] — { date, type, amount, label? }
   activity_log jsonb not null default '[]'::jsonb,
   updated_at timestamptz not null default now()
 );
@@ -86,11 +104,9 @@ create policy "progress is deletable by owner"
   using (auth.uid() = user_id);
 
 -- 3. module_progress ------------------------------------------------------
--- Optional normalized breakdown, kept alongside the jsonb `modules` column
--- on `progress` for anyone who wants to query/report per-module completion
--- with SQL (e.g. "how many users finished arrays"). The app itself reads
--- and writes the jsonb column as the source of truth; this table is not
--- required for the sync flow to work.
+-- Normalized per-module rows, mainly useful for SQL-side reporting. The
+-- app's own sync path treats the jsonb `modules` column above as the
+-- source of truth; this table is optional/supplementary.
 create table if not exists public.module_progress (
   user_id uuid not null references auth.users (id) on delete cascade,
   module_id text not null,
@@ -121,7 +137,6 @@ create policy "module_progress is deletable by owner"
   on public.module_progress for delete
   using (auth.uid() = user_id);
 
--- Keep updated_at fresh on every write.
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
