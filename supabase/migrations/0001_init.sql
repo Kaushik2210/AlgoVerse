@@ -1,5 +1,7 @@
 -- AlgoVerse cloud progress sync — initial schema
 -- Run this once in the Supabase SQL editor (Project -> SQL Editor -> New query).
+-- Every statement here is safe to re-run: tables use IF NOT EXISTS, policies
+-- are dropped-then-recreated, and functions use CREATE OR REPLACE.
 
 -- 1. profiles ---------------------------------------------------------------
 create table if not exists public.profiles (
@@ -11,14 +13,17 @@ create table if not exists public.profiles (
 
 alter table public.profiles enable row level security;
 
+drop policy if exists "profiles are viewable by owner" on public.profiles;
 create policy "profiles are viewable by owner"
   on public.profiles for select
   using (auth.uid() = id);
 
+drop policy if exists "profiles are insertable by owner" on public.profiles;
 create policy "profiles are insertable by owner"
   on public.profiles for insert
   with check (auth.uid() = id);
 
+drop policy if exists "profiles are updatable by owner" on public.profiles;
 create policy "profiles are updatable by owner"
   on public.profiles for update
   using (auth.uid() = id)
@@ -86,19 +91,23 @@ create table if not exists public.progress (
 
 alter table public.progress enable row level security;
 
+drop policy if exists "progress is viewable by owner" on public.progress;
 create policy "progress is viewable by owner"
   on public.progress for select
   using (auth.uid() = user_id);
 
+drop policy if exists "progress is insertable by owner" on public.progress;
 create policy "progress is insertable by owner"
   on public.progress for insert
   with check (auth.uid() = user_id);
 
+drop policy if exists "progress is updatable by owner" on public.progress;
 create policy "progress is updatable by owner"
   on public.progress for update
   using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
 
+drop policy if exists "progress is deletable by owner" on public.progress;
 create policy "progress is deletable by owner"
   on public.progress for delete
   using (auth.uid() = user_id);
@@ -120,19 +129,23 @@ create table if not exists public.module_progress (
 
 alter table public.module_progress enable row level security;
 
+drop policy if exists "module_progress is viewable by owner" on public.module_progress;
 create policy "module_progress is viewable by owner"
   on public.module_progress for select
   using (auth.uid() = user_id);
 
+drop policy if exists "module_progress is insertable by owner" on public.module_progress;
 create policy "module_progress is insertable by owner"
   on public.module_progress for insert
   with check (auth.uid() = user_id);
 
+drop policy if exists "module_progress is updatable by owner" on public.module_progress;
 create policy "module_progress is updatable by owner"
   on public.module_progress for update
   using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
 
+drop policy if exists "module_progress is deletable by owner" on public.module_progress;
 create policy "module_progress is deletable by owner"
   on public.module_progress for delete
   using (auth.uid() = user_id);
