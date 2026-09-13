@@ -39,6 +39,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
         password,
         options: {
           data: username.trim() ? { username: username.trim() } : undefined,
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
         },
       });
 
