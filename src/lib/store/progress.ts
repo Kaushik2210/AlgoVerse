@@ -43,6 +43,22 @@ interface ProgressState {
    * XP bonus. Called once by the badge-unlock watcher after it decides
    * which thresholds were freshly crossed. */
   acknowledgeBadges: (ids: string[]) => void;
+  /** Overwrites local progress with a snapshot pulled from Supabase.
+   * Used only by the cloud-sync layer (SupabaseSyncProvider) right after a
+   * user signs in on a device whose remote row already has data. */
+  hydrateFromRemote: (snapshot: RemoteProgressSnapshot) => void;
+}
+
+/** Plain-object shape synced to/from the Supabase `progress` table — a
+ * subset of ProgressState with just the fields that live server-side. */
+export interface RemoteProgressSnapshot {
+  xp: number;
+  streak: number;
+  longestStreak: number;
+  lastActiveDate: string | null;
+  modules: Record<string, ModuleProgress>;
+  activityLog: ActivityEvent[];
+  earnedBadgeIds: string[];
 }
 
 const XP_PER_MODULE = 100;
@@ -189,6 +205,17 @@ export const useProgressStore = create<ProgressState>()(
             xp: s.xp + bonusXp,
             activityLog: log,
           };
+        }),
+
+      hydrateFromRemote: (snapshot) =>
+        set({
+          xp: snapshot.xp,
+          streak: snapshot.streak,
+          longestStreak: snapshot.longestStreak,
+          lastActiveDate: snapshot.lastActiveDate,
+          modules: snapshot.modules,
+          activityLog: snapshot.activityLog,
+          earnedBadgeIds: snapshot.earnedBadgeIds,
         }),
     }),
     {

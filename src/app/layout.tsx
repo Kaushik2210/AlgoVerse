@@ -6,6 +6,8 @@ import ParticleField from "@/components/ui/ParticleField";
 import TopBar from "@/components/navigation/TopBar";
 import ToastHost from "@/components/ui/ToastHost";
 import ProgressWatcher from "@/components/providers/ProgressWatcher";
+import AuthProvider from "@/components/providers/AuthProvider";
+import SupabaseSyncProvider from "@/components/providers/SupabaseSyncProvider";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -41,6 +43,8 @@ export default function RootLayout({
             aria-hidden="true"
             className="hud-grid pointer-events-none fixed inset-0 -z-10 opacity-40"
           />
+          <AuthProvider />
+          <SupabaseSyncProvider />
           <ProgressWatcher />
           <ToastHost />
           <TopBar />
