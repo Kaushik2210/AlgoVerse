@@ -179,6 +179,24 @@ export function badgeById(id: string): BadgeDef | undefined {
   return ALL_BADGES.find((b) => b.id === id);
 }
 
+export type BadgeCategory = "streak" | "rank" | "leetcode";
+
+export function badgeCategory(id: string): BadgeCategory {
+  if (id.startsWith("streak-")) return "streak";
+  if (id.startsWith("rank-")) return "rank";
+  return "leetcode";
+}
+
+/** The short center label a BadgePlate shows for this badge — a day/solved
+ * count for streak & LeetCode plates, a 4-letter rank code for rank plates.
+ * Shared by the badge case, the OG image route, and certificate pages so
+ * all three render the exact same plate for a given badge id. */
+export function plateValue(badge: BadgeDef): string {
+  return badgeCategory(badge.id) === "rank"
+    ? badge.name.slice(0, 4).toUpperCase()
+    : String(badge.threshold);
+}
+
 /** Every streak badge whose threshold `streak` (or longer) satisfies, in ascending order. */
 export function earnedBadgesForStreak(bestStreak: number): BadgeDef[] {
   return STREAK_BADGES.filter((b) => bestStreak >= b.threshold);
