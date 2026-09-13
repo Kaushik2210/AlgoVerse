@@ -2,15 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Copy, Check, Download, Share2, BadgePlus } from "lucide-react";
-import { useProgressStore } from "@/lib/store/progress";
-import { useAuthStore } from "@/lib/store/auth";
-import { useBadgeEarnedAt } from "@/lib/store/selectors";
 import { badgeById } from "@/lib/badges";
-import { useMounted } from "@/lib/hooks/useMounted";
-
-function todayISO() {
-  return new Date().toISOString().slice(0, 10);
-}
 
 function formatDate(iso: string) {
   const d = new Date(iso);
@@ -20,58 +12,43 @@ function formatDate(iso: string) {
 
 interface Props {
   badgeId: string;
+  /** The certificate owner's real username, as resolved server-side from
+   * the public.certificate_badges view — never trusted from a URL param. */
+  username: string;
+  /** Display name to show on the certificate (profiles.display_name, or
+   * the username if none is set). */
+  earnedName: string;
+  /** ISO date/timestamp the badge was actually earned, per the database. */
+  earnedAt: string;
   siteUrl: string;
-  initialName: string | null;
-  initialDate: string | null;
 }
 
 /**
- * Client-side share controls for a certificate page. This site has no
- * server-side user profiles for anonymous visitors to read, so a
- * certificate's "name"/"date earned" are carried entirely in the URL's
- * query string — this component fills those in from the *local* browser's
- * progress store when the visitor is the badge's actual owner (i.e. it's
- * one of their own earnedBadgeIds), and lets them copy a link/PNG that
- * bakes those values in for anyone else who opens it.
+ * Share controls for a certificate page. Every value here is already
+ * database-verified by the server component that renders this (see
+ * src/app/c/[username]/[badgeId]/page.tsx) — this component only builds
+ * share links/images from it, it never reads local progress or URL query
+ * params for identity.
  */
-export default function CertificateActions({ badgeId, siteUrl, initialName, initialDate }: Props) {
-  const mounted = useMounted();
-  const earned = useProgressStore((s) => s.earnedBadgeIds.includes(badgeId));
-  const earnedAt = useBadgeEarnedAt(badgeId);
-  const user = useAuthStore((s) => s.user);
+export default function CertificateActions({ badgeId, username, earnedName, earnedAt, siteUrl }: Props) {
   const badge = badgeById(badgeId);
-
-  const ownerDefaultName =
-    (user?.user_metadata?.full_name as string | undefined) ||
-    (user?.user_metadata?.name as string | undefined) ||
-    user?.email?.split("@")[0] ||
-    "AlgoVerse User";
-
-  const [name, setName] = useState(initialName ?? "");
   const [copied, setCopied] = useState(false);
 
-  const isOwner = mounted && earned && !initialName;
-  const effectiveName = initialName ?? (name || (isOwner ? ownerDefaultName : "AlgoVerse User"));
-  const effectiveDate = initialDate ?? earnedAt ?? todayISO();
-
-  const shareUrl = useMemo(() => {
-    const url = new URL(`/c/${badgeId}`, siteUrl);
-    if (effectiveName) url.searchParams.set("name", effectiveName);
-    if (effectiveDate) url.searchParams.set("date", effectiveDate);
-    return url.toString();
-  }, [badgeId, siteUrl, effectiveName, effectiveDate]);
+  const shareUrl = useMemo(
+    () => new URL(`/c/${username}/${badgeId}`, siteUrl).toString(),
+    [username, badgeId, siteUrl]
+  );
 
   const ogImage = useMemo(() => {
     const url = new URL("/api/og/badge", siteUrl);
-    url.searchParams.set("slug", badgeId);
-    if (effectiveName) url.searchParams.set("name", effectiveName);
-    if (effectiveDate) url.searchParams.set("date", effectiveDate);
+    url.searchParams.set("username", username);
+    url.searchParams.set("badgeId", badgeId);
     return url.toString();
-  }, [badgeId, siteUrl, effectiveName, effectiveDate]);
+  }, [username, badgeId, siteUrl]);
 
   const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
 
-  const issueDate = new Date(effectiveDate);
+  const issueDate = new Date(earnedAt);
   const addToProfileUrl = badge
     ? `https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=${encodeURIComponent(
         `${badge.name} — AlgoVerse`
@@ -87,28 +64,16 @@ export default function CertificateActions({ badgeId, siteUrl, initialName, init
       setTimeout(() => setCopied(false), 1800);
     } catch {
       // Clipboard API unavailable (e.g. insecure context) — no-op, the
-      // link is still visible/selectable in the input below.
+      // link is still visible/selectable below.
     }
   }
 
   return (
     <div className="mt-8 flex flex-col gap-4 border-t border-[#1c2030] pt-6">
       <p className="text-xs text-[#8b93a8]">
-        Issued to <span className="text-[#eef1f8] font-medium">{effectiveName}</span> ·{" "}
-        {formatDate(effectiveDate)}
+        Issued to <span className="text-[#eef1f8] font-medium">{earnedName}</span> ·{" "}
+        {formatDate(earnedAt)}
       </p>
-
-      {isOwner && (
-        <label className="flex flex-col gap-1 text-xs text-[#8b93a8]">
-          Name on certificate
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder={ownerDefaultName}
-            className="rounded-lg border border-[#1c2030] bg-[#08090d] px-3 py-2 text-sm text-[#eef1f8] outline-none focus:border-[#00e5ff]/60"
-          />
-        </label>
-      )}
 
       <div className="flex flex-wrap gap-2">
         <a

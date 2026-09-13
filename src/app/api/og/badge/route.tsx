@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { badgeById, plateValue, type PlateTier } from "@/lib/badges";
+import { createClient } from "@/lib/supabase/server";
 
 export const runtime = "edge";
 
@@ -37,35 +38,58 @@ function formatDate(iso: string | null): string {
   return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
+function notFoundImage(message: string) {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#08090d",
+          color: "#8b93a8",
+          fontSize: 32,
+        }}
+      >
+        {message}
+      </div>
+    ),
+    { width: 1200, height: 630 }
+  );
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const slug = searchParams.get("slug") ?? "";
-  const badge = badgeById(slug);
+  const username = searchParams.get("username") ?? "";
+  const badgeId = searchParams.get("badgeId") ?? "";
+  const badge = badgeById(badgeId);
 
-  if (!badge) {
-    return new ImageResponse(
-      (
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "#08090d",
-            color: "#8b93a8",
-            fontSize: 32,
-          }}
-        >
-          Badge not found
-        </div>
-      ),
-      { width: 1200, height: 630 }
-    );
+  if (!badge || !username) {
+    return notFoundImage("Badge not found");
   }
 
-  const name = searchParams.get("name") || "AlgoVerse User";
-  const date = formatDate(searchParams.get("date"));
+  // The WHO/WHEN must be database-verified — never trusted from query
+  // params — so this looks the certificate up through the same public
+  // certificate_badges view the certificate page itself reads (see
+  // supabase/migrations/0003_public_certificates.sql). The badge's visual
+  // tier/gradient/icon below still comes from the static badges.ts
+  // definitions, which isn't sensitive data.
+  const supabase = await createClient();
+  const { data: cert } = await supabase
+    .from("certificate_badges")
+    .select("username, display_name, badge_id, earned_at")
+    .eq("username", username)
+    .eq("badge_id", badgeId)
+    .maybeSingle();
+
+  if (!cert) {
+    return notFoundImage("Certificate not found");
+  }
+
+  const name = cert.display_name || cert.username || "AlgoVerse User";
+  const date = formatDate(cert.earned_at);
   const value = plateValue(badge);
   const accent = TIER_ACCENT[badge.tier];
   const [g1, g2, g3] = TIER_GRADIENT_STOPS[badge.tier];
