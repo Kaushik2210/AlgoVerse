@@ -14,6 +14,7 @@ import {
   type BadgeState,
 } from "@/lib/store/selectors";
 import { cn } from "@/lib/utils";
+import { plateValue } from "@/lib/badges";
 
 /** Achievement showcase — the "badge case". Locked plates render as a
  * dimmed hex-shield silhouette; earned ones light up in their tier's
@@ -40,30 +41,14 @@ export default function BadgeCase() {
         </span>
       </div>
 
-      <BadgeRow label="Streak plates" badges={streakBadges} valueOf={(b) => String(b.threshold)} />
-      <BadgeRow
-        label="Rank plates"
-        badges={rankBadges}
-        valueOf={(b) => b.name.slice(0, 4).toUpperCase()}
-      />
-      <BadgeRow
-        label="LeetCode plates"
-        badges={leetcodeBadges}
-        valueOf={(b) => String(b.threshold)}
-      />
+      <BadgeRow label="Streak plates" badges={streakBadges} />
+      <BadgeRow label="Rank plates" badges={rankBadges} />
+      <BadgeRow label="LeetCode plates" badges={leetcodeBadges} />
     </GlassCard>
   );
 }
 
-function BadgeRow({
-  label,
-  badges,
-  valueOf,
-}: {
-  label: string;
-  badges: BadgeState[];
-  valueOf: (b: BadgeState) => string;
-}) {
+function BadgeRow({ label, badges }: { label: string; badges: BadgeState[] }) {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-[10px] font-mono-data uppercase tracking-widest text-text-muted">
@@ -71,7 +56,7 @@ function BadgeRow({
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {badges.map((badge, i) => (
-          <BadgeSlot key={badge.id} badge={badge} value={valueOf(badge)} index={i} />
+          <BadgeSlot key={badge.id} badge={badge} value={plateValue(badge)} index={i} />
         ))}
       </div>
     </div>
