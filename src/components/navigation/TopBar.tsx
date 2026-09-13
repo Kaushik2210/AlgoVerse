@@ -1,27 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Flame, Moon, Sun, Orbit, Code2 } from "lucide-react";
+import { Flame, Moon, Sun, Orbit, Code2, LayoutDashboard } from "lucide-react";
 import CommandPalette from "@/components/ui/CommandPalette";
 import { useThemeStore } from "@/lib/store/theme";
-import { useProgressStore } from "@/lib/store/progress";
+import { useStreakInfo, useLevelProgress } from "@/lib/store/selectors";
 import { useMounted } from "@/lib/hooks/useMounted";
 
 export default function TopBar() {
   const theme = useThemeStore((s) => s.theme);
   const toggleTheme = useThemeStore((s) => s.toggleTheme);
-  const streak = useProgressStore((s) => s.streak);
-  const touchStreak = useProgressStore((s) => s.touchStreak);
+  const { streak } = useStreakInfo();
+  const level = useLevelProgress();
   const mounted = useMounted();
   const pathname = usePathname();
   const onLeetCode = pathname?.startsWith("/leetcode");
-
-  useEffect(() => {
-    touchStreak();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const onDashboard = pathname?.startsWith("/dashboard");
 
   return (
     <header className="sticky top-0 z-40 glass border-b border-glass-border-token">
@@ -39,6 +34,21 @@ export default function TopBar() {
 
         <div className="flex items-center gap-3">
           <Link
+            href="/dashboard"
+            title={`Level ${level.level} · ${level.rank}`}
+            className={`hidden md:flex items-center gap-2 rounded-lg border px-2.5 py-1.5 text-xs font-mono-data transition-colors ${
+              onDashboard
+                ? "border-violet/60 text-violet bg-violet/10"
+                : "border-glass-border-token text-text-muted hover:text-violet hover:border-violet/40"
+            }`}
+          >
+            <LayoutDashboard size={14} />
+            <span>Lv.{mounted ? level.level : 1}</span>
+            <span className="hidden lg:inline text-[10px] uppercase tracking-wide opacity-80">
+              {mounted ? level.rank : "Recruit"}
+            </span>
+          </Link>
+          <Link
             href="/leetcode"
             className={`hidden sm:flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-mono-data transition-colors ${
               onLeetCode
@@ -49,13 +59,14 @@ export default function TopBar() {
             <Code2 size={14} />
             LeetCode
           </Link>
-          <div
-            className="flex items-center gap-1.5 rounded-lg border border-glass-border-token px-2.5 py-1.5 text-xs font-mono-data"
-            title="Daily streak"
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-1.5 rounded-lg border border-glass-border-token px-2.5 py-1.5 text-xs font-mono-data hover:border-amber/40 hover:text-amber transition-colors"
+            title="Daily streak — view dashboard"
           >
             <Flame size={14} className="text-amber" />
             <span>{mounted ? streak : 0}</span>
-          </div>
+          </Link>
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"

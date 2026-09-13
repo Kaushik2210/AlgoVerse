@@ -22,6 +22,13 @@ export const NAV_ITEMS: NavItem[] = [
     description: "UI component showcase",
   },
   {
+    slug: "dashboard",
+    title: "Dashboard",
+    href: "/dashboard",
+    category: "page",
+    description: "Level, XP, streak badges, and your activity heatmap",
+  },
+  {
     slug: "arrays",
     title: "Arrays & Sorting",
     href: "/dsa/arrays",
