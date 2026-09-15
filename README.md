@@ -1,5 +1,7 @@
 # AlgoVerse
 
+**[Live demo →](https://algoverse-lovat-seven.vercel.app)**
+
 A data structures & algorithms learning app that actually looks like a product, not a
 tutorial site. Dark-mode-first, glassy HUD aesthetic, and every visualization is driven
 by a single reusable step-sequence engine instead of one-off animations per topic.
@@ -21,6 +23,8 @@ amber = found/target).
 - **Framer Motion** — page transitions and micro-interactions
 - **Custom SVG/Canvas** — the visualizer engine itself, no charting library
 - **Zustand** — playback state + progress tracking, persisted to `localStorage`
+- **Supabase** — auth (email/password) and Postgres-backed gamification (XP, badges,
+  streaks, solved-problem tracking, leaderboard)
 - **Lucide React** — icons
 - **next/font** — Sora (body/UI) + JetBrains Mono (code/data labels)
 - **Shiki** — syntax highlighting for static code panels
@@ -29,6 +33,21 @@ amber = found/target).
 
 ```bash
 npm install
+```
+
+Create a [Supabase](https://supabase.com) project, then add a `.env.local` with:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+Run the migrations in `supabase/migrations/` against that project (via the Supabase SQL
+editor, or the Supabase CLI) — they set up auth triggers, badge/certificate tables,
+solved-problem tracking, and the leaderboard. Without this, the site still runs, but
+sign-in, XP/badges, and the leaderboard won't work.
+
+```bash
 npm run dev
 ```
 
@@ -164,14 +183,20 @@ src/
     comparison and swap counters per algorithm. All six verified to
     produce a correctly sorted array independent of the
     step-sequence/visualization code.
-- Nine pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
+- Thirteen pattern pages: **Two Pointers**, **Sliding Window**, **Tree BFS**,
   **Fast & Slow Pointers**, **Monotonic Stack**, **Merge Intervals**, **Top K
-  Elements**, **Modified Binary Search**, **Subsets (Backtracking)** —
+  Elements**, **Modified Binary Search**, **Subsets (Backtracking)**, **Bit
+  Manipulation**, **Two Heaps**, **Cyclic Sort**, **K-way Merge** —
   recognition signals, a visual blueprint, an annotated code template, and
   curated LeetCode problems.
+- **635+ LeetCode solutions** — full approach write-ups plus Python, Java & C++
+  code for every problem, searchable by number or title, with per-problem
+  solved tracking synced to your account.
+- **Real auth + gamification (Supabase-backed)** — email/password auth, XP and
+  levels, unlockable badges with shareable certificate pages, daily streaks,
+  a GitHub-style activity heatmap, and a global leaderboard.
 - **Mission Map** — collapsible skill-tree sidebar tracking per-module progress.
 - **Command palette** (`Ctrl/Cmd K`) to jump to any structure, pattern, or page.
-- Progress/XP/streak tracking persisted locally via Zustand.
 - Light/dark theme toggle, `prefers-reduced-motion` support, keyboard-navigable
   visualizer controls.
 
@@ -185,25 +210,21 @@ quietly dropped:
 - **N-ary trees** — a minor omission. Every other tree variant (BST, AVL,
   Red-Black, Segment, Fenwick) is built; general N-ary trees were never
   circled back to.
-- **The rest of the pattern library** — 9 patterns are built (Two Pointers,
+- **The rest of the pattern library** — 13 patterns are built (Two Pointers,
   Sliding Window, Tree BFS, Fast & Slow Pointers, Monotonic Stack, Merge
-  Intervals, Top K Elements, Modified Binary Search, Subsets/Backtracking).
-  Roughly 20 more from the standard LeetCode pattern list, mostly
-  DP-focused, are not started.
+  Intervals, Top K Elements, Modified Binary Search, Subsets/Backtracking,
+  Bit Manipulation, Two Heaps, Cyclic Sort, K-way Merge). Roughly a dozen
+  more from the standard LeetCode pattern list, mostly DP-focused, are not
+  started.
 - **Monaco-based live code editor** — code panels are static,
   syntax-highlighted (Shiki), not editable/runnable.
 - **KaTeX** for formal complexity proofs — complexity is currently shown as
   plain tables + prose, not rendered math notation.
-- **Recharts-based analytics/heatmap dashboard** — progress tracking exists
-  (Zustand + localStorage, Mission Map, ProgressRing) but there's no charted
-  history or activity heatmap view.
 - **Audio/sound design toggle** — not implemented; there is no sound in the
   app at all yet.
-- **Multi-language code snippets** — every code panel is JavaScript only.
-- **Gamified "boss battle" challenge mode** — XP/streak tracking exists as
-  a foundation, but there's no distinct challenge-mode game loop built on
-  top of it.
-
-## Screenshots
-
-_Coming soon._
+- **Multi-language code snippets** — the DSA/pattern visualizer code panels
+  are JavaScript only (the LeetCode vault already has Python, Java & C++ per
+  problem).
+- **Gamified "boss battle" challenge mode** — XP/streak tracking and a
+  leaderboard exist as a foundation, but there's no distinct challenge-mode
+  game loop built on top of it.
