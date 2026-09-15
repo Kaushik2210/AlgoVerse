@@ -1,6 +1,7 @@
 {
   "name": "algoverse",
   "version": "0.1.0",
+  "description": "A sci-fi HUD styled data structures & algorithms visualizer and interview-prep platform, with step-through visualizations, a 635+ problem LeetCode vault, and Supabase-backed gamification.",
   "private": true,
   "scripts": {
     "predev": "node scripts/generate-leetcode-index.mjs",
