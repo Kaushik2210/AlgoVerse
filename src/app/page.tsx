@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import {
   ArrowRight,
-  Radar,
+  Sparkles,
   Boxes,
   GitBranch,
   Waypoints,
@@ -106,7 +106,9 @@ export default function Home() {
       <section className="relative flex flex-col items-center text-center px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
         <div data-hero-badge className="flex items-center gap-2 mb-6">
           <Badge variant="cyan">
-            <Radar size={11} className="mr-1 inline" /> now in scoped preview
+            <Sparkles size={11} className="mr-1 inline" />
+            {STRUCTURE_ITEMS.length + PATTERN_ITEMS.length} topics ·{" "}
+            {leetcodeIndex.length}+ problems solved
           </Badge>
         </div>
 
