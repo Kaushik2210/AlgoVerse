@@ -2,7 +2,7 @@ export interface NavItem {
   slug: string;
   title: string;
   href: string;
-  category: "structure" | "pattern" | "page" | "leetcode";
+  category: "structure" | "pattern" | "page" | "leetcode" | "leaderboard";
   description: string;
 }
 
@@ -272,6 +272,13 @@ export const NAV_ITEMS: NavItem[] = [
     href: "/leetcode",
     category: "leetcode",
     description: "Every solved problem, fully explained, with Python/Java/C++ solutions",
+  },
+  {
+    slug: "leaderboard",
+    title: "Leaderboard",
+    href: "/leaderboard",
+    category: "leaderboard",
+    description: "Top operatives, ranked by XP, streak, and problems solved",
   },
 ];
 

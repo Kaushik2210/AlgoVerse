@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Search, CornerDownLeft, Component, Waypoints, FileText, Code2 } from "lucide-react";
+import { Search, CornerDownLeft, Component, Waypoints, FileText, Code2, Trophy } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/nav";
 import { leetcodeIndex } from "@/lib/leetcode-index";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,7 @@ const iconFor = {
   pattern: Waypoints,
   page: FileText,
   leetcode: Code2,
+  leaderboard: Trophy,
 };
 
 /** Command palette entries synthesized from the generated LeetCode index —

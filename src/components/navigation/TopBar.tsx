@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Flame, Moon, Sun, Orbit, Code2, LayoutDashboard } from "lucide-react";
+import { Flame, Moon, Sun, Orbit, Code2, LayoutDashboard, Trophy } from "lucide-react";
 import CommandPalette from "@/components/ui/CommandPalette";
 import UserMenu from "@/components/navigation/UserMenu";
 import { useThemeStore } from "@/lib/store/theme";
@@ -18,6 +18,7 @@ export default function TopBar() {
   const pathname = usePathname();
   const onLeetCode = pathname?.startsWith("/leetcode");
   const onDashboard = pathname?.startsWith("/dashboard");
+  const onLeaderboard = pathname?.startsWith("/leaderboard");
 
   return (
     <header className="sticky top-0 z-40 glass border-b border-glass-border-token">
@@ -59,6 +60,17 @@ export default function TopBar() {
           >
             <Code2 size={14} />
             LeetCode
+          </Link>
+          <Link
+            href="/leaderboard"
+            className={`hidden sm:flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-mono-data transition-colors ${
+              onLeaderboard
+                ? "border-amber/60 text-amber bg-amber/10"
+                : "border-glass-border-token text-text-muted hover:text-amber hover:border-amber/40"
+            }`}
+          >
+            <Trophy size={14} />
+            Leaderboard
           </Link>
           <Link
             href="/dashboard"
