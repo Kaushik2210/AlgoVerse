@@ -1,13 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Search, Hash, ArrowUpRight } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import type { LeetCodeIndexEntry } from "@/lib/leetcode-index";
+import { useScrollReveal } from "@/lib/hooks/useScrollReveal";
 
 export default function LeetCodeBrowser({ problems }: { problems: LeetCodeIndexEntry[] }) {
   const [query, setQuery] = useState("");
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -19,6 +21,10 @@ export default function LeetCodeBrowser({ problems }: { problems: LeetCodeIndexE
         p.excerpt.toLowerCase().includes(q)
     );
   }, [problems, query]);
+
+  // Re-run the reveal whenever the filtered set changes (a new search) so
+  // freshly-filtered cards animate in instead of just appearing.
+  useScrollReveal(gridRef, "[data-reveal-card]", [filtered.length, query]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -41,29 +47,31 @@ export default function LeetCodeBrowser({ problems }: { problems: LeetCodeIndexE
           No problems match &ldquo;{query}&rdquo;.
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((p) => (
-            <Link key={p.slug} href={`/leetcode/${p.slug}`}>
-              <GlassCard
-                tilt
-                className="h-full flex flex-col gap-2.5 hover:border-cyan/40 transition-colors"
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <span className="inline-flex items-center gap-1 rounded-full border border-cyan/30 bg-cyan/10 px-2 py-0.5 text-[11px] font-mono-data text-cyan">
-                    <Hash size={10} />
-                    {p.number}
-                  </span>
-                  <ArrowUpRight
-                    size={15}
-                    className="text-text-muted shrink-0 transition-transform group-hover:translate-x-0.5"
-                  />
-                </div>
-                <p className="font-semibold text-sm leading-snug">{p.title}</p>
-                <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
-                  {p.excerpt}
-                </p>
-              </GlassCard>
-            </Link>
+            <div key={p.slug} data-reveal-card>
+              <Link href={`/leetcode/${p.slug}`}>
+                <GlassCard
+                  tilt
+                  className="h-full flex flex-col gap-2.5 hover:border-cyan/40 transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="inline-flex items-center gap-1 rounded-full border border-cyan/30 bg-cyan/10 px-2 py-0.5 text-[11px] font-mono-data text-cyan">
+                      <Hash size={10} />
+                      {p.number}
+                    </span>
+                    <ArrowUpRight
+                      size={15}
+                      className="text-text-muted shrink-0 transition-transform group-hover:translate-x-0.5"
+                    />
+                  </div>
+                  <p className="font-semibold text-sm leading-snug">{p.title}</p>
+                  <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
+                    {p.excerpt}
+                  </p>
+                </GlassCard>
+              </Link>
+            </div>
           ))}
         </div>
       )}

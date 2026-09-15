@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import {
   ArrowRight,
   Radar,
@@ -20,6 +20,9 @@ import Badge from "@/components/ui/Badge";
 import { STRUCTURE_ITEMS, PATTERN_ITEMS } from "@/lib/nav";
 import { leetcodeIndex } from "@/lib/leetcode-index";
 import { useProgressStore } from "@/lib/store/progress";
+import { gsap } from "@/lib/gsap";
+import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
+import { useScrollReveal } from "@/lib/hooks/useScrollReveal";
 
 const FEATURES = [
   {
@@ -41,46 +44,90 @@ const FEATURES = [
 
 export default function Home() {
   const modules = useProgressStore((s) => s.modules);
+  const reducedMotion = usePrefersReducedMotion();
+
+  const heroRef = useRef<HTMLDivElement>(null);
+  const structureGridRef = useRef<HTMLDivElement>(null);
+  const patternGridRef = useRef<HTMLDivElement>(null);
+
+  // Hero load sequence: a real GSAP timeline rather than uniform
+  // fade-ups — the badge and headline overlap slightly as they enter,
+  // the subheadline/CTA follow with their own easing, and the stat
+  // cards land last with a short stagger so the whole thing reads as
+  // one choreographed beat instead of four identical tweens.
+  useEffect(() => {
+    const root = heroRef.current;
+    if (!root) return;
+
+    if (reducedMotion) {
+      gsap.set(root.querySelectorAll("[data-hero-item], [data-hero-card]"), {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+      });
+      return;
+    }
+
+    const badge = root.querySelector("[data-hero-badge]");
+    const headline = root.querySelector("[data-hero-headline]");
+    const sub = root.querySelector("[data-hero-sub]");
+    const cta = root.querySelector("[data-hero-cta]");
+    const cards = root.querySelectorAll("[data-hero-card]");
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.set([badge, headline, sub, cta, cards], { opacity: 0 })
+        .fromTo(badge, { y: -8, scale: 0.9 }, { y: 0, scale: 1, opacity: 1, duration: 0.45 })
+        .fromTo(
+          headline,
+          { y: 26 },
+          { y: 0, opacity: 1, duration: 0.7, ease: "expo.out" },
+          "-=0.25"
+        )
+        .fromTo(sub, { y: 18 }, { y: 0, opacity: 1, duration: 0.55 }, "-=0.4")
+        .fromTo(cta, { y: 14 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.3")
+        .fromTo(
+          cards,
+          { y: 22, scale: 0.97 },
+          { y: 0, scale: 1, opacity: 1, duration: 0.5, stagger: 0.1 },
+          "-=0.2"
+        );
+    }, root);
+
+    return () => ctx.revert();
+  }, [reducedMotion]);
+
+  useScrollReveal(structureGridRef, "[data-reveal-card]");
+  useScrollReveal(patternGridRef, "[data-reveal-card]");
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={heroRef}>
       {/* Hero */}
       <section className="relative flex flex-col items-center text-center px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-2 mb-6"
-        >
+        <div data-hero-badge className="flex items-center gap-2 mb-6">
           <Badge variant="cyan">
             <Radar size={11} className="mr-1 inline" /> now in scoped preview
           </Badge>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
+        <h1
+          data-hero-headline
           className="font-mono-data text-4xl sm:text-6xl font-extrabold tracking-tight"
         >
           ALGO<span className="text-cyan text-glow-cyan">VERSE</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+        <p
+          data-hero-sub
           className="mt-5 max-w-xl text-text-muted text-base sm:text-lg"
         >
           Learn data structures &amp; algorithms the way they actually work — a real
           step-through visualizer, theory that doesn&apos;t waste your time, and a HUD
           that tracks what you&apos;ve actually mastered.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+        <div
+          data-hero-cta
           className="mt-8 flex flex-wrap items-center justify-center gap-3"
         >
           <Link href="/dsa/arrays">
@@ -91,14 +138,14 @@ export default function Home() {
           <Link href="/patterns/two-pointers">
             <Button variant="secondary">Explore Patterns</Button>
           </Link>
-        </motion.div>
+        </div>
       </section>
 
       {/* Feature strip */}
       <section className="px-6 pb-20">
         <div className="mx-auto max-w-5xl grid grid-cols-1 sm:grid-cols-3 gap-4">
           {FEATURES.map((f) => (
-            <GlassCard key={f.title} tilt className="flex flex-col gap-2">
+            <GlassCard key={f.title} tilt data-hero-card className="flex flex-col gap-2">
               <f.icon size={18} className="text-cyan" />
               <p className="font-semibold text-sm">{f.title}</p>
               <p className="text-xs text-text-muted leading-relaxed">{f.body}</p>
@@ -116,16 +163,17 @@ export default function Home() {
               Data Structures
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div ref={structureGridRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {STRUCTURE_ITEMS.map((item) => (
-              <ModuleCard
-                key={item.slug}
-                href={item.href}
-                title={item.title}
-                description={item.description}
-                percent={modules[item.slug]?.percent ?? 0}
-                icon={GitBranch}
-              />
+              <div key={item.slug} data-reveal-card>
+                <ModuleCard
+                  href={item.href}
+                  title={item.title}
+                  description={item.description}
+                  percent={modules[item.slug]?.percent ?? 0}
+                  icon={GitBranch}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -140,17 +188,18 @@ export default function Home() {
               Pattern Library
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div ref={patternGridRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {PATTERN_ITEMS.map((item) => (
-              <ModuleCard
-                key={item.slug}
-                href={item.href}
-                title={item.title}
-                description={item.description}
-                percent={modules[item.slug]?.percent ?? 0}
-                icon={Waypoints}
-                color="violet"
-              />
+              <div key={item.slug} data-reveal-card>
+                <ModuleCard
+                  href={item.href}
+                  title={item.title}
+                  description={item.description}
+                  percent={modules[item.slug]?.percent ?? 0}
+                  icon={Waypoints}
+                  color="violet"
+                />
+              </div>
             ))}
           </div>
         </div>
