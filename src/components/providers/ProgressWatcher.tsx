@@ -3,15 +3,18 @@
 import { useEffect, useRef } from "react";
 import { useProgressStore } from "@/lib/store/progress";
 import { useToastStore } from "@/lib/store/toast";
+import { useBadgeUnlockStore } from "@/lib/store/badgeUnlock";
 import { useMounted } from "@/lib/hooks/useMounted";
 import { earnedBadgesForStreak, earnedBadgesForSolvedCount } from "@/lib/badges";
 import { getLevelProgress } from "@/lib/leveling";
 
 /**
  * Mounted once at the app root. Ticks the daily streak, then watches for
- * two kinds of "moments" and fires a toast + unlock animation for each:
- *  - a streak crossing a badge threshold for the first time
- *  - XP crossing into a new level
+ * two kinds of "moments" and fires an unlock animation for each:
+ *  - a streak crossing a badge threshold for the first time — enqueued
+ *    onto useBadgeUnlockStore, which BadgeUnlockOverlay plays as a
+ *    theatrical full-screen sequence (a badge is the rarer, bigger moment)
+ *  - XP crossing into a new level — a regular toast
  *
  * All state reads go through useProgressStore directly here (this *is*
  * part of the store-access seam, alongside selectors.ts) — components
@@ -26,6 +29,7 @@ export default function ProgressWatcher() {
   const solvedLeetcodeCount = useProgressStore((s) => s.solvedLeetcodeIds.length);
   const xp = useProgressStore((s) => s.xp);
   const push = useToastStore((s) => s.push);
+  const enqueueBadgeUnlock = useBadgeUnlockStore((s) => s.enqueue);
 
   const prevLevel = useRef<number | null>(null);
 
@@ -45,14 +49,7 @@ export default function ProgressWatcher() {
     if (newlyEarned.length === 0) return;
 
     acknowledgeBadges(newlyEarned.map((b) => b.id));
-    for (const badge of newlyEarned) {
-      push({
-        title: `Badge unlocked: ${badge.name}`,
-        description: `${badge.description} +${badge.xpBonus} XP`,
-        variant: "amber",
-        icon: "badge",
-      });
-    }
+    enqueueBadgeUnlock(newlyEarned);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mounted, longestStreak, solvedLeetcodeCount, earnedBadgeIds]);
 

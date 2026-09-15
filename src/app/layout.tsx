@@ -5,6 +5,7 @@ import ThemeProvider from "@/components/providers/ThemeProvider";
 import ParticleField from "@/components/ui/ParticleField";
 import TopBar from "@/components/navigation/TopBar";
 import ToastHost from "@/components/ui/ToastHost";
+import BadgeUnlockOverlay from "@/components/badges/BadgeUnlockOverlay";
 import ProgressWatcher from "@/components/providers/ProgressWatcher";
 import AuthProvider from "@/components/providers/AuthProvider";
 import SupabaseSyncProvider from "@/components/providers/SupabaseSyncProvider";
@@ -47,6 +48,7 @@ export default function RootLayout({
           <SupabaseSyncProvider />
           <ProgressWatcher />
           <ToastHost />
+          <BadgeUnlockOverlay />
           <TopBar />
           <div className="flex-1 flex flex-col">{children}</div>
         </ThemeProvider>
