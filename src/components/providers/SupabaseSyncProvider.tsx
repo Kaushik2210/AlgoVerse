@@ -5,7 +5,15 @@ import { createClient } from "@/lib/supabase/client";
 import { useAuthStore } from "@/lib/store/auth";
 import { useProfileStore } from "@/lib/store/profile";
 import { useProgressStore, type RemoteProgressSnapshot } from "@/lib/store/progress";
-import { pullProgress, pushProgress, pushEarnedBadges, isEmptySnapshot } from "@/lib/supabase/progressSync";
+import {
+  pullProgress,
+  pushProgress,
+  pushEarnedBadges,
+  isEmptySnapshot,
+  pullSolvedProblems,
+  pushSolvedProblem,
+  pushSolvedProblemsBatch,
+} from "@/lib/supabase/progressSync";
 
 const PUSH_DEBOUNCE_MS = 2500;
 
@@ -48,7 +56,10 @@ function earnedBadgeEntries() {
  *  - While signed in: any local progress change is pushed to Supabase,
  *    debounced so rapid XP ticks collapse into one write. Any *newly*
  *    earned badge (the same moment ProgressWatcher fires its unlock toast)
- *    is certified immediately, not debounced.
+ *    is certified immediately, not debounced. Solved-problem toggles
+ *    (src/lib/store/progress.ts solvedLeetcodeIds) sync the same way —
+ *    immediately, diffed against the last-known-synced set — into the
+ *    `solved_problems` table (supabase/migrations/0004_solved_problems.sql).
  *  - Signed out: does nothing — the app behaves exactly as it did before
  *    Supabase existed, fully local/anonymous. The profile store is cleared
  *    so stale username data can't leak into a later anonymous session.
@@ -59,10 +70,12 @@ export default function SupabaseSyncProvider() {
   const setProfile = useProfileStore((s) => s.setProfile);
   const clearProfile = useProfileStore((s) => s.clear);
   const earnedBadgeIds = useProgressStore((s) => s.earnedBadgeIds);
+  const solvedLeetcodeIds = useProgressStore((s) => s.solvedLeetcodeIds);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const syncingUserId = useRef<string | null>(null);
   const skipNextPush = useRef(false);
   const certifiedBadgeIds = useRef<Set<string>>(new Set());
+  const syncedSolvedIds = useRef<Set<string>>(new Set());
 
   // Initial merge whenever the signed-in user changes (sign-in, or a
   // different account signs in on the same device).
@@ -71,6 +84,7 @@ export default function SupabaseSyncProvider() {
     if (!user) {
       syncingUserId.current = null;
       certifiedBadgeIds.current = new Set();
+      syncedSolvedIds.current = new Set();
       clearProfile();
       return;
     }
@@ -117,6 +131,29 @@ export default function SupabaseSyncProvider() {
       const entries = earnedBadgeEntries();
       certifiedBadgeIds.current = new Set(entries.map((e) => e.badgeId));
       await pushEarnedBadges(supabase, user.id, entries);
+
+      // Merge cloud-tracked solved problems with whatever's solved locally
+      // on this device. Union rather than "remote wins" — a solved mark is
+      // a fact that should only ever accumulate, never get discarded by a
+      // cross-device sync. Any slug solved locally but missing remotely
+      // gets backfilled up once (the same "claim your local progress" idea
+      // as the progress-row branch above).
+      const remoteSolved = await pullSolvedProblems(supabase, user.id);
+      if (!cancelled) {
+        const remoteSet = new Set(remoteSolved);
+        const localSolvedNow = useProgressStore.getState().solvedLeetcodeIds;
+        const localOnly = localSolvedNow.filter((slug) => !remoteSet.has(slug));
+        // Set the "already synced" baseline before touching the store so
+        // the toggle-diff effect below sees no work to do for slugs we
+        // already know about.
+        syncedSolvedIds.current = new Set([...remoteSolved, ...localOnly]);
+        if (remoteSolved.length > 0) {
+          useProgressStore.getState().mergeSolvedLeetcode(remoteSolved);
+        }
+        if (localOnly.length > 0) {
+          await pushSolvedProblemsBatch(supabase, user.id, localOnly);
+        }
+      }
 
       if (!cancelled) syncingUserId.current = user.id;
     })();
@@ -171,6 +208,28 @@ export default function SupabaseSyncProvider() {
     const supabase = createClient();
     pushEarnedBadges(supabase, user.id, entries);
   }, [user, earnedBadgeIds]);
+
+  // Push individual "mark as solved" / "un-mark" toggles immediately, not
+  // debounced with the rest of progress — a solved-problem toggle is a
+  // discrete, deliberate click and should feel like it saved right away.
+  // Diffs against the last-synced set (seeded by the initial merge above)
+  // so only what actually changed gets written.
+  useEffect(() => {
+    if (!user) return;
+    if (syncingUserId.current !== user.id) return; // initial merge not done yet
+
+    const currentSet = new Set(solvedLeetcodeIds);
+    const prevSet = syncedSolvedIds.current;
+    const added = solvedLeetcodeIds.filter((slug) => !prevSet.has(slug));
+    const removed = [...prevSet].filter((slug) => !currentSet.has(slug));
+    if (added.length === 0 && removed.length === 0) return;
+
+    syncedSolvedIds.current = currentSet;
+
+    const supabase = createClient();
+    for (const slug of added) pushSolvedProblem(supabase, user.id, slug, true);
+    for (const slug of removed) pushSolvedProblem(supabase, user.id, slug, false);
+  }, [user, solvedLeetcodeIds]);
 
   return null;
 }

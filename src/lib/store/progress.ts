@@ -46,6 +46,11 @@ interface ProgressState {
   completeModule: (slug: string, xpAward?: number) => void;
   recordQuizResult: (slug: string, score: number, total: number) => void;
   toggleLeetcodeSolved: (slug: string) => void;
+  /** Unions a batch of slugs into solvedLeetcodeIds without touching
+   * existing entries — used by the cloud-sync layer to merge solved
+   * problems pulled from the `solved_problems` table into local state
+   * without clobbering anything solved locally but not yet synced. */
+  mergeSolvedLeetcode: (slugs: string[]) => void;
   touchStreak: () => void;
   totalXp: () => number;
   /** Marks a batch of newly-earned badges as acknowledged and grants their
@@ -178,6 +183,14 @@ export const useProgressStore = create<ProgressState>()(
               ? s.solvedLeetcodeIds.filter((id) => id !== slug)
               : [...s.solvedLeetcodeIds, slug],
           };
+        }),
+
+      mergeSolvedLeetcode: (slugs) =>
+        set((s) => {
+          if (slugs.length === 0) return {};
+          const merged = new Set([...s.solvedLeetcodeIds, ...slugs]);
+          if (merged.size === s.solvedLeetcodeIds.length) return {};
+          return { solvedLeetcodeIds: Array.from(merged) };
         }),
 
       touchStreak: () =>

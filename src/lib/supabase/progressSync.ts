@@ -110,3 +110,79 @@ export async function pushEarnedBadges(
     console.error("[progressSync] earned badge push failed:", error.message);
   }
 }
+
+/**
+ * Reads every problem slug the account has marked solved (see
+ * supabase/migrations/0004_solved_problems.sql). Used once on sign-in to
+ * merge cloud-tracked solves into local state.
+ */
+export async function pullSolvedProblems(
+  supabase: SupabaseClient,
+  userId: string
+): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("solved_problems")
+    .select("problem_slug")
+    .eq("user_id", userId);
+
+  if (error) {
+    console.error("[progressSync] solved problems pull failed:", error.message);
+    return [];
+  }
+  return (data ?? []).map((row) => row.problem_slug as string);
+}
+
+/**
+ * Pushes a single "mark as solved" / "un-mark" toggle immediately — a
+ * discrete user action, not something that should wait for the debounced
+ * xp/streak snapshot push. `solved: true` inserts (idempotent via
+ * ignoreDuplicates), `solved: false` deletes the row outright — un-marking
+ * is allowed here, unlike earned_badges.
+ */
+export async function pushSolvedProblem(
+  supabase: SupabaseClient,
+  userId: string,
+  slug: string,
+  solved: boolean
+): Promise<void> {
+  if (solved) {
+    const { error } = await supabase.from("solved_problems").upsert(
+      { user_id: userId, problem_slug: slug },
+      { onConflict: "user_id,problem_slug", ignoreDuplicates: true }
+    );
+    if (error) {
+      console.error("[progressSync] solved problem insert failed:", error.message);
+    }
+  } else {
+    const { error } = await supabase
+      .from("solved_problems")
+      .delete()
+      .eq("user_id", userId)
+      .eq("problem_slug", slug);
+    if (error) {
+      console.error("[progressSync] solved problem delete failed:", error.message);
+    }
+  }
+}
+
+/**
+ * Backfills a batch of locally-solved slugs that the remote account didn't
+ * have yet — used once during the initial sign-in merge (claiming local-only
+ * solves the same way pushEarnedBadges backfills local-only badges).
+ */
+export async function pushSolvedProblemsBatch(
+  supabase: SupabaseClient,
+  userId: string,
+  slugs: string[]
+): Promise<void> {
+  if (slugs.length === 0) return;
+
+  const { error } = await supabase.from("solved_problems").upsert(
+    slugs.map((slug) => ({ user_id: userId, problem_slug: slug })),
+    { onConflict: "user_id,problem_slug", ignoreDuplicates: true }
+  );
+
+  if (error) {
+    console.error("[progressSync] solved problems batch push failed:", error.message);
+  }
+}
