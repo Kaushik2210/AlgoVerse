@@ -50,7 +50,7 @@ export default function LeetCodeBrowser({ problems }: { problems: LeetCodeIndexE
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by number or title..."
             aria-label="Search LeetCode problems"
-            className="flex-1 bg-transparent outline-none text-sm font-mono-data placeholder:text-text-muted"
+            className="min-w-0 flex-1 bg-transparent outline-none text-sm font-mono-data placeholder:text-text-muted"
           />
           <span className="shrink-0 text-[11px] text-text-muted font-mono-data">
             {filtered.length} / {problems.length}

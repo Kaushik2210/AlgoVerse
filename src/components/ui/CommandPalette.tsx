@@ -144,7 +144,7 @@ export default function CommandPalette() {
                   onChange={(e) => updateQuery(e.target.value)}
                   onKeyDown={onKeyDown}
                   placeholder="Search structures, patterns, pages..."
-                  className="flex-1 bg-transparent outline-none text-sm font-mono-data placeholder:text-text-muted"
+                  className="min-w-0 flex-1 bg-transparent outline-none text-sm font-mono-data placeholder:text-text-muted"
                   aria-label="Search"
                 />
                 <kbd className="rounded border border-glass-border-token px-1.5 py-0.5 text-[10px] text-text-muted">
