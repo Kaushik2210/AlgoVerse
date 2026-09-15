@@ -2,6 +2,12 @@
 
 **[Live demo →](https://algoverse-lovat-seven.vercel.app)**
 
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-38BDF8?logo=tailwindcss&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-auth%20%2B%20postgres-3ECF8E?logo=supabase&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-informational)
+
 A data structures & algorithms learning app that actually looks like a product, not a
 tutorial site. Dark-mode-first, glassy HUD aesthetic, and every visualization is driven
 by a single reusable step-sequence engine instead of one-off animations per topic.
@@ -93,8 +99,8 @@ src/
   **LRU Cache**, **Minimum Spanning Tree (Prim's & Kruskal's)**,
   **Topological Sort**, **Bellman-Ford**, **Floyd-Warshall**, **Dynamic
   Programming**, **Sorting Algorithms** — theory, complexity tables,
-  pitfalls, a live custom-input visualizer, syntax-highlighted code, and a
-  quiz. This completes the originally-planned Data Structures track
+  pitfalls, a live custom-input visualizer, JS/Python/Java/C++ code tabs, and
+  a quiz. This completes the originally-planned Data Structures track
   (N-ary trees remain a minor, intentionally deferred omission — see
   roadmap).
   - Stacks cover push/pop/peek plus a balanced-parentheses LIFO demo.
@@ -222,9 +228,10 @@ quietly dropped:
   plain tables + prose, not rendered math notation.
 - **Audio/sound design toggle** — not implemented; there is no sound in the
   app at all yet.
-- **Multi-language code snippets** — the DSA/pattern visualizer code panels
-  are JavaScript only (the LeetCode vault already has Python, Java & C++ per
-  problem).
 - **Gamified "boss battle" challenge mode** — XP/streak tracking and a
   leaderboard exist as a foundation, but there's no distinct challenge-mode
   game loop built on top of it.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
