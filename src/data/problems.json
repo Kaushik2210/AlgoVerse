@@ -328,5 +328,145 @@
       "url": "https://leetcode.com/problems/palindrome-partitioning/",
       "note": "The 'choice' at each step is where to cut next, constrained by the palindrome check as the pruning rule."
     }
+  ],
+  "bit-manipulation": [
+    {
+      "title": "Single Number",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/single-number/",
+      "note": "The canonical XOR-cancellation problem — exactly the demo visualized above."
+    },
+    {
+      "title": "Number of 1 Bits",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/number-of-1-bits/",
+      "note": "n & (n - 1) clears the lowest set bit — count how many times you can do that."
+    },
+    {
+      "title": "Counting Bits",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/counting-bits/",
+      "note": "DP built on a bit trick: bits(i) = bits(i >> 1) + (i & 1) — reuse smaller answers instead of recomputing popcount."
+    },
+    {
+      "title": "Reverse Bits",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/reverse-bits/",
+      "note": "Shift-and-mask each bit into its mirrored position, 32 times."
+    },
+    {
+      "title": "Single Number II",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/single-number-ii/",
+      "note": "Every number appears three times except one — plain XOR isn't enough; track bit counts mod 3 instead."
+    },
+    {
+      "title": "Sum of Two Integers",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/sum-of-two-integers/",
+      "note": "Add two integers without + or - : XOR gives the sum-without-carry, AND-then-shift gives the carry, repeat until no carry remains."
+    }
+  ],
+  "two-heaps": [
+    {
+      "title": "Find Median from Data Stream",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+      "note": "The textbook two-heaps problem — exactly the running-median demo visualized above."
+    },
+    {
+      "title": "Sliding Window Median",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/sliding-window-median/",
+      "note": "Two heaps plus lazy deletion — entries leaving the window are marked stale instead of removed immediately."
+    },
+    {
+      "title": "IPO",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/ipo/",
+      "note": "A max-heap of affordable projects by profit, refilled from a min-heap of projects sorted by required capital."
+    },
+    {
+      "title": "Kth Largest Element in a Stream",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+      "note": "A single size-k min-heap — a good warm-up before combining two heaps for a full running median."
+    },
+    {
+      "title": "Find Right Interval",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-right-interval/",
+      "note": "Pair a heap of interval start times with a heap of end times to match each interval to its nearest right neighbor."
+    }
+  ],
+  "cyclic-sort": [
+    {
+      "title": "Missing Number",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/missing-number/",
+      "note": "Cyclic-sort the array of 0..n, then the first index that doesn't hold its own value reveals the gap."
+    },
+    {
+      "title": "Find All Numbers Disappeared in an Array",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/",
+      "note": "After a cyclic sort pass, every index not holding value (index + 1) names a missing number."
+    },
+    {
+      "title": "Find the Duplicate Number",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-the-duplicate-number/",
+      "note": "A cyclic-sort pass finds it directly — the swap loop stalls the instant it hits a value already in its target slot."
+    },
+    {
+      "title": "Set Mismatch",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/set-mismatch/",
+      "note": "One cyclic sort pass exposes both the duplicate (the value already sitting at its own index) and the missing number (the index left unfilled)."
+    },
+    {
+      "title": "Find All Duplicates in an Array",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-all-duplicates-in-an-array/",
+      "note": "Same swap-to-home-index loop as Missing Number — duplicates are whatever's still stuck out of place afterward."
+    },
+    {
+      "title": "First Missing Positive",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/first-missing-positive/",
+      "note": "Cyclic sort every in-range positive into its slot in O(n)/O(1), then scan once for the first index that doesn't match."
+    }
+  ],
+  "k-way-merge": [
+    {
+      "title": "Merge Two Sorted Lists",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+      "note": "The k=2 base case — understand this before generalizing to k lists with a heap."
+    },
+    {
+      "title": "Merge k Sorted Lists",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+      "note": "The canonical k-way merge — a size-k min-heap of list heads, exactly the demo visualized above."
+    },
+    {
+      "title": "Kth Smallest Element in a Sorted Matrix",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/",
+      "note": "Each matrix row is already a sorted list — k-way merge the rows and stop after popping the kth element."
+    },
+    {
+      "title": "Find K Pairs with Smallest Sums",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/",
+      "note": "Treat 'nums1[i] + nums2[j] for fixed i' as one sorted list per i — merge them with a heap instead of generating every pair."
+    },
+    {
+      "title": "Smallest Range Covering Elements from K Lists",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/",
+      "note": "K-way merge with a twist — track the current max alongside the heap's min to shrink the covering range as you go."
+    }
   ]
 }

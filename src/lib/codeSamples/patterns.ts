@@ -385,4 +385,201 @@ priority_queue<int, vector<int>, greater<int>> topKLargest(vector<int>& stream, 
     return minHeap; // the k largest values, in heap order
 }`,
   },
+  cyclicSort: {
+    js: PATTERN_CODE.cyclicSort,
+    python: `def cyclic_sort(nums: list[int]) -> list[int]:
+    i = 0
+    while i < len(nums):
+        correct = nums[i] - 1
+        if nums[i] != nums[correct]:
+            nums[i], nums[correct] = nums[correct], nums[i]
+        else:
+            i += 1
+    return nums`,
+    java: `public class Solution {
+    public static int[] cyclicSort(int[] nums) {
+        int i = 0;
+        while (i < nums.length) {
+            int correct = nums[i] - 1;
+            if (nums[i] != nums[correct]) {
+                int tmp = nums[i];
+                nums[i] = nums[correct];
+                nums[correct] = tmp;
+            } else {
+                i++;
+            }
+        }
+        return nums;
+    }
+}`,
+    cpp: `vector<int> cyclicSort(vector<int>& nums) {
+    int i = 0;
+    while (i < (int)nums.size()) {
+        int correct = nums[i] - 1;
+        if (nums[i] != nums[correct]) {
+            swap(nums[i], nums[correct]);
+        } else {
+            i++;
+        }
+    }
+    return nums;
+}`,
+  },
+  bitManipulation: {
+    js: PATTERN_CODE.bitManipulation,
+    python: `def single_number(nums: list[int]) -> int:
+    result = 0
+    for n in nums:
+        result ^= n  # duplicates cancel: x ^ x == 0
+    return result`,
+    java: `public class Solution {
+    public static int singleNumber(int[] nums) {
+        int result = 0;
+        for (int n : nums) {
+            result ^= n; // duplicates cancel: x ^ x == 0
+        }
+        return result;
+    }
+}`,
+    cpp: `int singleNumber(vector<int>& nums) {
+    int result = 0;
+    for (int n : nums) {
+        result ^= n; // duplicates cancel: x ^ x == 0
+    }
+    return result;
+}`,
+  },
+  twoHeaps: {
+    js: PATTERN_CODE.twoHeaps,
+    python: `import heapq
+
+class MedianFinder:
+    def __init__(self):
+        self.lower = []  # max-heap, stored negated
+        self.upper = []  # min-heap
+
+    def add_num(self, num: int) -> None:
+        if not self.lower or num <= -self.lower[0]:
+            heapq.heappush(self.lower, -num)
+        else:
+            heapq.heappush(self.upper, num)
+
+        if len(self.lower) > len(self.upper) + 1:
+            heapq.heappush(self.upper, -heapq.heappop(self.lower))
+        elif len(self.upper) > len(self.lower):
+            heapq.heappush(self.lower, -heapq.heappop(self.upper))
+
+    def find_median(self) -> float:
+        if len(self.lower) == len(self.upper):
+            return (-self.lower[0] + self.upper[0]) / 2
+        return -self.lower[0]`,
+    java: `public class MedianFinder {
+    private final PriorityQueue<Integer> lower = new PriorityQueue<>(Collections.reverseOrder()); // max-heap
+    private final PriorityQueue<Integer> upper = new PriorityQueue<>(); // min-heap
+
+    public void addNum(int num) {
+        if (lower.isEmpty() || num <= lower.peek()) {
+            lower.offer(num);
+        } else {
+            upper.offer(num);
+        }
+
+        if (lower.size() > upper.size() + 1) {
+            upper.offer(lower.poll());
+        } else if (upper.size() > lower.size()) {
+            lower.offer(upper.poll());
+        }
+    }
+
+    public double findMedian() {
+        if (lower.size() == upper.size()) {
+            return (lower.peek() + upper.peek()) / 2.0;
+        }
+        return lower.peek();
+    }
+}`,
+    cpp: `class MedianFinder {
+    priority_queue<int> lower;                              // max-heap
+    priority_queue<int, vector<int>, greater<int>> upper;    // min-heap
+public:
+    void addNum(int num) {
+        if (lower.empty() || num <= lower.top()) lower.push(num);
+        else upper.push(num);
+
+        if ((int)lower.size() > (int)upper.size() + 1) {
+            upper.push(lower.top());
+            lower.pop();
+        } else if (upper.size() > lower.size()) {
+            lower.push(upper.top());
+            upper.pop();
+        }
+    }
+
+    double findMedian() {
+        if (lower.size() == upper.size()) {
+            return (lower.top() + upper.top()) / 2.0;
+        }
+        return lower.top();
+    }
+};`,
+  },
+  kWayMerge: {
+    js: PATTERN_CODE.kWayMerge,
+    python: `import heapq
+
+def merge_k_lists(lists: list[list[int]]) -> list[int]:
+    heap = []
+    for i, lst in enumerate(lists):
+        if lst:
+            heapq.heappush(heap, (lst[0], i, 0))
+
+    merged = []
+    while heap:
+        value, list_idx, elem_idx = heapq.heappop(heap)
+        merged.append(value)
+        next_idx = elem_idx + 1
+        if next_idx < len(lists[list_idx]):
+            heapq.heappush(heap, (lists[list_idx][next_idx], list_idx, next_idx))
+    return merged`,
+    java: `public class Solution {
+    public static List<Integer> mergeKLists(List<List<Integer>> lists) {
+        // {value, listIndex, elemIndex}
+        PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        for (int i = 0; i < lists.size(); i++) {
+            if (!lists.get(i).isEmpty()) heap.offer(new int[]{lists.get(i).get(0), i, 0});
+        }
+
+        List<Integer> merged = new ArrayList<>();
+        while (!heap.isEmpty()) {
+            int[] top = heap.poll();
+            merged.add(top[0]);
+            int nextIdx = top[2] + 1;
+            if (nextIdx < lists.get(top[1]).size()) {
+                heap.offer(new int[]{lists.get(top[1]).get(nextIdx), top[1], nextIdx});
+            }
+        }
+        return merged;
+    }
+}`,
+    cpp: `vector<int> mergeKLists(vector<vector<int>>& lists) {
+    // {value, listIndex, elemIndex}
+    using T = tuple<int, int, int>;
+    priority_queue<T, vector<T>, greater<T>> heap;
+    for (int i = 0; i < (int)lists.size(); i++) {
+        if (!lists[i].empty()) heap.push({lists[i][0], i, 0});
+    }
+
+    vector<int> merged;
+    while (!heap.empty()) {
+        auto [value, listIdx, elemIdx] = heap.top();
+        heap.pop();
+        merged.push_back(value);
+        int nextIdx = elemIdx + 1;
+        if (nextIdx < (int)lists[listIdx].size()) {
+            heap.push({lists[listIdx][nextIdx], listIdx, nextIdx});
+        }
+    }
+    return merged;
+}`,
+  },
 };

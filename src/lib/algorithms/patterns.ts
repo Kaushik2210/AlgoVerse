@@ -577,6 +577,316 @@ export function modifiedBinarySearchSteps(
   return steps;
 }
 
+// ---------------------------------------------------------------------------
+// Cyclic Sort — for arrays holding 1..n (or 0..n-1), place every value at its
+// "correct" index via swaps instead of a general-purpose sort.
+// ---------------------------------------------------------------------------
+export function cyclicSortSteps(input: number[]): StepSequence<ArrayVizState> {
+  const arr = [...input];
+  const steps: StepSequence<ArrayVizState> = [];
+  const settled: number[] = [];
+  let i = 0;
+  let swaps = 0;
+
+  steps.push({
+    state: snapshotArr({ array: arr }),
+    narration: "Every value from 1..n belongs at index value-1. Walk the array once, swapping each value straight to its home index.",
+    highlightedLine: 1,
+    stats: { i, swaps },
+  });
+
+  while (i < arr.length) {
+    const correctIdx = arr[i] - 1;
+    if (arr[i] !== arr[correctIdx]) {
+      steps.push({
+        state: snapshotArr({ array: arr, comparing: [i, correctIdx], sorted: [...settled] }),
+        narration: `arr[${i}] = ${arr[i]} belongs at index ${correctIdx} — swap it there.`,
+        highlightedLine: 3,
+        stats: { i, swaps },
+      });
+      [arr[i], arr[correctIdx]] = [arr[correctIdx], arr[i]];
+      swaps++;
+      steps.push({
+        state: snapshotArr({ array: arr, swapping: [i, correctIdx], sorted: [...settled] }),
+        narration: `Swapped. Index ${i} now holds ${arr[i]} — check it again before moving on.`,
+        highlightedLine: 4,
+        stats: { i, swaps },
+      });
+    } else {
+      settled.push(i);
+      steps.push({
+        state: snapshotArr({ array: arr, sorted: [...settled] }),
+        narration: `arr[${i}] = ${arr[i]} is already at its correct index — move on.`,
+        highlightedLine: 6,
+        stats: { i, swaps },
+      });
+      i++;
+    }
+  }
+
+  steps.push({
+    state: snapshotArr({ array: arr, sorted: arr.map((_, idx) => idx) }),
+    narration: `Every value now sits at index (value - 1). Sorted in ${swaps} swaps, one linear pass.`,
+    highlightedLine: 8,
+    stats: { swaps },
+  });
+  return steps;
+}
+
+// ---------------------------------------------------------------------------
+// Bit Manipulation — XOR every element together. Duplicates cancel out
+// (x ^ x = 0), so whatever survives is the single non-duplicated value.
+// ---------------------------------------------------------------------------
+export function singleNumberXorSteps(nums: number[]): StepSequence<ArrayVizState> {
+  const arr = [...nums];
+  const steps: StepSequence<ArrayVizState> = [];
+  let acc = 0;
+
+  steps.push({
+    state: snapshotArr({ array: arr }),
+    narration: "XOR every element together. x ^ x = 0, so every number appearing twice cancels itself out completely.",
+    highlightedLine: 1,
+    stats: { xor: acc, binary: acc.toString(2) },
+  });
+
+  for (let i = 0; i < arr.length; i++) {
+    const before = acc;
+    acc ^= arr[i];
+    steps.push({
+      state: snapshotArr({ array: arr, comparing: [i] }),
+      narration: `running XOR (${before}, binary ${before.toString(2)}) ^= arr[${i}] (${arr[i]}) → ${acc} (binary ${acc.toString(2)}).`,
+      highlightedLine: 3,
+      stats: { xor: acc, binary: acc.toString(2) },
+    });
+  }
+
+  steps.push({
+    state: snapshotArr({ array: arr, found: arr.lastIndexOf(acc) }),
+    narration: `Every pair canceled to 0 — whatever's left, ${acc}, is the single number that never had a match.`,
+    highlightedLine: 5,
+    stats: { answer: acc },
+  });
+  return steps;
+}
+
+// ---------------------------------------------------------------------------
+// Two Heaps — running median of a stream. A max-heap ("lower") holds the
+// smaller half, a min-heap ("upper") holds the larger half, kept balanced so
+// their roots are always the two middle values.
+// ---------------------------------------------------------------------------
+export interface TwoHeapsVizState {
+  lower: HeapVizState;
+  upper: HeapVizState;
+  stream: number[];
+  streamIndex?: number;
+  median?: number;
+}
+
+function siftUpKind(arr: number[], kind: "min" | "max") {
+  let i = arr.length - 1;
+  const beats = (a: number, b: number) => (kind === "min" ? a < b : a > b);
+  while (i > 0) {
+    const p = Math.floor((i - 1) / 2);
+    if (beats(arr[i], arr[p])) {
+      [arr[i], arr[p]] = [arr[p], arr[i]];
+      i = p;
+    } else break;
+  }
+}
+
+function siftDownKind(arr: number[], kind: "min" | "max") {
+  const beats = (a: number, b: number) => (kind === "min" ? a < b : a > b);
+  let i = 0;
+  while (true) {
+    const l = 2 * i + 1;
+    const r = 2 * i + 2;
+    let best = i;
+    if (l < arr.length && beats(arr[l], arr[best])) best = l;
+    if (r < arr.length && beats(arr[r], arr[best])) best = r;
+    if (best === i) break;
+    [arr[i], arr[best]] = [arr[best], arr[i]];
+    i = best;
+  }
+}
+
+export function twoHeapsMedianSteps(stream: number[]): StepSequence<TwoHeapsVizState> {
+  const lower: number[] = []; // max-heap — the smaller half
+  const upper: number[] = []; // min-heap — the larger half
+  const steps: StepSequence<TwoHeapsVizState> = [];
+
+  function median(): number | undefined {
+    if (lower.length === 0 && upper.length === 0) return undefined;
+    if (lower.length === upper.length) return (lower[0] + upper[0]) / 2;
+    return lower.length > upper.length ? lower[0] : upper[0];
+  }
+
+  function snapshot(streamIndex?: number): TwoHeapsVizState {
+    return {
+      lower: { array: [...lower] },
+      upper: { array: [...upper] },
+      stream,
+      streamIndex,
+      median: median(),
+    };
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration:
+      "Maintain a max-heap for the smaller half and a min-heap for the larger half, kept within one element of each other in size.",
+    highlightedLine: 1,
+    stats: { lowerSize: 0, upperSize: 0 },
+  });
+
+  for (let i = 0; i < stream.length; i++) {
+    const value = stream[i];
+    steps.push({
+      state: snapshot(i),
+      narration: `Insert ${value}. It goes into "lower" if it's <= lower's max (or lower is empty), otherwise into "upper".`,
+      highlightedLine: 3,
+      stats: { lowerSize: lower.length, upperSize: upper.length },
+    });
+
+    if (lower.length === 0 || value <= lower[0]) {
+      lower.push(value);
+      siftUpKind(lower, "max");
+      steps.push({
+        state: snapshot(i),
+        narration: `${value} <= lower's max (or lower was empty) — added to the lower (max-)heap.`,
+        highlightedLine: 4,
+        stats: { lowerSize: lower.length, upperSize: upper.length },
+      });
+    } else {
+      upper.push(value);
+      siftUpKind(upper, "min");
+      steps.push({
+        state: snapshot(i),
+        narration: `${value} > lower's max — added to the upper (min-)heap.`,
+        highlightedLine: 6,
+        stats: { lowerSize: lower.length, upperSize: upper.length },
+      });
+    }
+
+    if (lower.length > upper.length + 1) {
+      const moved = lower[0];
+      lower[0] = lower[lower.length - 1];
+      lower.pop();
+      siftDownKind(lower, "max");
+      upper.push(moved);
+      siftUpKind(upper, "min");
+      steps.push({
+        state: snapshot(i),
+        narration: `Lower grew too big — move its max (${moved}) over to upper to rebalance.`,
+        highlightedLine: 9,
+        stats: { lowerSize: lower.length, upperSize: upper.length },
+      });
+    } else if (upper.length > lower.length) {
+      const moved = upper[0];
+      upper[0] = upper[upper.length - 1];
+      upper.pop();
+      siftDownKind(upper, "min");
+      lower.push(moved);
+      siftUpKind(lower, "max");
+      steps.push({
+        state: snapshot(i),
+        narration: `Upper grew too big — move its min (${moved}) over to lower to rebalance.`,
+        highlightedLine: 11,
+        stats: { lowerSize: lower.length, upperSize: upper.length },
+      });
+    }
+
+    steps.push({
+      state: snapshot(i),
+      narration: `Median after inserting ${value}: ${median()}.`,
+      highlightedLine: 13,
+      stats: { median: median() ?? 0 },
+    });
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration: `Stream exhausted. Final median: ${median()}.`,
+    highlightedLine: 15,
+    stats: { median: median() ?? 0 },
+  });
+  return steps;
+}
+
+// ---------------------------------------------------------------------------
+// K-way Merge — merge k already-sorted lists by always taking the smallest
+// of the k current "head" values. (A real implementation uses a size-k
+// min-heap of heads for O(log k) per step; this demo compares heads directly
+// for clarity, which is equivalent for small, fixed k.)
+// ---------------------------------------------------------------------------
+export interface KWayMergeVizState {
+  lists: ArrayVizState[];
+  merged: ArrayVizState;
+  pointers: number[];
+  activeList?: number;
+}
+
+export function kWayMergeSteps(lists: number[][]): StepSequence<KWayMergeVizState> {
+  const k = lists.length;
+  const ptrs = new Array(k).fill(0);
+  const merged: number[] = [];
+  const steps: StepSequence<KWayMergeVizState> = [];
+
+  function snapshot(activeList?: number): KWayMergeVizState {
+    return {
+      lists: lists.map((lst, li) => ({
+        array: [...lst],
+        comparing: ptrs[li] < lst.length ? [ptrs[li]] : undefined,
+        sorted: Array.from({ length: ptrs[li] }, (_, idx) => idx),
+      })),
+      merged: { array: [...merged] },
+      pointers: [...ptrs],
+      activeList,
+    };
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration: `Merge ${k} sorted lists. Track one pointer per list — at every step, the smallest of the k pointed-at values is next in the merged output.`,
+    highlightedLine: 1,
+    stats: { merged: 0 },
+  });
+
+  while (ptrs.some((p, li) => p < lists[li].length)) {
+    let bestList = -1;
+    let bestVal = Infinity;
+    for (let li = 0; li < k; li++) {
+      if (ptrs[li] < lists[li].length && lists[li][ptrs[li]] < bestVal) {
+        bestVal = lists[li][ptrs[li]];
+        bestList = li;
+      }
+    }
+    steps.push({
+      state: snapshot(bestList),
+      narration: `Compare current heads: [${lists
+        .map((lst, li) => (ptrs[li] < lst.length ? lst[ptrs[li]] : "—"))
+        .join(", ")}]. Smallest is ${bestVal}, from list ${bestList + 1}.`,
+      highlightedLine: 3,
+      stats: { merged: merged.length },
+    });
+    merged.push(bestVal);
+    ptrs[bestList]++;
+    steps.push({
+      state: snapshot(bestList),
+      narration: `Append ${bestVal} to the merged output and advance list ${bestList + 1}'s pointer.`,
+      highlightedLine: 5,
+      stats: { merged: merged.length },
+    });
+  }
+
+  steps.push({
+    state: snapshot(),
+    narration: `All lists exhausted. Merged result: [${merged.join(", ")}]`,
+    highlightedLine: 7,
+    stats: { merged: merged.length },
+  });
+  return steps;
+}
+
 export const PATTERN_CODE = {
   twoPointers: `function maxArea(heights) {
   let left = 0, right = heights.length - 1;
@@ -694,5 +1004,69 @@ export const PATTERN_CODE = {
     // else: value can't be in the top k, discard
   }
   return minHeap; // the k largest values, in heap order
+}`,
+  cyclicSort: `function cyclicSort(nums) {
+  let i = 0;
+  while (i < nums.length) {
+    const correct = nums[i] - 1;
+    if (nums[i] !== nums[correct]) {
+      [nums[i], nums[correct]] = [nums[correct], nums[i]];
+    } else {
+      i++;
+    }
+  }
+  return nums;
+}`,
+  bitManipulation: `function singleNumber(nums) {
+  let result = 0;
+  for (const n of nums) {
+    result ^= n; // duplicates cancel: x ^ x === 0
+  }
+  return result;
+}`,
+  twoHeaps: `class MedianFinder {
+  constructor() {
+    this.lower = new MaxHeap(); // smaller half
+    this.upper = new MinHeap(); // larger half
+  }
+
+  addNum(num) {
+    if (this.lower.isEmpty() || num <= this.lower.peek()) {
+      this.lower.push(num);
+    } else {
+      this.upper.push(num);
+    }
+
+    if (this.lower.size() > this.upper.size() + 1) {
+      this.upper.push(this.lower.pop());
+    } else if (this.upper.size() > this.lower.size()) {
+      this.lower.push(this.upper.pop());
+    }
+  }
+
+  findMedian() {
+    if (this.lower.size() === this.upper.size()) {
+      return (this.lower.peek() + this.upper.peek()) / 2;
+    }
+    return this.lower.peek();
+  }
+}`,
+  kWayMerge: `function mergeKLists(lists) {
+  // minHeap holds {value, listIndex, elemIndex}, ordered by value
+  const minHeap = new MinHeap((a, b) => a.value - b.value);
+  lists.forEach((list, i) => {
+    if (list.length) minHeap.push({ value: list[0], listIndex: i, elemIndex: 0 });
+  });
+
+  const merged = [];
+  while (!minHeap.isEmpty()) {
+    const { value, listIndex, elemIndex } = minHeap.pop();
+    merged.push(value);
+    const next = elemIndex + 1;
+    if (next < lists[listIndex].length) {
+      minHeap.push({ value: lists[listIndex][next], listIndex, elemIndex: next });
+    }
+  }
+  return merged;
 }`,
 };
