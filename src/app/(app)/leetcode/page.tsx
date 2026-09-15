@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Code2 } from "lucide-react";
 import LeetCodeBrowser from "@/components/leetcode/LeetCodeBrowser";
+import LeetCodeProgressStat from "@/components/leetcode/LeetCodeProgressStat";
 import { leetcodeIndex } from "@/lib/leetcode-index";
 
 export const metadata: Metadata = {
@@ -24,6 +25,8 @@ export default function LeetCodePage() {
             </p>
           </div>
         </div>
+
+        <LeetCodeProgressStat total={leetcodeIndex.length} />
 
         <LeetCodeBrowser problems={leetcodeIndex} />
       </div>

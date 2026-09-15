@@ -5,6 +5,7 @@ import { ArrowLeft, Hash } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import CodeTabs from "@/components/ui/CodeTabs";
 import LeetCodeMarkdown from "@/components/leetcode/LeetCodeMarkdown";
+import MarkSolvedButton from "@/components/leetcode/MarkSolvedButton";
 import { getLeetCodeProblem, getLeetCodeSlugs } from "@/lib/leetcode-problem";
 
 export function generateStaticParams() {
@@ -44,17 +45,20 @@ export default async function LeetCodeProblemPage({
           <ArrowLeft size={13} /> All problems
         </Link>
 
-        <div className="flex items-start gap-3">
-          <span className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-cyan font-mono-data text-sm">
-            <Hash size={12} className="mr-0.5" />
-            {problem.number}
-          </span>
-          <div>
-            <h1 className="font-mono-data text-2xl font-bold tracking-tight">
-              {problem.title}
-            </h1>
-            <p className="text-sm text-text-muted mt-1">{problem.excerpt}</p>
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <div className="flex items-start gap-3">
+            <span className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-cyan font-mono-data text-sm">
+              <Hash size={12} className="mr-0.5" />
+              {problem.number}
+            </span>
+            <div>
+              <h1 className="font-mono-data text-2xl font-bold tracking-tight">
+                {problem.title}
+              </h1>
+              <p className="text-sm text-text-muted mt-1">{problem.excerpt}</p>
+            </div>
           </div>
+          <MarkSolvedButton slug={problem.slug} />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 items-start min-w-0">

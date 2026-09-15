@@ -2,77 +2,126 @@
 
 import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { Search, Hash, ArrowUpRight } from "lucide-react";
+import { Search, Hash, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import type { LeetCodeIndexEntry } from "@/lib/leetcode-index";
 import { useScrollReveal } from "@/lib/hooks/useScrollReveal";
+import { useProgressStore } from "@/lib/store/progress";
+import { useMounted } from "@/lib/hooks/useMounted";
+import { cn } from "@/lib/utils";
+
+type SolveFilter = "all" | "solved" | "unsolved";
 
 export default function LeetCodeBrowser({ problems }: { problems: LeetCodeIndexEntry[] }) {
   const [query, setQuery] = useState("");
+  const [solveFilter, setSolveFilter] = useState<SolveFilter>("all");
   const gridRef = useRef<HTMLDivElement>(null);
+  const mounted = useMounted();
+  const solvedIds = useProgressStore((s) => s.solvedLeetcodeIds);
+  const solvedSet = useMemo(() => new Set(mounted ? solvedIds : []), [mounted, solvedIds]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return problems;
-    return problems.filter(
-      (p) =>
-        p.title.toLowerCase().includes(q) ||
-        String(p.number).includes(q) ||
-        p.excerpt.toLowerCase().includes(q)
-    );
-  }, [problems, query]);
+    let list = problems;
+    if (q) {
+      list = list.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          String(p.number).includes(q) ||
+          p.excerpt.toLowerCase().includes(q)
+      );
+    }
+    if (solveFilter === "solved") list = list.filter((p) => solvedSet.has(p.slug));
+    if (solveFilter === "unsolved") list = list.filter((p) => !solvedSet.has(p.slug));
+    return list;
+  }, [problems, query, solveFilter, solvedSet]);
 
   // Re-run the reveal whenever the filtered set changes (a new search) so
   // freshly-filtered cards animate in instead of just appearing.
-  useScrollReveal(gridRef, "[data-reveal-card]", [filtered.length, query]);
+  useScrollReveal(gridRef, "[data-reveal-card]", [filtered.length, query, solveFilter]);
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="glass flex items-center gap-2.5 rounded-xl px-4 py-3 focus-within:border-cyan/50 transition-colors">
-        <Search size={16} className="text-cyan shrink-0" />
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search by number or title..."
-          aria-label="Search LeetCode problems"
-          className="flex-1 bg-transparent outline-none text-sm font-mono-data placeholder:text-text-muted"
-        />
-        <span className="shrink-0 text-[11px] text-text-muted font-mono-data">
-          {filtered.length} / {problems.length}
-        </span>
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="glass flex flex-1 items-center gap-2.5 rounded-xl px-4 py-3 focus-within:border-cyan/50 transition-colors">
+          <Search size={16} className="text-cyan shrink-0" />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by number or title..."
+            aria-label="Search LeetCode problems"
+            className="flex-1 bg-transparent outline-none text-sm font-mono-data placeholder:text-text-muted"
+          />
+          <span className="shrink-0 text-[11px] text-text-muted font-mono-data">
+            {filtered.length} / {problems.length}
+          </span>
+        </div>
+
+        <div className="glass flex items-center gap-1 rounded-xl p-1 shrink-0" role="tablist" aria-label="Filter by solved status">
+          {(["all", "unsolved", "solved"] as SolveFilter[]).map((f) => (
+            <button
+              key={f}
+              role="tab"
+              aria-selected={solveFilter === f}
+              onClick={() => setSolveFilter(f)}
+              className={cn(
+                "rounded-lg px-3 py-1.5 text-xs font-mono-data capitalize transition-colors",
+                solveFilter === f
+                  ? "bg-cyan/15 text-cyan"
+                  : "text-text-muted hover:text-foreground"
+              )}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
       </div>
 
       {filtered.length === 0 ? (
         <p className="py-16 text-center text-sm text-text-muted">
-          No problems match &ldquo;{query}&rdquo;.
+          {solveFilter === "solved"
+            ? "You haven't marked any problems solved yet."
+            : solveFilter === "unsolved"
+              ? "Every matching problem is already solved. Nice."
+              : `No problems match “${query}”.`}
         </p>
       ) : (
         <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filtered.map((p) => (
-            <div key={p.slug} data-reveal-card>
-              <Link href={`/leetcode/${p.slug}`}>
-                <GlassCard
-                  tilt
-                  className="h-full flex flex-col gap-2.5 hover:border-cyan/40 transition-colors"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="inline-flex items-center gap-1 rounded-full border border-cyan/30 bg-cyan/10 px-2 py-0.5 text-[11px] font-mono-data text-cyan">
-                      <Hash size={10} />
-                      {p.number}
-                    </span>
-                    <ArrowUpRight
-                      size={15}
-                      className="text-text-muted shrink-0 transition-transform group-hover:translate-x-0.5"
-                    />
-                  </div>
-                  <p className="font-semibold text-sm leading-snug">{p.title}</p>
-                  <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
-                    {p.excerpt}
-                  </p>
-                </GlassCard>
-              </Link>
-            </div>
-          ))}
+          {filtered.map((p) => {
+            const solved = solvedSet.has(p.slug);
+            return (
+              <div key={p.slug} data-reveal-card>
+                <Link href={`/leetcode/${p.slug}`}>
+                  <GlassCard
+                    tilt
+                    className={cn(
+                      "h-full flex flex-col gap-2.5 hover:border-cyan/40 transition-colors",
+                      solved && "border-cyan/30"
+                    )}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-cyan/30 bg-cyan/10 px-2 py-0.5 text-[11px] font-mono-data text-cyan">
+                        <Hash size={10} />
+                        {p.number}
+                      </span>
+                      {solved ? (
+                        <CheckCircle2 size={15} className="text-cyan shrink-0" />
+                      ) : (
+                        <ArrowUpRight
+                          size={15}
+                          className="text-text-muted shrink-0 transition-transform group-hover:translate-x-0.5"
+                        />
+                      )}
+                    </div>
+                    <p className="font-semibold text-sm leading-snug">{p.title}</p>
+                    <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
+                      {p.excerpt}
+                    </p>
+                  </GlassCard>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
