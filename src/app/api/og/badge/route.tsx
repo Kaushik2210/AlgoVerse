@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { badgeById, plateValue, type PlateTier } from "@/lib/badges";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 
 export const runtime = "edge";
 
@@ -82,7 +82,7 @@ export async function GET(request: Request) {
   // supabase/migrations/0003_public_certificates.sql). The badge's visual
   // tier/gradient/icon below still comes from the static badges.ts
   // definitions, which isn't sensitive data.
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data: cert } = await supabase
     .from("certificate_badges")
     .select("username, display_name, badge_id, earned_at")

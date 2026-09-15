@@ -3,10 +3,28 @@ import BadgePlate from "@/components/badges/BadgePlate";
 import CertificateActions from "@/components/badges/CertificateActions";
 import { badgeById, plateValue } from "@/lib/badges";
 import { getSiteUrl } from "@/lib/site";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 
 interface PageProps {
   params: Promise<{ username: string; badgeId: string }>;
+}
+
+// A certificate's data is permanent once earned (see fetchCertificate below),
+// so this page doesn't need to be re-rendered on every hit — real ISR
+// caching instead of forced SSR. Paired with the cookie-free public
+// Supabase client below (a cookie-reading client forces dynamic rendering
+// regardless of this setting).
+export const revalidate = 3600;
+
+// No paths are known at build time (every username/badgeId combo is
+// user-generated), but returning an empty array here still opts this
+// route into the static/ISR pipeline: the first hit for a given
+// username/badgeId renders once and gets cached for `revalidate` seconds
+// (dynamicParams defaults to true), instead of every hit paying for a
+// fresh render like a plain dynamic segment without generateStaticParams
+// does.
+export async function generateStaticParams() {
+  return [];
 }
 
 interface CertificateRow {
@@ -23,7 +41,7 @@ interface CertificateRow {
  * by the anon role, so this works whether or not the visitor is signed in.
  */
 async function fetchCertificate(username: string, badgeId: string): Promise<CertificateRow | null> {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("certificate_badges")
     .select("username, display_name, badge_id, earned_at")
