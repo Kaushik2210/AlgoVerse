@@ -46,3 +46,6 @@ __pycache__/
 
 # generated at build/dev time by scripts/generate-leetcode-index.mjs
 /src/data/leetcode/
+
+# claude code local config
+.claude/
