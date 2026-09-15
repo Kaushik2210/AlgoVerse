@@ -56,7 +56,13 @@ function notFoundImage(message: string) {
         {message}
       </div>
     ),
-    { width: 1200, height: 630 }
+    {
+      width: 1200,
+      height: 630,
+      // Short cache — a "not found" badge might get earned moments later,
+      // so don't let a crawler's premature hit stick around too long.
+      headers: { "Cache-Control": "public, max-age=60, s-maxage=60" },
+    }
   );
 }
 
@@ -193,6 +199,16 @@ export async function GET(request: Request) {
         </div>
       </div>
     ),
-    { width: 1200, height: 630 }
+    {
+      width: 1200,
+      height: 630,
+      // An earned badge's image never changes — cache hard at the CDN
+      // (s-maxage) so repeated views/link-preview crawlers don't re-render
+      // or re-query the database, while browsers themselves also cache it
+      // for a day. immutable tells the browser not to even revalidate.
+      headers: {
+        "Cache-Control": "public, max-age=86400, s-maxage=31536000, immutable",
+      },
+    }
   );
 }
