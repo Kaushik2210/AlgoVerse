@@ -6,7 +6,8 @@ import GlassCard from "@/components/ui/GlassCard";
 import XPBar from "@/components/dashboard/XPBar";
 import BadgeCase from "@/components/dashboard/BadgeCase";
 import ActivityHeatmap from "@/components/dashboard/ActivityHeatmap";
-import { useStreakInfo, useModuleStats } from "@/lib/store/selectors";
+import LeetCodeProgressWidget from "@/components/dashboard/LeetCodeProgressWidget";
+import { useStreakInfo, useModuleStats, useLeetcodeSolvedCount } from "@/lib/store/selectors";
 import { STRUCTURE_ITEMS, PATTERN_ITEMS } from "@/lib/nav";
 import { leetcodeIndex } from "@/lib/leetcode-index";
 
@@ -15,6 +16,7 @@ const TOTAL_MODULES = STRUCTURE_ITEMS.length + PATTERN_ITEMS.length;
 export default function DashboardPage() {
   const { streak, longestStreak } = useStreakInfo();
   const { completedCount } = useModuleStats();
+  const solvedCount = useLeetcodeSolvedCount();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 flex flex-col gap-6">
@@ -56,10 +58,12 @@ export default function DashboardPage() {
         <StatTile
           icon={Code2}
           color="cyan"
-          label="LeetCode Problems"
-          value={`${leetcodeIndex.length}`}
+          label="LeetCode Solved"
+          value={`${solvedCount}/${leetcodeIndex.length}`}
         />
       </div>
+
+      <LeetCodeProgressWidget />
 
       <BadgeCase />
 
