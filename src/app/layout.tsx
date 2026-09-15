@@ -9,6 +9,7 @@ import BadgeUnlockOverlay from "@/components/badges/BadgeUnlockOverlay";
 import ProgressWatcher from "@/components/providers/ProgressWatcher";
 import AuthProvider from "@/components/providers/AuthProvider";
 import SupabaseSyncProvider from "@/components/providers/SupabaseSyncProvider";
+import { getSiteUrl } from "@/lib/site";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -22,10 +23,27 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],
 });
 
+const siteUrl = getSiteUrl();
+const title = "AlgoVerse — Learn Algorithms Visually";
+const description =
+  "A sci-fi HUD styled data structures & algorithms visualizer and learning companion — real step-through visualizers, 38 topics, and 635+ solved LeetCode problems.";
+
 export const metadata: Metadata = {
-  title: "AlgoVerse — Learn Algorithms Visually",
-  description:
-    "A sci-fi HUD styled data structures & algorithms visualizer and learning companion.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "AlgoVerse",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
