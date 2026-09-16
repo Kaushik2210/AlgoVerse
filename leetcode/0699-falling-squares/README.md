@@ -1,5 +1,7 @@
 # 699. Falling Squares
 
+**Commonly asked at:** Google
+
 There's an infinite number line representing the ground. You're given `positions`, where `positions[i] = [lefti, sideLengthi]` describes a square of side length `sideLengthi` that gets dropped so its left edge lands at x-coordinate `lefti`. Squares are dropped one at a time, in order, and each one falls straight down until it lands either on the ground or on top of any square(s) it overlaps horizontally with, then stays there permanently. Return an array `ans` where `ans[i]` is the height of the *tallest* stack of squares after the `i`-th square has been dropped and settled.
 
 **Example 1:**

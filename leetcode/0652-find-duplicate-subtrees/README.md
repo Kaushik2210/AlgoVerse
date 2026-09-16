@@ -1,5 +1,7 @@
 # 652. Find Duplicate Subtrees
 
+**Commonly asked at:** Amazon, Facebook, Google
+
 You're given the root of a binary tree. Return the roots of all subtrees that appear more than once — subtrees with the exact same structure and node values. Only one root per distinct duplicated subtree shape needs to be returned, even if that shape repeats three or more times.
 
 **Example 1:**

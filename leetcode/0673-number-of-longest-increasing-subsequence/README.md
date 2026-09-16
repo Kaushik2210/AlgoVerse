@@ -1,5 +1,7 @@
 # 673. Number of Longest Increasing Subsequence
 
+**Commonly asked at:** Google, Amazon
+
 Given an integer array `nums`, return the number of distinct longest strictly increasing subsequences.
 
 **Example 1:**

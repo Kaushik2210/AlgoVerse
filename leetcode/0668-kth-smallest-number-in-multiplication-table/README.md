@@ -1,5 +1,7 @@
 # 668. Kth Smallest Number in Multiplication Table
 
+**Commonly asked at:** Google
+
 Nearly every classroom has a multiplication table. For an `m x n` multiplication table, the value at row `i`, column `j` (1-indexed) is `i * j`. Given `m`, `n`, and `k`, return the `k`-th smallest number in this table.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 700. Search in a Binary Search Tree
 
+**Commonly asked at:** Amazon, Microsoft
+
 You're given the root of a binary search tree and an integer `val`. Find the node in the tree whose value equals `val` and return the subtree rooted at that node. If no such node exists, return `null`.
 
 **Example 1:**

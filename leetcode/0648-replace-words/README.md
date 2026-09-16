@@ -1,5 +1,7 @@
 # 648. Replace Words
 
+**Commonly asked at:** Amazon, Uber
+
 In English, a **root** can have various words derived by adding a suffix, e.g. "help" gives "helper" and "helpful". Given a `dictionary` of roots and a `sentence`, replace every word in the sentence that has a root in the dictionary as a prefix with that root. If a word has multiple matching roots, use the one with the shortest length. Return the resulting sentence.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 632. Smallest Range Covering Elements from K Lists
 
+**Commonly asked at:** Google, Facebook
+
 You're given `k` lists of integers, each sorted in non-decreasing order. Find the smallest range `[start, end]` such that it contains at least one number from each of the `k` lists. If there are multiple ranges of the same smallest width, return any one of them.
 
 **Example 1:**

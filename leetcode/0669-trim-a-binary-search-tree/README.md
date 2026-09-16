@@ -1,5 +1,7 @@
 # 669. Trim a Binary Search Tree
 
+**Commonly asked at:** Facebook, Google
+
 Given the root of a binary search tree and a range `[low, high]`, trim the tree so that every remaining node's value lies within that range. Nodes outside the range should be removed, but the BST structure and ordering of what remains must be preserved — a removed node's in-range descendants should be reattached appropriately, not discarded.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 697. Degree of an Array
 
+**Commonly asked at:** Amazon
+
 The degree of an array is the maximum frequency of any one of its elements. Given a non-empty array of non-negative integers `nums`, return the length of the shortest contiguous subarray that has the same degree as `nums`.
 
 **Example 1:**

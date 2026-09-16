@@ -1,5 +1,7 @@
 # 622. Design Circular Queue
 
+**Commonly asked at:** Google, Amazon
+
 Design your own implementation of a circular queue (a.k.a. ring buffer). The queue connects the last position back to the first to make use of otherwise-wasted space when items are dequeued from the front. Implement the `MyCircularQueue` class:
 
 - `MyCircularQueue(k)` — initializes the queue with a fixed size `k`.

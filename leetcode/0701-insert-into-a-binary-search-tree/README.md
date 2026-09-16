@@ -1,5 +1,7 @@
 # 701. Insert into a Binary Search Tree
 
+**Commonly asked at:** Amazon, Microsoft
+
 You're given the root of a binary search tree and a value `val`. Insert `val` into the tree so the result is still a valid BST, and return the root. There can be multiple valid trees after the insertion — any of them is acceptable.
 
 **Example 1:**

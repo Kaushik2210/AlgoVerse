@@ -1,5 +1,7 @@
 # 694. Number of Distinct Islands
 
+**Commonly asked at:** Google, Facebook, Amazon
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 You're given a grid of `0`s (water) and `1`s (land). An island is a group of land cells connected 4-directionally. Two islands are considered the same if one can be translated (shifted, not rotated or reflected) to exactly match the other. Return the number of distinct island shapes.

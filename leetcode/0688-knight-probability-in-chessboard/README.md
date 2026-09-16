@@ -1,5 +1,7 @@
 # 688. Knight Probability in Chessboard
 
+**Commonly asked at:** Google
+
 On an `n x n` chessboard, a knight starts at `(row, column)` and makes exactly `k` moves. Every move it picks uniformly at random among its (up to 8) legal knight moves, even if that move would take it off the board — in which case it has left the board and stops moving entirely. Return the probability that the knight is still on the board after making exactly `k` moves.
 
 **Example 1:**

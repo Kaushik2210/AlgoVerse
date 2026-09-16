@@ -1,5 +1,7 @@
 # 642. Design Search Autocomplete System
 
+**Commonly asked at:** Google, Facebook
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because "trie plus frequency ranking" is a classic pattern behind real-world autocomplete/search-suggestion features.*
 
 Design a search autocomplete system for a search engine. Users type a sentence (ending with `#`) one character at a time. Implement the `AutocompleteSystem` class:

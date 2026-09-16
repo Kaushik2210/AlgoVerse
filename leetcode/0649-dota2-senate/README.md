@@ -1,5 +1,7 @@
 # 649. Dota2 Senate
 
+**Commonly asked at:** Amazon, Google
+
 In the world of Dota2, senators from two parties, Radiant and Dire, vote on a change. Given a string `senate` where each character is `'R'` or `'D'` representing each senator's party in order, senators take turns in that order banning one senator from the opposing party (a banned senator loses all rights, including voting and banning others). If a party has no senators left, that party loses. This repeats round after round (continuing from where the previous round left off) until one party has banned every senator of the other. Return which party ultimately wins, `"Radiant"` or `"Dire"`.
 
 **Example 1:**

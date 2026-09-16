@@ -1,5 +1,7 @@
 # 662. Maximum Width of Binary Tree
 
+**Commonly asked at:** Amazon, Facebook
+
 You're given the root of a binary tree. The width of one level is the number of positions between the leftmost and rightmost non-null nodes at that level (inclusive), counting the null positions in between as if the tree were a complete binary tree — those gaps count toward the width even though the nodes aren't actually there. Return the maximum width across all levels. The answer is guaranteed to fit in a 32-bit signed integer.
 
 **Example 1:**

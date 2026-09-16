@@ -1,5 +1,7 @@
 # 685. Redundant Connection II
 
+**Commonly asked at:** Google
+
 This is the directed version of Redundant Connection (684). You're given a directed graph that started as a rooted tree with `n` nodes (every node except the root has exactly one parent, reachable from the root), then had one extra directed edge added on top — so it now has `n` edges instead of `n-1`. `edges` is a list of `[u, v]` pairs (`u -> v`) given in the order added. Return the edge that, if removed, restores a valid rooted tree. If multiple edges could work, return the one that appears last in the input.
 
 **Example 1:**
