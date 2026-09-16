@@ -1,5 +1,7 @@
 # 232. Implement Queue using Stacks
 
+**Commonly asked at:** Amazon, Microsoft
+
 Implement a first-in-first-out (FIFO) queue using only two stacks. The implemented queue should support `push`, `pop`, `peek`, and `empty`, all using standard stack operations (push, pop, top/peek, size, is empty).
 
 - `void push(int x)` — pushes element x to the back of the queue.

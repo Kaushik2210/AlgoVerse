@@ -1,5 +1,7 @@
 # 264. Ugly Number II
 
+**Commonly asked at:** Amazon, Google
+
 An **ugly number** is a positive integer whose only prime factors are 2, 3, and 5. Given an integer `n`, return the `n`th ugly number. By convention, 1 is the first ugly number.
 
 **Example 1:**

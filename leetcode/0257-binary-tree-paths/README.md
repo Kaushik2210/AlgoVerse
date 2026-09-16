@@ -1,5 +1,7 @@
 # 257. Binary Tree Paths
 
+**Commonly asked at:** Amazon, Google
+
 Given the root of a binary tree, return all root-to-leaf paths, in any order. Each path should be formatted as a string like `"1->2->5"`.
 
 **Example 1:**

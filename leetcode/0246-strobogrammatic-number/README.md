@@ -1,5 +1,7 @@
 # 246. Strobogrammatic Number
 
+**Commonly asked at:** Google
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it's the natural warm-up before "Strobogrammatic Number II" (247).*
 
 A strobogrammatic number looks the same right-side up as it does rotated 180 degrees. Given a string `num` representing an integer, return whether it's strobogrammatic.

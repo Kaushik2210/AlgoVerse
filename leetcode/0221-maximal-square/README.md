@@ -1,5 +1,7 @@
 # 221. Maximal Square
 
+**Commonly asked at:** Amazon, Google
+
 You're given an `m x n` binary matrix filled with `'0'` and `'1'`. Find the largest square containing only `'1'`s and return its area.
 
 **Example 1:**

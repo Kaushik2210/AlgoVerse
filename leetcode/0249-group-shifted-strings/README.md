@@ -1,5 +1,7 @@
 # 249. Group Shifted Strings
 
+**Commonly asked at:** Meta, Google
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 You're given an array of strings. Two strings belong to the same "shifting sequence" if every letter of one can be shifted by the same fixed amount (wrapping `z` back to `a`) to produce the other. Group all strings that belong to the same shifting sequence, in any order.

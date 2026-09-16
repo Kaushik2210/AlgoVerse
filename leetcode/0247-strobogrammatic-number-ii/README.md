@@ -1,5 +1,7 @@
 # 247. Strobogrammatic Number II
 
+**Commonly asked at:** Google
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it's the natural generation follow-up to "Strobogrammatic Number" (246).*
 
 Given an integer `n`, return all strobogrammatic numbers with exactly `n` digits, in any order. A strobogrammatic number reads the same when rotated 180 degrees.

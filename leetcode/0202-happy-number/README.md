@@ -1,5 +1,7 @@
 # 202. Happy Number
 
+**Commonly asked at:** Amazon
+
 An integer `n` is happy if repeating this process eventually reaches 1: replace the number with the sum of the squares of its digits. If the process loops forever in a cycle that never includes 1, `n` is not happy. Return `true` if `n` is happy, `false` otherwise.
 
 **Example 1:**

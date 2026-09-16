@@ -1,5 +1,7 @@
 # 263. Ugly Number
 
+**Commonly asked at:** Amazon
+
 An ugly number is a positive integer whose only prime factors are 2, 3, and 5. Given an integer `n`, return `true` if `n` is an ugly number.
 
 **Example 1:**

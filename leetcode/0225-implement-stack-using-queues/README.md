@@ -1,5 +1,7 @@
 # 225. Implement Stack using Queues
 
+**Commonly asked at:** Amazon, Microsoft
+
 Implement a last-in-first-out (LIFO) stack using only one or two queues. The implemented stack should support `push`, `pop`, `top`, and `empty`, using standard queue operations (push/enqueue to back, peek/pop from front, size, is empty).
 
 - `void push(int x)` — pushes element x to the top of the stack.

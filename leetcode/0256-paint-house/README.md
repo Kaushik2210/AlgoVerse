@@ -1,5 +1,7 @@
 # 256. Paint House
 
+**Commonly asked at:** Meta, Google
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway as a clean introduction to the "small fixed number of states per step" style of DP that generalizes to House Robber-style and Paint Fence-style problems.*
 
 There are `n` houses in a row, each of which needs to be painted one of 3 colors: red, blue, or green. The cost of painting each house a given color is different, given as an `n x 3` cost matrix where `costs[i][0]`, `costs[i][1]`, `costs[i][2]` are the costs of painting house `i` red, blue, and green respectively. No two adjacent houses may be painted the same color. Return the minimum total cost to paint all houses.

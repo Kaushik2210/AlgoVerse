@@ -1,5 +1,7 @@
 # 205. Isomorphic Strings
 
+**Commonly asked at:** Amazon
+
 Given two strings `s` and `t`, determine if they're isomorphic. Two strings are isomorphic if the characters in `s` can be replaced to get `t`, where every occurrence of a character must map to the same character, and no two different characters may map to the same character (the mapping must be one-to-one in both directions).
 
 **Example 1:**

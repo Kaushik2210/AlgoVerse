@@ -1,5 +1,7 @@
 # 237. Delete Node in a Linked List
 
+**Commonly asked at:** Amazon, Adobe
+
 There's a singly linked list, and you're given direct access only to one node you need to delete — not the head of the list. Write a function that deletes that given node from the list. You're guaranteed the node to delete isn't the tail.
 
 After the function returns, the linked list should reflect the node's removal.
