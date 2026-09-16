@@ -1,5 +1,7 @@
 # 621. Task Scheduler
 
+**Commonly asked at:** Facebook, Amazon
+
 You're given an array of CPU tasks `tasks`, where each element is a letter representing a task type, and an integer `n` representing a mandatory cooldown: the same task type can't run again until at least `n` other units of time (running a different task, or idling) have passed. Return the minimum total time needed to finish all tasks.
 
 **Example 1:**

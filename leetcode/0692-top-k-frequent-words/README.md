@@ -1,5 +1,7 @@
 # 692. Top K Frequent Words
 
+**Commonly asked at:** Amazon, Bloomberg
+
 Given an array of strings `words` and an integer `k`, return the `k` most frequent strings, sorted by frequency from highest to lowest. If two words have the same frequency, the lexicographically smaller one should come first.
 
 **Example 1:**

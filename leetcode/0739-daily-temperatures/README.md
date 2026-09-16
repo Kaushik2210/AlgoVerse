@@ -1,5 +1,7 @@
 # 739. Daily Temperatures
 
+**Commonly asked at:** Amazon, Facebook, Google
+
 Given an array `temperatures` representing daily temperatures, return an array `answer` where `answer[i]` is the number of days you'd have to wait after day `i` to get a warmer temperature. If there's no future day with a warmer temperature, put `0` instead.
 
 **Example 1:**

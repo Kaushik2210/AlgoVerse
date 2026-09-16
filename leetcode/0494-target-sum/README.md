@@ -1,5 +1,7 @@
 # 494. Target Sum
 
+**Commonly asked at:** Amazon, Facebook
+
 You're given an integer array `nums` and an integer `target`. Assign a `+` or `-` sign in front of each number, then sum them all up. Return the number of different ways you can assign the signs so the resulting sum equals `target`.
 
 **Example 1:**

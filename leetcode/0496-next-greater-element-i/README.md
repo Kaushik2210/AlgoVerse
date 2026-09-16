@@ -1,5 +1,7 @@
 # 496. Next Greater Element I
 
+**Commonly asked at:** Amazon
+
 You're given two arrays `nums1` and `nums2` without duplicates, where `nums1` is a subset of `nums2`. For each element in `nums1`, find its "next greater element" in `nums2`: the first element to its right in `nums2` that's strictly greater. If there isn't one, use -1. Return the answers for `nums1` in order, as an array.
 
 **Example 1:**

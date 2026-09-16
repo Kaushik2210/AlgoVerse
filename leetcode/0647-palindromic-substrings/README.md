@@ -1,5 +1,7 @@
 # 647. Palindromic Substrings
 
+**Commonly asked at:** Amazon, Facebook
+
 You're given a string `s`. Return the number of palindromic substrings in it. Substrings occupying different index ranges count separately even if they contain the same characters.
 
 **Example 1:**

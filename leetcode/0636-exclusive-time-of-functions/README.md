@@ -1,5 +1,7 @@
 # 636. Exclusive Time of Functions
 
+**Commonly asked at:** Amazon, Google
+
 On a single-threaded CPU, `n` functions (numbered 0 to n-1) run, possibly nested via recursion. You're given `logs`, where each entry is formatted `"function_id:start_or_end:timestamp"`, sorted by timestamp. Each function has a `"start"` log right before it executes and an `"end"` log right after. A function can call itself recursively (nest). Return the exclusive time of each function — the sum of time spent purely inside that function, not counting time spent inside functions it called.
 
 **Example 1:**

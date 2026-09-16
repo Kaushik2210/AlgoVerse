@@ -1,5 +1,7 @@
 # 743. Network Delay Time
 
+**Commonly asked at:** Google, Amazon
+
 There are `n` network nodes labeled `1` to `n`. You're given `times`, a list of directed edges `times[i] = (ui, vi, wi)` meaning a signal travels from node `ui` to node `vi` taking `wi` time. Send a signal from node `k`. Return the minimum time for all `n` nodes to receive the signal, or `-1` if that's impossible.
 
 **Example 1:**

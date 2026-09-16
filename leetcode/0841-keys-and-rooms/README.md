@@ -1,5 +1,7 @@
 # 841. Keys and Rooms
 
+**Commonly asked at:** Google, Amazon
+
 There are `n` rooms labeled `0` to `n - 1`, and all of them are locked except room `0`. Each room has a list of keys, `rooms[i]`, and each key opens exactly one other room. You start in room `0`. Return `true` if you can visit every room, `false` otherwise.
 
 **Example 1:**

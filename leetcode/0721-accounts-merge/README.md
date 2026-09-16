@@ -1,5 +1,7 @@
 # 721. Accounts Merge
 
+**Commonly asked at:** Facebook, Amazon
+
 You're given a list of accounts, where each account is a list `[name, email1, email2, ...]` — the first element is the account owner's name, and the rest are emails owned by that account. Two accounts belong to the same person if they share at least one email in common, even transitively through a chain of other accounts (accounts are never merged just because they have the same name — only shared emails prove common ownership). Merge accounts that belong to the same person: return a list where each merged account is `[name, sorted emails...]`, sorted by their first email string.
 
 **Example 1:**

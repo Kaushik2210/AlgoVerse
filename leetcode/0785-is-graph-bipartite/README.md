@@ -1,5 +1,7 @@
 # 785. Is Graph Bipartite?
 
+**Commonly asked at:** Facebook
+
 You're given an undirected graph with `n` nodes labeled `0` to `n - 1`, as an adjacency list `graph` where `graph[u]` lists all nodes adjacent to `u`. A graph is **bipartite** if its nodes can be split into two independent sets A and B such that every edge connects a node in A to a node in B. Return `true` if the graph is bipartite.
 
 **Example 1:**

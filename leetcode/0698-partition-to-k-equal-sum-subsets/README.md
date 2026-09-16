@@ -1,5 +1,7 @@
 # 698. Partition to K Equal Sum Subsets
 
+**Commonly asked at:** Facebook
+
 Given an integer array `nums` and an integer `k`, return `true` if it's possible to divide the array into `k` non-empty subsets whose sums are all equal.
 
 **Example 1:**

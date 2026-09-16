@@ -1,5 +1,7 @@
 # 460. LFU Cache
 
+**Commonly asked at:** Amazon, Bloomberg, Google
+
 Design a Least Frequently Used (LFU) cache with a fixed `capacity`. Support `get(key)` (return the value, or -1 if absent, and count as one use) and `put(key, value)` (insert or update, counting as one use). When the cache is full and a new key needs to be inserted, evict the *least frequently used* key; if there's a tie in usage count, evict the *least recently used* among those tied keys. Both `get` and `put` must run in O(1) average time.
 
 **Example 1:**

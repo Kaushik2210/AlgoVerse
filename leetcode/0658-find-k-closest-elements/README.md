@@ -1,5 +1,7 @@
 # 658. Find K Closest Elements
 
+**Commonly asked at:** Amazon, Facebook, Google
+
 You're given a sorted integer array `arr`, and two integers `k` and `x`. Return the `k` closest integers to `x` in the array. The result should also be sorted in ascending order. "Closest" is measured by absolute difference; if two numbers are equally close, prefer the smaller one.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 844. Backspace String Compare
 
+**Commonly asked at:** Google, Facebook
+
 You're given two strings `s` and `t`, each possibly containing the character `#`, which represents a backspace keypress — it deletes the character typed right before it (or does nothing if there's nothing left to delete). Return `true` if `s` and `t` become equal once all the backspaces are applied.
 
 **Example 1:**

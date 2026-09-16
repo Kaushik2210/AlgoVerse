@@ -1,5 +1,7 @@
 # 763. Partition Labels
 
+**Commonly asked at:** Amazon, Facebook
+
 You're given a string `s`. Split it into as many partitions as possible such that each letter appears in at most one partition (every occurrence of a given letter must be confined to a single piece). Return a list of the sizes of these partitions, in order.
 
 **Example 1:**

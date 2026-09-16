@@ -1,5 +1,7 @@
 # 560. Subarray Sum Equals K
 
+**Commonly asked at:** Facebook, Amazon, Microsoft
+
 You're given an integer array `nums` and an integer `k`. Return the number of contiguous subarrays whose sum equals `k`.
 
 **Example 1:**

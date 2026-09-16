@@ -1,5 +1,7 @@
 # 684. Redundant Connection
 
+**Commonly asked at:** Google, Amazon
+
 You're given a graph that started as a tree with `n` nodes labeled 1 to n, then had one extra edge added — so it now has `n` edges instead of `n-1`, which means somewhere there's exactly one cycle. `edges` is a list of `[u, v]` pairs given in the order they were added. Return the edge that, if removed, turns the graph back into a tree. If multiple edges could be removed to achieve this, return the one that appears last in the input.
 
 **Example 1:**
