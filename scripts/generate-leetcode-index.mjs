@@ -52,19 +52,36 @@ function parseReadme(readme, fallbackSlug) {
     }
   }
 
-  // Excerpt: the first non-empty paragraph after the title heading.
+  // Excerpt: the first non-empty paragraph after the title heading that
+  // isn't a metadata line (a "Commonly asked at:" company tag, or a
+  // "> Note: this is premium" blockquote) — skip those and keep looking
+  // for the actual problem description.
+  const isMetaParagraph = (text) =>
+    /^\*\*Commonly asked at:\*\*/i.test(text) || /^>\s*\*\*Note:\*\*/i.test(text);
+
   let excerpt = "";
   let buf = [];
-  for (let i = bodyStart; i < lines.length; i++) {
+  let i = bodyStart;
+  while (i < lines.length) {
     const line = lines[i];
     if (line.trim() === "") {
-      if (buf.length) break;
+      if (buf.length) {
+        const paragraph = buf.join(" ").trim();
+        if (isMetaParagraph(paragraph)) {
+          buf = [];
+          i++;
+          continue;
+        }
+        break;
+      }
+      i++;
       continue;
     }
     if (line.trim().startsWith("#")) break;
     buf.push(line.trim());
+    i++;
   }
-  excerpt = buf.join(" ").replace(/`/g, "").trim();
+  excerpt = buf.join(" ").replace(/`/g, "").replace(/\*\*(.+?)\*\*/g, "$1").trim();
   if (excerpt.length > 220) excerpt = excerpt.slice(0, 217).trimEnd() + "...";
 
   return { title, excerpt };
