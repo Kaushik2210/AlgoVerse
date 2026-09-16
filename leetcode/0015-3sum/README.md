@@ -1,5 +1,7 @@
 # 15. 3Sum
 
+**Commonly asked at:** Amazon, Meta, Microsoft, Adobe
+
 Given an integer array `nums`, find all unique triplets `[nums[i], nums[j], nums[k]]` (distinct indices) that add up to zero. The result shouldn't contain duplicate triplets.
 
 **Example 1:**

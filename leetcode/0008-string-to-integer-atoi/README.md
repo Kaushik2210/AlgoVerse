@@ -1,5 +1,7 @@
 # 8. String to Integer (atoi)
 
+**Commonly asked at:** Amazon, Microsoft, Bloomberg
+
 Implement the `myAtoi(string s)` function, which converts a string to a 32-bit signed integer, mimicking the behavior of the C `atoi` function.
 
 The algorithm:

@@ -1,5 +1,7 @@
 # 1. Two Sum
 
+**Commonly asked at:** Amazon, Google, Meta, Apple, Bloomberg, Adobe
+
 You're given an array of integers `nums` and a target number `target`. Find the indices of the two numbers in the array that add up to `target`, and return them as a pair. You can assume there's exactly one valid answer, and you can't use the same element twice.
 
 **Example 1:**

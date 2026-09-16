@@ -1,5 +1,7 @@
 # 11. Container With Most Water
 
+**Commonly asked at:** Amazon, Google, Bloomberg
+
 You're given an array `height`, where `height[i]` is the height of a vertical line drawn at position `i`. Pick two of these lines that, together with the x-axis, form a container, such that the container holds the most water. Return the maximum amount of water it can hold.
 
 The amount of water held is determined by the shorter of the two chosen lines (water spills over the shorter side) times the horizontal distance between them.

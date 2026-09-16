@@ -1,5 +1,7 @@
 # 26. Remove Duplicates from Sorted Array
 
+**Commonly asked at:** Microsoft, Amazon
+
 You're given an integer array `nums` sorted in non-decreasing order. Remove the duplicates in place so each unique value appears only once, keeping the relative order, and return the count of unique values `k`. The first `k` elements of `nums` should hold the final result.
 
 **Example 1:**

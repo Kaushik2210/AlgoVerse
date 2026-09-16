@@ -1,5 +1,7 @@
 # 4. Median of Two Sorted Arrays
 
+**Commonly asked at:** Google, Amazon, Microsoft, Apple
+
 Given two sorted arrays `nums1` and `nums2` of sizes `m` and `n`, return the median of the combined sorted array. Must run in O(log(m+n)) time.
 
 **Example 1:**

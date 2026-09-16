@@ -1,5 +1,7 @@
 # 9. Palindrome Number
 
+**Commonly asked at:** Amazon, Apple
+
 Given an integer `x`, return `true` if `x` reads the same forwards and backwards, and `false` otherwise. Do it without converting the integer to a string.
 
 **Example 1:**

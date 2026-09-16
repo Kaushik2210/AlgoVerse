@@ -1,5 +1,7 @@
 # 21. Merge Two Sorted Lists
 
+**Commonly asked at:** Amazon, Microsoft, Apple
+
 You're given the heads of two singly linked lists, `list1` and `list2`, and both are already sorted in non-decreasing order. Merge them into a single sorted linked list and return its head. You should reuse the existing nodes — don't build new ones.
 
 **Example 1:**

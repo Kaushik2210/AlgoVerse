@@ -1,5 +1,7 @@
 # 31. Next Permutation
 
+**Commonly asked at:** Amazon, Google, Microsoft, Meta
+
 A permutation of an array of integers is just some arrangement of its members into a sequence. Given an array `nums`, rearrange it into the lexicographically next greater permutation — the next one you'd hit if you listed every permutation of the array in sorted order. If `nums` is already the largest possible permutation, rearrange it into the smallest one (sorted ascending) instead. You must do this in place, using only constant extra space.
 
 **Example 1:**

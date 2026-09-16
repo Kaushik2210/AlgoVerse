@@ -1,5 +1,7 @@
 # 3. Longest Substring Without Repeating Characters
 
+**Commonly asked at:** Amazon, Google, Meta, Bloomberg, Adobe
+
 Given a string `s`, find the length of the longest substring (contiguous chunk) that doesn't contain any repeated characters.
 
 **Example 1:**

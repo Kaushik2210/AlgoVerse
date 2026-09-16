@@ -1,5 +1,7 @@
 # 10. Regular Expression Matching
 
+**Commonly asked at:** Google, Meta, Uber
+
 Given an input string `s` and a pattern `p`, implement regular expression matching supporting `'.'` and `'*'` where `'.'` matches any single character and `'*'` matches zero or more of the **preceding** element. The matching should cover the **entire** input string, not just a prefix.
 
 **Example 1:**

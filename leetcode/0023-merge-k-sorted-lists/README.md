@@ -1,5 +1,7 @@
 # 23. Merge k Sorted Lists
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft
+
 You're given an array of `k` linked lists, each already sorted in ascending order. Merge all of them into one sorted linked list and return its head.
 
 **Example 1:**

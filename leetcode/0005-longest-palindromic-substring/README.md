@@ -1,5 +1,7 @@
 # 5. Longest Palindromic Substring
 
+**Commonly asked at:** Amazon, Microsoft, Google
+
 You're given a string `s`. Find the longest substring of `s` that reads the same forwards and backwards.
 
 **Example 1:**

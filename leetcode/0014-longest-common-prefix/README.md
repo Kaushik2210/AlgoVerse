@@ -1,5 +1,7 @@
 # 14. Longest Common Prefix
 
+**Commonly asked at:** Amazon, Google
+
 Given an array of strings `strs`, find the longest string that is a prefix of every string in the array. If there is no common prefix, return an empty string `""`.
 
 **Example 1:**

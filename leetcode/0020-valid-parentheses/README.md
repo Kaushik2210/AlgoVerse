@@ -1,5 +1,7 @@
 # 20. Valid Parentheses
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 You're given a string that contains only the characters `(`, `)`, `{`, `}`, `[`, and `]`. Decide whether the string is "valid" — meaning every opening bracket has a matching closing bracket of the same type, and the brackets close in the right order (no crossing pairs).
 
 **Example 1:**

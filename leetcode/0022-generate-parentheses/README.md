@@ -1,5 +1,7 @@
 # 22. Generate Parentheses
 
+**Commonly asked at:** Amazon, Google, Meta, Uber
+
 Given `n` pairs of parentheses, return all combinations of well-formed (valid) parentheses strings that can be made with them.
 
 **Example 1:**

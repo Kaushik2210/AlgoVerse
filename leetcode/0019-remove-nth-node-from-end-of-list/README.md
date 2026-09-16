@@ -1,5 +1,7 @@
 # 19. Remove Nth Node From End of List
 
+**Commonly asked at:** Amazon, Meta, Microsoft
+
 Given the head of a linked list, remove the nth node from the end of the list and return the head.
 
 **Example 1:**
