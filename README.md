@@ -197,7 +197,14 @@ src/
   curated LeetCode problems.
 - **635+ LeetCode solutions** — full approach write-ups plus Python, Java & C++
   code for every problem, searchable by number or title, with per-problem
-  solved tracking synced to your account.
+  solved tracking synced to your account. 536 of them are tagged with real,
+  conservatively-verified "commonly asked at" company data (Amazon, Google,
+  Meta, Microsoft, and 11 others) — filterable and badge-displayed right on
+  the browse page.
+- **"75 Essential Problems" study plan** (`/roadmap`) — a hand-ordered,
+  NeetCode-150-style curated path through the 17 most important patterns, for
+  anyone who doesn't want to pick through 635 problems unguided. Progress is
+  the same live solved-tracking as the rest of the site.
 - **Real auth + gamification (Supabase-backed)** — email/password auth, XP and
   levels, unlockable badges with shareable certificate pages, daily streaks,
   a GitHub-style activity heatmap, and a global leaderboard.
@@ -206,7 +213,7 @@ src/
 - Light/dark theme toggle, `prefers-reduced-motion` support, keyboard-navigable
   visualizer controls.
 
-## Roadmap
+## What's deferred
 
 The originally-planned **Data Structures** track is now essentially
 complete — every core structure and graph algorithm from the initial scope
