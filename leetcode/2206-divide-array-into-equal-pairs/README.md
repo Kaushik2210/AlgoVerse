@@ -1,5 +1,7 @@
 # 2206. Divide Array Into Equal Pairs
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 > **Note:** the task list for this batch referred to this problem as "Divide Array Into Pairs (2160)", but 2160 is actually a different LeetCode problem (Minimum Sum of Four Digit Number After Splitting Digits). This one — "Divide Array Into Equal Pairs" — is LeetCode 2206, confirmed to be a free problem, so it's solved normally below.
 
 You're given an integer array `nums` consisting of `2 * n` integers. You need to divide `nums` into `n` pairs such that every element belongs to exactly one pair, and the two elements of every pair are equal. Return `true` if `nums` can be divided this way, or `false` otherwise.

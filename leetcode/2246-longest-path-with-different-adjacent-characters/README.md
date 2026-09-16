@@ -1,5 +1,7 @@
 # 2246. Longest Path With Different Adjacent Characters
 
+**Commonly asked at:** Amazon, Microsoft, Uber
+
 You're given a tree with `n` nodes rooted at node 0, described by a `parent` array (`parent[0] = -1`, and `parent[i]` is the parent of node `i` for `i >= 1`), plus a string `s` where `s[i]` is the character assigned to node `i`. Return the length (number of nodes) of the longest path in the tree where no two adjacent nodes on the path share the same character.
 
 **Example 1:**

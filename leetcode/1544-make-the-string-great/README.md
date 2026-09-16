@@ -1,5 +1,7 @@
 # 1544. Make The String Great
 
+**Commonly asked at:** Amazon, Google, Microsoft, Bloomberg
+
 A string is "bad" if it has two adjacent characters that are the same letter but different case (like `'a'` and `'A'`). Given a string `s`, repeatedly remove any such adjacent bad pair until the string is good (no bad pairs remain), and return the resulting string. The final result is unique regardless of removal order.
 
 **Example 1:**

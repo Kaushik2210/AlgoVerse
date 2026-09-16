@@ -1,5 +1,7 @@
 # 1593. Split a String Into the Max Number of Unique Substrings
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft
+
 Given a string, split it into the maximum number of substrings that, when concatenated back together in order, reproduce the original string, with the constraint that all resulting substrings must be unique (no two pieces are identical). Return that maximum count.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 1578. Minimum Time to Make Rope Colorful
 
+**Commonly asked at:** Amazon, Microsoft, Bloomberg
+
 Alice has `n` balloons arranged on a rope, with `colors[i]` the color of the `i`-th balloon and `neededTime[i]` the time it takes to remove it. A rope is "colorful" if no two adjacent balloons share the same color. Removing balloons is the only allowed operation, and Bob wants to make the rope colorful using the minimum total removal time. Return that minimum time.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 1780. Check if Number is a Sum of Powers of Three
 
+**Commonly asked at:** Amazon, Google, Meta, Bloomberg
+
 Given an integer `n`, return `true` if it's possible to express `n` as the sum of distinct powers of 3, and `false` otherwise.
 
 (There's no distinct LeetCode problem titled "Armstrong Number" — this one covers the same "digit-manipulation number theory" territory, checking a number's structure by repeatedly peeling off a base.)

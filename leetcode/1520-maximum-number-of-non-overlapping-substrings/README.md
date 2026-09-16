@@ -1,5 +1,7 @@
 # 1520. Maximum Number of Non-Overlapping Substrings
 
+**Commonly asked at:** Amazon
+
 Given a string `s`, return the maximum number of non-overlapping substrings you can select such that each selected substring, if it contains any occurrence of a particular character, must contain **every** occurrence of that character in `s`. If multiple valid selections tie for the maximum count, return any one of them.
 
 **Example 1:**

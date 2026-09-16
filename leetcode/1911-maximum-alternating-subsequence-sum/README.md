@@ -1,5 +1,7 @@
 # 1911. Maximum Alternating Subsequence Sum
 
+**Commonly asked at:** Google, Meta
+
 The alternating sum of a subsequence with elements `x0, x1, x2, ...` (in the order they appear) is `x0 - x1 + x2 - x3 + ...`. Given an integer array `nums`, return the maximum alternating sum of any subsequence of `nums` (the empty subsequence has alternating sum 0).
 
 **Example 1:**

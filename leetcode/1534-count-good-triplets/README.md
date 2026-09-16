@@ -1,5 +1,7 @@
 # 1534. Count Good Triplets
 
+**Commonly asked at:** Amazon, Google, Meta, Bloomberg
+
 Given an array of integers `arr`, and three integers `a`, `b`, `c`, count the number of triplets of indices `(i, j, k)` with `i < j < k` such that `|arr[i] - arr[j]| <= a`, `|arr[j] - arr[k]| <= b`, and `|arr[i] - arr[k]| <= c`.
 
 **Example 1:**

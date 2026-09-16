@@ -1,5 +1,7 @@
 # 2477. Minimum Fuel Cost to Report to the Capital
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Uber
+
 There are `n` cities connected by `n-1` roads forming a tree rooted at the capital, city `0`. Every city other than the capital has exactly one representative who needs to travel to the capital. Each car holds `seats` representatives, and traveling along one road costs 1 liter of fuel per car making that trip (a car can carry fewer than `seats` people, but still costs a full liter). Cars can merge and split freely along the way. Return the minimum total liters of fuel needed to get every representative to the capital.
 
 **Example 1:**

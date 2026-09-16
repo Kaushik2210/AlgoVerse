@@ -1,5 +1,7 @@
 # 1898. Maximum Number of Removable Characters
 
+**Commonly asked at:** Amazon
+
 You're given strings `s` and `p` where `p` is a subsequence of `s`, and an array `removable` containing distinct indices of `s`, ordered in the sequence they'd be removed. For a `k` from `0` to `removable.length`, mark the first `k` indices in `removable` as removed from `s`; call `k` *valid* if `p` is still a subsequence of the resulting string. Return the maximum valid `k`.
 
 **Example 1:**

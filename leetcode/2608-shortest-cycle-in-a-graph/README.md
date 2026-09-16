@@ -1,5 +1,7 @@
 # 2608. Shortest Cycle in a Graph
 
+**Commonly asked at:** Google, Meta
+
 You're given a bidirectional graph with `n` nodes and a list of `edges` (no repeated edges, no self-loops). Return the length of the shortest cycle in the graph, or `-1` if the graph has no cycle.
 
 **Example 1:**

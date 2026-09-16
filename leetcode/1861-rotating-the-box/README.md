@@ -1,5 +1,7 @@
 # 1861. Rotating the Box
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Uber
+
 You're given an `m x n` grid representing a box viewed from the side, where `'#'` is a stone, `'*'` is a fixed obstacle, and `'.'` is empty. Gravity pulls every stone as far right as possible in its row (stopping at the box wall or the nearest obstacle/stone already there), and then the whole box is rotated 90 degrees clockwise. Return the grid after both the gravity settle and the rotation.
 
 **Example 1:**

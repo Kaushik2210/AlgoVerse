@@ -1,5 +1,7 @@
 # 2192. All Ancestors of a Node in a Directed Acyclic Graph
 
+**Commonly asked at:** Amazon, Google, Meta, Oracle
+
 You're given a positive integer `n` representing the nodes of a directed acyclic graph, numbered `0` to `n-1`, and `edges` where `edges[i] = [fromi, toi]` describes a directed edge. Return a list where entry `i` is the sorted list of all ancestors of node `i` — every node that can reach node `i` through some directed path.
 
 **Example 1:**

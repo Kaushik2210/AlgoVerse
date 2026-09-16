@@ -1,5 +1,7 @@
 # 1669. Merge In Between Linked Lists
 
+**Commonly asked at:** Amazon, Google, Microsoft, Bloomberg, Nvidia, Oracle
+
 You're given two linked lists, `list1` (with `n` nodes) and `list2`, and two integers `a` and `b` (0-indexed, `a < b < n - 1`). Remove nodes `a` through `b` from `list1` and replace that whole gap with `list2`. Return the head of the resulting list.
 
 **Example 1:**

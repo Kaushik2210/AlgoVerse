@@ -1,5 +1,7 @@
 # 1590. Number of Ways to Split a String
 
+**Commonly asked at:** Microsoft
+
 Given a binary string `s`, count the number of ways to split it into three non-empty contiguous parts `s1 + s2 + s3 = s` such that all three parts contain the same number of `'1'` characters. Return the count modulo `10^9 + 7`.
 
 **Example 1:**

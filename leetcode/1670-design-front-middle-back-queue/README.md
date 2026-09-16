@@ -1,5 +1,7 @@
 # 1670. Design Front Middle Back Queue
 
+**Commonly asked at:** Amazon, Google
+
 Design a queue that supports push and pop from the front, the middle, and the back. Implement the `FrontMiddleBackQueue` class:
 
 - `FrontMiddleBackQueue()` — initializes the queue.

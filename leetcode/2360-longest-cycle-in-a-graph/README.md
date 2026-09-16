@@ -1,5 +1,7 @@
 # 2360. Longest Cycle in a Graph
 
+**Commonly asked at:** Amazon, Google, Microsoft, Nvidia
+
 You're given a directed graph of `n` nodes where each node has at most one outgoing edge: `edges[i]` is the node that node `i` points to, or `-1` if it points nowhere. Return the length of the longest cycle in the graph, or `-1` if no cycle exists.
 
 **Example 1:**

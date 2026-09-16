@@ -1,5 +1,7 @@
 # 1700. Number of Students Unable to Eat Lunch
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 The cafeteria has a stack of sandwiches (`sandwiches[i]` is 0 for circular or 1 for square) and a queue of students (`students[i]` is each student's preference, 0 or 1). Each round, the student at the front of the queue looks at the sandwich on top of the stack: if they want it, they take it and leave; otherwise they go to the back of the queue. This repeats until either the stack is empty, or every remaining student has already refused the top sandwich once (meaning no one will ever take it). Return how many students are left unable to eat.
 
 **Example 1:**
