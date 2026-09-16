@@ -1,5 +1,7 @@
 # 421. Maximum XOR of Two Numbers in an Array
 
+**Commonly asked at:** Google, Amazon
+
 Given an integer array `nums`, return the maximum result of `nums[i] XOR nums[j]`, where `0 <= i <= j < nums.length`.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 27. Remove Element
 
+**Commonly asked at:** Microsoft, Amazon, Adobe
+
 Given an array `nums` and a value `val`, remove all occurrences of `val` in-place. The order of the remaining elements doesn't matter. Return `k`, the number of elements not equal to `val`, after arranging them at the front of `nums` (the rest of the array beyond `k` doesn't matter).
 
 **Example 1:**

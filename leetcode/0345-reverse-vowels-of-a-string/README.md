@@ -1,5 +1,7 @@
 # 345. Reverse Vowels of a String
 
+**Commonly asked at:** Amazon, Microsoft
+
 Given a string `s`, reverse only the vowels (`a, e, i, o, u`, both upper and lower case) in it, leaving every other character in its original position.
 
 **Example 1:**

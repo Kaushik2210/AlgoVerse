@@ -1,5 +1,7 @@
 # 292. Nim Game
 
+**Commonly asked at:** Amazon
+
 You are playing the Nim game with a friend. There's a pile of `n` stones. You and your friend take turns removing 1, 2, or 3 stones, and you go first. The player who removes the last stone wins. Given `n`, return `true` if you can win the game assuming both players play optimally, otherwise return `false`.
 
 **Example 1:**

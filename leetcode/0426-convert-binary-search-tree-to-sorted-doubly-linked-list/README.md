@@ -1,5 +1,7 @@
 # 426. Convert Binary Search Tree to Sorted Doubly Linked List
 
+**Commonly asked at:** Google, Facebook, Microsoft
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because the in-order-traversal-plus-pointer-rewiring technique is a very common tree/linked-list crossover interview question.*
 
 Convert a Binary Search Tree into a sorted **circular doubly linked list**, in place. Each node's `left` pointer should point to its predecessor and its `right` pointer should point to its successor, forming a circle (the smallest node's `left` points to the largest, and the largest node's `right` points to the smallest). Return a pointer to the smallest node.

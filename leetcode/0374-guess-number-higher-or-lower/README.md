@@ -1,5 +1,7 @@
 # 374. Guess Number Higher or Lower
 
+**Commonly asked at:** Amazon, Bloomberg
+
 You're playing a guessing game against a picked number in `[1, n]`. You call `int guess(int num)`, a pre-defined API, which returns:
 - `-1` if your guess is higher than the picked number
 - `1` if your guess is lower than the picked number

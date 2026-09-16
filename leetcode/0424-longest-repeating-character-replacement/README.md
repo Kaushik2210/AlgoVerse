@@ -1,5 +1,7 @@
 # 424. Longest Repeating Character Replacement
 
+**Commonly asked at:** Amazon, Google, Facebook
+
 You're given a string `s` of uppercase English letters and an integer `k`. You may change up to `k` characters in the string to any other uppercase letter. Return the length of the longest substring that can be made to contain only one repeating character after doing so.
 
 **Example 1:**

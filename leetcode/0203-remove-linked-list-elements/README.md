@@ -1,5 +1,7 @@
 # 203. Remove Linked List Elements
 
+**Commonly asked at:** Amazon, Microsoft
+
 Given the head of a linked list and an integer `val`, remove all the nodes whose value equals `val` and return the new head.
 
 **Example 1:**

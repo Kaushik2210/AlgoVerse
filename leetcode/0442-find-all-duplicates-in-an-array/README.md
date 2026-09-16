@@ -1,5 +1,7 @@
 # 442. Find All Duplicates in an Array
 
+**Commonly asked at:** Amazon
+
 You're given an integer array `nums` of length `n` where every value is in the range `[1, n]`, and each value appears either once or twice. Return every value that appears exactly twice, using only O(1) extra space beyond the output array.
 
 **Example 1:**

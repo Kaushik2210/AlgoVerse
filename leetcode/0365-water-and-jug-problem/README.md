@@ -1,5 +1,7 @@
 # 365. Water and Jug Problem
 
+**Commonly asked at:** Amazon
+
 You're given two jugs with capacities `jug1Capacity` and `jug2Capacity` liters, and an infinite supply of water. Using the operations of filling a jug completely, emptying a jug completely, or pouring water from one jug into the other until either the source is empty or the destination is full, determine whether it's possible to end up with exactly `targetCapacity` liters of water total in the two jugs.
 
 **Example 1:**

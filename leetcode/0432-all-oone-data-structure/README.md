@@ -1,5 +1,7 @@
 # 432. All O`one Data Structure
 
+**Commonly asked at:** Amazon, Google
+
 Design a data structure that stores a stream of strings and supports all of the following in **O(1) average time**:
 
 - `AllOne()` — initialize the data structure with an empty stream of strings.

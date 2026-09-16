@@ -1,5 +1,7 @@
 # 449. Serialize and Deserialize BST
 
+**Commonly asked at:** Amazon, Facebook
+
 Design an algorithm to serialize and deserialize a binary search tree. `serialize(root)` turns the tree into a string, and `deserialize(data)` turns that string back into a tree with the identical structure. The two don't have to match any particular encoding, as long as a tree serialized and then deserialized reconstructs an equivalent BST.
 
 **Example 1:**

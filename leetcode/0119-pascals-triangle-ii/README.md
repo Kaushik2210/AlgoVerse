@@ -1,5 +1,7 @@
 # 119. Pascal's Triangle II
 
+**Commonly asked at:** Amazon
+
 Given an integer `rowIndex`, return the `rowIndex`-th row (0-indexed) of Pascal's triangle.
 
 **Example 1:**
