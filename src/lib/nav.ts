@@ -29,6 +29,13 @@ export const NAV_ITEMS: NavItem[] = [
     description: "Level, XP, streak badges, and your activity heatmap",
   },
   {
+    slug: "roadmap",
+    title: "Roadmap",
+    href: "/roadmap",
+    category: "page",
+    description: "75 Essential Problems — a hand-ordered study plan through every core pattern",
+  },
+  {
     slug: "arrays",
     title: "Arrays & Sorting",
     href: "/dsa/arrays",

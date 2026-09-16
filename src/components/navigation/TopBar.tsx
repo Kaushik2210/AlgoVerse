@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Flame, Moon, Sun, Orbit, Code2, LayoutDashboard, Trophy } from "lucide-react";
+import { Flame, Moon, Sun, Orbit, Code2, LayoutDashboard, Trophy, Map } from "lucide-react";
 import CommandPalette from "@/components/ui/CommandPalette";
 import UserMenu from "@/components/navigation/UserMenu";
 import { useThemeStore } from "@/lib/store/theme";
@@ -19,6 +19,7 @@ export default function TopBar() {
   const onLeetCode = pathname?.startsWith("/leetcode");
   const onDashboard = pathname?.startsWith("/dashboard");
   const onLeaderboard = pathname?.startsWith("/leaderboard");
+  const onRoadmap = pathname?.startsWith("/roadmap");
 
   return (
     <header className="sticky top-0 z-40 glass border-b border-glass-border-token">
@@ -60,6 +61,18 @@ export default function TopBar() {
           >
             <Code2 size={14} />
             LeetCode
+          </Link>
+          <Link
+            href="/roadmap"
+            title="75 Essential Problems — a hand-ordered study plan"
+            className={`hidden lg:flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-mono-data transition-colors ${
+              onRoadmap
+                ? "border-violet/60 text-violet bg-violet/10"
+                : "border-glass-border-token text-text-muted hover:text-violet hover:border-violet/40"
+            }`}
+          >
+            <Map size={14} />
+            Roadmap
           </Link>
           <Link
             href="/leaderboard"
