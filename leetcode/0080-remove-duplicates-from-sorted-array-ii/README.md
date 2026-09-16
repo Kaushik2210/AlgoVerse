@@ -1,5 +1,7 @@
 # 80. Remove Duplicates from Sorted Array II
 
+**Commonly asked at:** Microsoft, Amazon
+
 Given a sorted integer array `nums`, remove duplicates in place so that each unique value appears at most **twice**, keeping the relative order. Return `k`, the number of elements kept — the first `k` slots of `nums` should hold the result, the rest don't matter.
 
 **Example 1:**

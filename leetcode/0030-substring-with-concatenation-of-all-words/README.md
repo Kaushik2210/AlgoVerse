@@ -1,5 +1,7 @@
 # 30. Substring with Concatenation of All Words
 
+**Commonly asked at:** Amazon, Google
+
 You're given a string `s` and an array `words`, where every word in `words` has the same length. Find every starting index in `s` where a substring is a concatenation of each word in `words` exactly once, in any order (with no extra characters between them). Return all such starting indices, in any order.
 
 **Example 1:**

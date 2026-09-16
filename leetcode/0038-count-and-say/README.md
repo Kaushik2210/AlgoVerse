@@ -1,5 +1,7 @@
 # 38. Count and Say
 
+**Commonly asked at:** Amazon, Google, Meta
+
 The count-and-say sequence starts with `"1"`. Each following term is built by reading off the previous term, describing runs of the same digit as "count then digit". Given `n`, return the nth term of the sequence.
 
 **Example 1:**

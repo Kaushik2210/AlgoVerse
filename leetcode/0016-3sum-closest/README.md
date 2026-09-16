@@ -1,5 +1,7 @@
 # 16. 3Sum Closest
 
+**Commonly asked at:** Amazon, Adobe
+
 Given an array `nums` and a target, find three numbers whose sum is closest to `target`. Return that sum. Assume exactly one closest answer exists.
 
 **Example 1:**

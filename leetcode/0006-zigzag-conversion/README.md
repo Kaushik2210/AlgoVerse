@@ -1,5 +1,7 @@
 # 6. Zigzag Conversion
 
+**Commonly asked at:** Amazon, PayPal
+
 You're given a string `s` and a number of rows `numRows`. Imagine writing `s` diagonally down and up in a zigzag pattern across `numRows` rows (down the first row to the last, then back up, then down again), then read the result off row by row, left to right. Return that row-by-row string.
 
 **Example 1:**

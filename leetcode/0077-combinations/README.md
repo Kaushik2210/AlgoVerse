@@ -1,5 +1,7 @@
 # 77. Combinations
 
+**Commonly asked at:** Amazon, Meta
+
 Given two integers `n` and `k`, return all possible combinations of `k` distinct numbers chosen from the range `[1, n]`. You can return the answer in any order.
 
 **Example 1:**

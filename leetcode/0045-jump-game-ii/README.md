@@ -1,5 +1,7 @@
 # 45. Jump Game II
 
+**Commonly asked at:** Amazon, Google
+
 You're given an array `nums` where `nums[i]` is the maximum number of steps you can jump forward from index `i`. Starting at index 0, return the minimum number of jumps needed to reach the last index. You're guaranteed it's always possible to reach the end.
 
 **Example 1:**

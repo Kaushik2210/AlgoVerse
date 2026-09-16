@@ -1,5 +1,7 @@
 # 24. Swap Nodes in Pairs
 
+**Commonly asked at:** Amazon, Microsoft, Bloomberg
+
 Given a linked list, swap every two adjacent nodes and return the head of the modified list. You have to actually rewire the nodes — you can't just swap the values sitting inside them.
 
 **Example 1:**

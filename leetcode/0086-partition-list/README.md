@@ -1,5 +1,7 @@
 # 86. Partition List
 
+**Commonly asked at:** Amazon, Microsoft
+
 Given the head of a linked list and a value `x`, rearrange the list so that all nodes with a value less than `x` come before all nodes with a value greater than or equal to `x`. The relative order of the nodes within each of the two groups should stay the same as in the original list.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 68. Text Justification
 
+**Commonly asked at:** Google, Amazon, Meta
+
 Given an array of `words` and a width `maxWidth`, format the text so each line has exactly `maxWidth` characters and is fully (left and right) justified. Pack as many words as possible per line, pad extra spaces between words so they're distributed as evenly as possible (extra spaces go to the leftmost gaps first when they don't divide evenly), and every line except the last should have no leading spaces with words separated by at least one space. The last line should be left-justified with a single space between words and padded with trailing spaces to reach `maxWidth`. A line with only one word is padded with trailing spaces (no space needs distributing).
 
 **Example 1:**

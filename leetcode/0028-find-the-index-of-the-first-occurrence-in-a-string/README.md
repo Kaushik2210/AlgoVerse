@@ -1,5 +1,7 @@
 # 28. Find the Index of the First Occurrence in a String
 
+**Commonly asked at:** Amazon, Microsoft
+
 Given two strings `haystack` and `needle`, return the index of the first occurrence of `needle` in `haystack`, or `-1` if `needle` is not part of `haystack`.
 
 **Example 1:**

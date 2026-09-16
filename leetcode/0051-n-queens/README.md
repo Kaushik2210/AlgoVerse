@@ -1,5 +1,7 @@
 # 51. N-Queens
 
+**Commonly asked at:** Amazon, Microsoft, Google
+
 Place `n` queens on an `n x n` chessboard so that no two queens attack each other — meaning no two share a row, a column, or a diagonal. Return every distinct board arrangement that achieves this, each represented as a list of strings where `'Q'` marks a queen and `'.'` marks an empty square.
 
 **Example 1:**

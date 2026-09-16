@@ -1,5 +1,7 @@
 # 52. N-Queens II
 
+**Commonly asked at:** Amazon
+
 The n-queens puzzle asks how to place n queens on an n x n chessboard so that no two queens attack each other (no shared row, column, or diagonal). Given an integer `n`, return just the number of distinct solutions, without needing to construct the boards themselves.
 
 **Example 1:**

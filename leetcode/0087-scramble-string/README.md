@@ -1,5 +1,7 @@
 # 87. Scramble String
 
+**Commonly asked at:** Google
+
 We can scramble a string `s` to get a string `t` using the following algorithm:
 1. If the length of the string is 1, stop.
 2. If the length of the string is > 1, do the following:
