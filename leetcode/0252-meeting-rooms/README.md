@@ -1,5 +1,7 @@
 # 252. Meeting Rooms
 
+**Commonly asked at:** Meta, Google, Amazon
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it's the simpler, more fundamental version of "Meeting Rooms II" and a natural warm-up for interval scheduling questions.*
 
 Given an array of meeting time intervals `intervals` where `intervals[i] = [starti, endi]`, determine if a single person could attend all the meetings (i.e., no two meetings overlap).

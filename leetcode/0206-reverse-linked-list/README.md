@@ -1,5 +1,7 @@
 # 206. Reverse Linked List
 
+**Commonly asked at:** Amazon, Microsoft, Meta, Apple, Bloomberg
+
 Given the head of a singly linked list, reverse the list and return the new head.
 
 **Example 1:**

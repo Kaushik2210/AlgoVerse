@@ -1,5 +1,7 @@
 # 268. Missing Number
 
+**Commonly asked at:** Amazon, Microsoft
+
 Given an array `nums` containing `n` distinct numbers taken from the range `[0, n]`, find the one number in that range that's missing from the array.
 
 **Example 1:**

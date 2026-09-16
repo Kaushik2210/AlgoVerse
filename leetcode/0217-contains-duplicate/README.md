@@ -1,5 +1,7 @@
 # 217. Contains Duplicate
 
+**Commonly asked at:** Amazon
+
 Given an array of integers, determine if any value shows up more than once. Return `true` if there's a duplicate anywhere, `false` if every element is distinct.
 
 **Example 1:**

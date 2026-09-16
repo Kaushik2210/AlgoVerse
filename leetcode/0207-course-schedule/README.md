@@ -1,5 +1,7 @@
 # 207. Course Schedule
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 There are `numCourses` courses labeled `0` to `numCourses - 1`. You're given a list of prerequisite pairs `prerequisites[i] = [a, b]`, meaning you must take course `b` before course `a`. Determine whether it's possible to finish all courses.
 
 **Example 1:**

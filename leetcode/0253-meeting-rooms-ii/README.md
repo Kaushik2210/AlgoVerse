@@ -1,5 +1,7 @@
 # 253. Meeting Rooms II
 
+**Commonly asked at:** Meta, Google, Amazon, Uber
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because it's an extremely common interview question, especially for scheduling/interval problems.*
 
 Given an array of meeting time intervals `intervals` where `intervals[i] = [start_i, end_i]`, return the minimum number of conference rooms required so that no two overlapping meetings need the same room at the same time.

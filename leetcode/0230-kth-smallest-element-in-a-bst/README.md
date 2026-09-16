@@ -1,5 +1,7 @@
 # 230. Kth Smallest Element in a BST
 
+**Commonly asked at:** Amazon, Google
+
 Given the root of a binary search tree and an integer `k`, return the `k`th smallest value (1-indexed) among all the values of the nodes in the tree.
 
 **Example 1:**

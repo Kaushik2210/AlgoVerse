@@ -1,5 +1,7 @@
 # 236. Lowest Common Ancestor of a Binary Tree
 
+**Commonly asked at:** Amazon, Meta, Microsoft, LinkedIn
+
 You're given the root of a binary tree (not a BST — no ordering guarantee) and two nodes `p` and `q` that are guaranteed to exist in the tree. Find their lowest common ancestor: the deepest node that has both `p` and `q` as descendants (a node is allowed to be a descendant of itself).
 
 **Example 1:**

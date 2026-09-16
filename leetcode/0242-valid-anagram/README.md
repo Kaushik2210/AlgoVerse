@@ -1,5 +1,7 @@
 # 242. Valid Anagram
 
+**Commonly asked at:** Amazon
+
 Given two strings `s` and `t`, figure out whether `t` is an anagram of `s` — meaning it uses exactly the same letters, the same number of times, just possibly rearranged.
 
 **Example 1:**

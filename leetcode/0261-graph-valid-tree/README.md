@@ -1,5 +1,7 @@
 # 261. Graph Valid Tree
 
+**Commonly asked at:** Google, Meta
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because "is this graph a valid tree" (via union-find or a cycle-and-connectivity check) is an extremely common interview question and a natural companion to Redundant Connection.*
 
 You have `n` nodes labeled 0 to n-1 and a list of undirected `edges`, where `edges[i] = [a, b]` means there's an edge between nodes `a` and `b`. Return `true` if these edges form a valid tree.

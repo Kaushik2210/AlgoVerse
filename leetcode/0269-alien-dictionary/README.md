@@ -1,5 +1,7 @@
 # 269. Alien Dictionary
 
+**Commonly asked at:** Google, Meta, Airbnb
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because it's a classic interview question for topological sort on a derived graph.*
 
 There's a new alien language that uses the English alphabet, but the order among the letters is unknown. You're given a list of `words` from this language's dictionary, where the words are sorted lexicographically according to the rules of this new language. Derive the order of letters in this language. If the order is invalid (the given words can't be sorted consistently by any letter order), return an empty string. If there are multiple valid orders, any one of them is acceptable. If no valid order exists because it isn't possible to determine one, return an empty string too.

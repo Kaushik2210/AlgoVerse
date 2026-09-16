@@ -1,5 +1,7 @@
 # 226. Invert Binary Tree
 
+**Commonly asked at:** Google, Amazon
+
 Given the root of a binary tree, invert it — meaning every node's left and right children get swapped, all the way down — and return the new root.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 234. Palindrome Linked List
 
+**Commonly asked at:** Amazon, Meta, Microsoft
+
 Given the head of a singly linked list, determine whether it's a palindrome.
 
 **Example 1:**

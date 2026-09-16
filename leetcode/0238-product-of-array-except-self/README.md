@@ -1,5 +1,7 @@
 # 238. Product of Array Except Self
 
+**Commonly asked at:** Amazon, Meta, Microsoft, Apple
+
 Given an integer array `nums`, return a new array `answer` where `answer[i]` is the product of every element in `nums` except `nums[i]`. You have to do this without using the division operator, and ideally in O(n) time.
 
 **Example 1:**

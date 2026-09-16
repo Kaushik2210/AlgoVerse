@@ -1,5 +1,7 @@
 # 211. Design Add and Search Words Data Structure
 
+**Commonly asked at:** Google, Meta
+
 Design a data structure that supports adding new words and checking whether a given string matches any previously added word. Implement `WordDictionary` with:
 - `addWord(word)` — adds `word` to the data structure
 - `search(word)` — returns `true` if there's a previously added string that matches `word`. `word` may contain the wildcard character `'.'`, which can match any single letter.

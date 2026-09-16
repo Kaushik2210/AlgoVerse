@@ -1,5 +1,7 @@
 # 239. Sliding Window Maximum
 
+**Commonly asked at:** Amazon, Google, Uber
+
 You're given an array `nums` and a window size `k`. A window of size `k` slides from the very left of the array to the very right, one position at a time — you can only see the `k` numbers currently inside it. Return the maximum value in the window at each position it stops.
 
 **Example 1:**

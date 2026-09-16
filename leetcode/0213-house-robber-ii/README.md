@@ -1,5 +1,7 @@
 # 213. House Robber II
 
+**Commonly asked at:** Amazon, LinkedIn
+
 This is the same setup as House Robber (198) — you're a robber planning to rob houses along a street, each with a given amount of money, and you can't rob two adjacent houses without triggering an alarm — except now the houses are arranged in a circle, so the first and last house are also adjacent to each other. Given an integer array `nums` representing the money in each house, return the maximum amount you can rob without robbing two adjacent houses.
 
 **Example 1:**
