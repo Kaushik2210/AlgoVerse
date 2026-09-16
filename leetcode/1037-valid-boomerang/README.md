@@ -1,5 +1,7 @@
 # 1037. Valid Boomerang
 
+**Commonly asked at:** Google, Microsoft
+
 You're given `points`, an array of 3 points `[x, y]` in the plane. Return `true` if these points make a "boomerang" — meaning they are not all on the same straight line.
 
 **Example 1:**

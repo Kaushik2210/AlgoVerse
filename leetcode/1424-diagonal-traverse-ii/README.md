@@ -1,5 +1,7 @@
 # 1424. Diagonal Traverse II
 
+**Commonly asked at:** Amazon, Google, Meta
+
 You're given a 2D integer array `nums` where each row can be a different length (a jagged/ragged array). Return all the elements in diagonal order — same idea as diagonal traversal of a rectangular matrix, but the rows aren't all the same size.
 
 **Example 1:**

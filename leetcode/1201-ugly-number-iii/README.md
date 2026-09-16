@@ -1,5 +1,7 @@
 # 1201. Ugly Number III
 
+**Commonly asked at:** Amazon
+
 Given four integers `n`, `a`, `b`, and `c`, return the `n`-th ugly number, where an ugly number here is defined as a positive integer divisible by `a`, `b`, or `c`.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 984. String Without AAA or BBB
 
+**Commonly asked at:** Amazon, Google
+
 Given two integers `a` and `b`, return any string that has exactly `a` occurrences of `'a'` and `b` occurrences of `'b'`, and does not contain the substring `"aaa"` or `"bbb"`.
 
 **Example 1:**

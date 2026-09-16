@@ -1,5 +1,7 @@
 # 1171. Remove Zero Sum Consecutive Nodes from Linked List
 
+**Commonly asked at:** Amazon, Google, Uber, Bloomberg, TikTok
+
 Given the head of a linked list, repeatedly delete consecutive sequences of nodes that sum to 0 until no such sequence exists, then return the head of the final list. Any answer with the same resulting list of values is accepted.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 967. Numbers With Same Consecutive Differences
 
+**Commonly asked at:** Amazon, Google, Bloomberg
+
 Return all non-negative integers of length `n` such that the absolute difference between every pair of consecutive digits is `k`. Numbers may not have leading zeros unless the number itself is 0 (irrelevant here since `n >= 1`). Any order is acceptable, and there should be no duplicates.
 
 **Example 1:**

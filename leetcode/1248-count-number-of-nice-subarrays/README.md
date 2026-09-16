@@ -1,5 +1,7 @@
 # 1248. Count Number of Nice Subarrays
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg, TikTok
+
 Given an array of integers `nums` and an integer `k`, a subarray is called "nice" if it contains exactly `k` odd numbers. Return the number of nice subarrays.
 
 **Example 1:**

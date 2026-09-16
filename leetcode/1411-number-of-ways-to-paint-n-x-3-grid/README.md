@@ -1,5 +1,7 @@
 # 1411. Number of Ways to Paint N x 3 Grid
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 You have a grid with `n` rows and 3 columns, and 3 available colors ("Red", "Yellow", "Green"). Paint every cell so that no two horizontally or vertically adjacent cells share a color. Return the number of ways to do this, modulo `10^9 + 7`.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 1494. Parallel Courses II
 
+**Commonly asked at:** Amazon, Google, Snowflake
+
 **Note:** this problem is LeetCode premium (subscriber-only) — no live link to test against, but the statement and expected behavior below are well documented, and the solution here is checked against known example outputs.
 
 You have `n` courses labeled `1` to `n`. `relations[i] = [prevCourse, nextCourse]` means `prevCourse` must be completed before `nextCourse`. You can take at most `k` courses in a single semester, but only courses whose prerequisites are all already completed. Return the minimum number of semesters needed to complete all courses.

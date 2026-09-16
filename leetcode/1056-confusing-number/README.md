@@ -1,5 +1,7 @@
 # 1056. Confusing Number
 
+**Commonly asked at:** Google
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 A confusing number is one that, when rotated 180 degrees, becomes a *different* valid number. Only the digits 0, 1, 6, 8, and 9 remain valid digits after rotation (0, 1, 8 map to themselves, 6 maps to 9, and 9 maps to 6); any other digit makes the rotation invalid, not confusing. Given a number `n`, return whether it's confusing.

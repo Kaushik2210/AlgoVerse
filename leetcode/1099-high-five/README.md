@@ -1,5 +1,7 @@
 # 1099. High Five
 
+**Commonly asked at:** Amazon, Goldman Sachs
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 You're given `items`, a list of `[student_id, score]` pairs. Each student is guaranteed to have at least 5 scores. For every student, compute the average of their top five scores (using integer division, i.e. rounded down), and return the results as `[student_id, average]` pairs sorted by `student_id` ascending.

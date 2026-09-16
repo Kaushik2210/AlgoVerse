@@ -1,5 +1,7 @@
 # 1464. Maximum Product of Two Elements in an Array
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 You're given an integer array `nums`. Choose two distinct indices `i` and `j` to maximize `(nums[i] - 1) * (nums[j] - 1)`. Return that maximum value.
 
 **Example 1:**

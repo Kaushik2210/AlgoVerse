@@ -1,5 +1,7 @@
 # 1474. Delete N Nodes After M Nodes of a Linked List
 
+**Commonly asked at:** Microsoft
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Given the head of a linked list and two integers `m` and `n`, repeatedly keep the next `m` nodes and then delete the next `n` nodes, continuing this pattern until the end of the list is reached. Return the head of the modified list.

@@ -1,5 +1,7 @@
 # 998. Maximum Binary Tree II
 
+**Commonly asked at:** Meta
+
 `root` is the maximum binary tree (as defined in problem 654) built from some array. You're told a new value `val` was appended to the **end** of that original array, and asked to return the root of the maximum binary tree that would be built from the new, longer array — without rebuilding from scratch.
 
 **Example 1:**
