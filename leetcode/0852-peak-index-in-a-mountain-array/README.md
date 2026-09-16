@@ -1,5 +1,7 @@
 # 852. Peak Index in a Mountain Array
 
+**Commonly asked at:** Amazon, Google
+
 An array is a "mountain" if it strictly increases up to some peak index and then strictly decreases after it (there's at least one element on each side of the peak). Given such a mountain array `arr`, return the peak index.
 
 **Example 1:**

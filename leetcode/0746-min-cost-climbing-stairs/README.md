@@ -1,5 +1,7 @@
 # 746. Min Cost Climbing Stairs
 
+**Commonly asked at:** Amazon
+
 You're given an array `cost` where `cost[i]` is the cost of stepping on stair `i`. Once you pay for a step you can climb either 1 or 2 steps from it. You start standing either on step `0` or step `1` (your choice, no cost to start), and you want to reach the "top" — one step past the last index. Return the minimum total cost to get there.
 
 **Example 1:**

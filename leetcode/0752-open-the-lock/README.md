@@ -1,5 +1,7 @@
 # 752. Open the Lock
 
+**Commonly asked at:** Google, Meta
+
 You have a lock with 4 circular wheels, each showing a digit from `0` to `9`. Each wheel can be turned one click up or down (`9` wraps to `0` and `0` wraps to `9`). The lock starts at `"0000"`.
 
 You're given a list `deadends` — combinations that, if the lock ever displays one, it locks permanently and can't be turned any further. You're also given a `target` combination. Return the minimum number of turns needed to reach `target` from `"0000"`, or `-1` if it's impossible.

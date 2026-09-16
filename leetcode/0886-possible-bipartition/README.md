@@ -1,5 +1,7 @@
 # 886. Possible Bipartition
 
+**Commonly asked at:** Amazon, Google
+
 There are `n` people labeled `1` to `n`. You're given `dislikes`, a list of pairs `[ai, bi]` meaning person `ai` and person `bi` dislike each other. Split everyone into two groups such that no two people who dislike each other end up in the same group. Return `true` if it's possible.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 803. Bricks Falling When Hit
 
+**Commonly asked at:** Google
+
 You're given an `m x n` binary grid `grid` where `1` means a brick and `0` means empty. A brick is "stable" if it's in row 0, or if it's 4-directionally adjacent to a stable brick. You're also given `hits`, a list of `[row, col]` cells to knock out in order. When a cell is hit: if there's a brick there, it's erased (whether or not it was stable); then, any brick that becomes unstable as a result *immediately falls* and is also erased, chain-reacting through whatever else that destabilizes. Return an array where `result[i]` is the number of bricks that fell (not counting the hit brick itself) as a direct or indirect result of the `i`-th hit. A hit on an empty cell contributes 0 and doesn't otherwise affect anything.
 
 **Example 1:**

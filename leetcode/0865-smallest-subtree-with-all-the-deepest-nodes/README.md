@@ -1,5 +1,7 @@
 # 865. Smallest Subtree with all the Deepest Nodes
 
+**Commonly asked at:** Google
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it's the classic phrasing of the same problem as "Lowest Common Ancestor of Deepest Leaves" (1123), which is freely accessible — the two are worth doing together.*
 
 Given the root of a binary tree, find the deepest leaves (the ones farthest from the root), and return the smallest subtree that contains **all** of them.

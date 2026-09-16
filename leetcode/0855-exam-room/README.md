@@ -1,5 +1,7 @@
 # 855. Exam Room
 
+**Commonly asked at:** Google, Amazon
+
 There are `n` seats numbered `0` to `n - 1` in a row. Implement `ExamRoom`:
 - `ExamRoom(int n)` initializes the room with `n` seats, all empty.
 - `int seat()` a student enters and sits in the seat that maximizes the distance to the closest occupied seat (if there are multiple such seats, pick the one with the smallest number; if the room is empty, seat 0). Returns the seat number they sat in.

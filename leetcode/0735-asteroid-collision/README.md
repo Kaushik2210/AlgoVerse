@@ -1,5 +1,7 @@
 # 735. Asteroid Collision
 
+**Commonly asked at:** Amazon, Bloomberg
+
 You're given an array `asteroids` of integers representing asteroids in a row. For each asteroid, the absolute value is its size, and the sign is its direction (positive = moving right, negative = moving left). Every asteroid moves at the same speed. Find out the state of the asteroids after all collisions: two asteroids moving in the same direction never meet, but if two moving toward each other meet, the smaller one explodes (if both are the same size, both explode); an asteroid moving right will never meet another asteroid moving right or one to its left already moving away.
 
 **Example 1:**

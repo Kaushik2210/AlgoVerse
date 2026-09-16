@@ -1,5 +1,7 @@
 # 851. Loud and Rich
 
+**Commonly asked at:** Google
+
 There are `n` people labeled 0 to `n-1`, each with a distinct amount of money and a distinct "quietness" score, given as an array `quiet` (`quiet[x]` is person `x`'s quietness, lower means quieter). You're also given `richer`, a list of pairs `[a, b]` meaning person `a` has strictly more money than person `b`. For every person `x`, find the quietest person among everyone who has money greater than or equal to `x` (including `x` themselves), and return their label in `answer[x]`.
 
 **Example 1:**

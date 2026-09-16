@@ -1,5 +1,7 @@
 # 839. Similar String Groups
 
+**Commonly asked at:** Google
+
 Two strings `X` and `Y` are similar if they're equal, or if swapping exactly two letters in `X` (at any two positions) makes it equal to `Y`. Similarity forms groups: string `X` and `Y` are in the same group if `X` is similar to `Y`, or if there's some string `Z` such that `X` is similar to `Z` and `Z` is similar to `Y` (i.e. the group is the connected component under the similarity relation). Given an array `strs` of anagrams of each other (all strings are permutations of the same multiset of letters), return the number of groups.
 
 **Example 1:**

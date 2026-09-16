@@ -1,5 +1,7 @@
 # 741. Cherry Pickup
 
+**Commonly asked at:** Google
+
 You're given an `n x n` grid. Each cell is `1` (a cherry), `0` (empty), or `-1` (a thorn, blocked). Starting at the top-left corner `(0, 0)`, you take a path to the bottom-right corner `(n-1, n-1)`, moving only right or down, picking up any cherries along the way (each cell can only be picked once). Then you walk back from `(n-1, n-1)` to `(0, 0)`, moving only left or up, picking up any cherries still there. Return the maximum number of cherries you can collect across both trips, or `0` if the round trip isn't possible.
 
 **Example 1:**

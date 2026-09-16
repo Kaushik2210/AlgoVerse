@@ -1,5 +1,7 @@
 # 759. Employee Free Time
 
+**Commonly asked at:** Google, Meta, Amazon
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 You're given a list `schedule` of employees, where each employee's schedule is a list of non-overlapping `Interval`s, already sorted, representing the times they're busy. Return a list of finite intervals representing the common, positive-length free time shared by **all** employees, also sorted.

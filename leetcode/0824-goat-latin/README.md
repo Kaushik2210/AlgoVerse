@@ -1,5 +1,7 @@
 # 824. Goat Latin
 
+**Commonly asked at:** Amazon
+
 You're given a sentence `sentence` made of words separated by single spaces. Convert it to "Goat Latin" using these rules: if a word starts with a vowel (a, e, i, o, u, either case), just append "ma" to it. Otherwise, move the first letter to the end, then append "ma". Finally, append one extra letter 'a' to the word, where the number of 'a's equals the word's 1-indexed position in the sentence. Return the resulting sentence.
 
 **Example 1:**

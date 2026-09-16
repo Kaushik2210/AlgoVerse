@@ -1,5 +1,7 @@
 # 802. Find Eventual Safe States
 
+**Commonly asked at:** Google
+
 You're given a directed graph `graph` where `graph[i]` lists the nodes that node `i` has an edge to. A node is a "terminal node" if it has no outgoing edges. A node is "safe" if every possible path starting from it eventually leads to a terminal node — meaning it can never get stuck in a cycle. Return all safe nodes, sorted in ascending order.
 
 **Example 1:**

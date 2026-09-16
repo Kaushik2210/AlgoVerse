@@ -1,5 +1,7 @@
 # 877. Stone Game
 
+**Commonly asked at:** Amazon, Google
+
 Alice and Bob play a game with piles of stones arranged in a row, given as an array `piles` (with an even total number of piles). Taking turns, starting with Alice, each player takes the entire pile from either the very beginning or the very end of the remaining row, adding its stones to their score. Both players play optimally to maximize their own score. Return `true` if Alice wins (strictly more stones than Bob), `false` otherwise.
 
 **Example 1:**
