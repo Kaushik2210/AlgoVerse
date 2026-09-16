@@ -1,5 +1,7 @@
 # 720. Longest Word in Dictionary
 
+**Commonly asked at:** Amazon, Google
+
 You're given a list of strings `words`. Find the longest word in `words` that can be built one character at a time by other words in `words`. That means every prefix of the word (stopping at each length) must also appear somewhere in the list. If there's a tie in length, return the lexicographically smallest one. If no word qualifies, return the empty string.
 
 **Example 1:**

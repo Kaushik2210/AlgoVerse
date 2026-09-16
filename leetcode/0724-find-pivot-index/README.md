@@ -1,5 +1,7 @@
 # 724. Find Pivot Index
 
+**Commonly asked at:** Facebook
+
 Given an array of integers `nums`, find the leftmost pivot index — an index where the sum of every number strictly to its left equals the sum of every number strictly to its right. If no such index exists, return -1.
 
 **Example 1:**

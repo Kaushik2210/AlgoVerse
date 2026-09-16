@@ -1,5 +1,7 @@
 # 715. Range Module
 
+**Commonly asked at:** Google
+
 A **Range Module** tracks ranges of numbers and tells you whether a queried range is fully "tracked." Implement:
 
 - `RangeModule()` — initializes with no ranges tracked.

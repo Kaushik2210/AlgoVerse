@@ -1,5 +1,7 @@
 # 710. Random Pick with Blacklist
 
+**Commonly asked at:** Google
+
 You're given an integer `n` and an array `blacklist` of unique integers, all in the range `[0, n)`. Design a data structure that picks an integer uniformly at random from `[0, n)` that is **not** in `blacklist`, as efficiently as possible.
 
 Implement the `Solution` class:

@@ -1,5 +1,7 @@
 # 930. Binary Subarrays With Sum
 
+**Commonly asked at:** Google, Facebook
+
 Given a binary array `nums` and an integer `goal`, return the number of non-empty contiguous subarrays whose sum equals `goal`.
 
 **Example 1:**

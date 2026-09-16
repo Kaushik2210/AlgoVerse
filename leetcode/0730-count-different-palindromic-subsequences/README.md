@@ -1,5 +1,7 @@
 # 730. Count Different Palindromic Subsequences
 
+**Commonly asked at:** Google
+
 Given a string `s`, return the number of different non-empty palindromic subsequences in `s`. Since the answer can be huge, return it modulo `10^9 + 7`. A subsequence counts as "different" if the resulting sequence of characters is different, even if the two subsequences were picked from different index sets — so duplicate characters at different positions don't create duplicate answers, only distinct strings matter. The input only ever contains the characters `a`, `b`, `c`, `d`.
 
 **Example 1:**

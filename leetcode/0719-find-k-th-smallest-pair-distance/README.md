@@ -1,5 +1,7 @@
 # 719. Find K-th Smallest Pair Distance
 
+**Commonly asked at:** Google, Facebook
+
 The distance of a pair of integers `a` and `b` is defined as `|a - b|`. Given an integer array `nums` and an integer `k`, return the `k`-th smallest distance among all pairs `(nums[i], nums[j])` with `i < j`.
 
 **Example 1:**

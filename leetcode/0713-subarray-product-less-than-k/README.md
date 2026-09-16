@@ -1,5 +1,7 @@
 # 713. Subarray Product Less Than K
 
+**Commonly asked at:** Amazon, Facebook
+
 Given an array of positive integers `nums` and an integer `k`, return the number of contiguous subarrays where the product of all the elements is strictly less than `k`.
 
 **Example 1:**

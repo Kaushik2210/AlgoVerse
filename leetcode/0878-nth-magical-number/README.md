@@ -1,5 +1,7 @@
 # 878. Nth Magical Number
 
+**Commonly asked at:** Google
+
 A positive integer is magical if it's divisible by either `a` or `b`. Given `n`, `a`, and `b`, return the `n`-th magical number, modulo `10^9 + 7`.
 
 **Example 1:**

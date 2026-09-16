@@ -1,5 +1,7 @@
 # 702. Search in a Sorted Array of Unknown Size
 
+**Commonly asked at:** Google, Facebook
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against a hand-built mock of the `ArrayReader` API.
 
 You're given an integer array sorted in ascending order, but its size isn't known to you. You can't access it directly — instead you're given a `reader` object (`ArrayReader`) with `reader.get(index)`, which returns the value at `index`, or `2^31 - 1` if `index` is out of bounds. Given a `target`, return its index in the array, or `-1` if it's not present. Your solution must run in O(log n).

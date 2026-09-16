@@ -1,5 +1,7 @@
 # 712. Minimum ASCII Delete Sum for Two Strings
 
+**Commonly asked at:** Google, Amazon
+
 You're given two strings `s1` and `s2`. Find the lowest total ASCII sum of characters you need to delete so that the two strings become equal.
 
 **Example 1:**

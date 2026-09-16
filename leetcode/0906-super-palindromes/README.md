@@ -1,5 +1,7 @@
 # 906. Super Palindromes
 
+**Commonly asked at:** Google
+
 A positive integer is a super-palindrome if it's a palindrome itself, and its square root (taken as an integer) is also a palindrome. Given two positive integers `left` and `right` as strings, return how many super-palindromes exist in the inclusive range `[left, right]`.
 
 **Example 1:**

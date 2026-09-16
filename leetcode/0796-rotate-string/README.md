@@ -1,5 +1,7 @@
 # 796. Rotate String
 
+**Commonly asked at:** Amazon
+
 You're given two strings `s` and `goal`. Return `true` if `s` can become `goal` after some number of shifts on `s`, where a shift moves the leftmost character of `s` to the rightmost position.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 784. Letter Case Permutation
 
+**Commonly asked at:** Facebook, Amazon
+
 You're given a string `s`. For every letter in `s`, it can be transformed to either lowercase or uppercase; digits stay as they are. Return all possible strings that can be created this way, in any order.
 
 **Example 1:**

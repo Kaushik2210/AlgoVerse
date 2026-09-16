@@ -1,5 +1,7 @@
 # 745. Prefix and Suffix Search
 
+**Commonly asked at:** Google
+
 Design a class `WordFilter` that, given a list of `words`, supports queries of the form `f(prefix, suffix)`: return the largest index `i` such that `words[i]` starts with `prefix` **and** ends with `suffix`. If no such word exists, return -1.
 
 **Example:**

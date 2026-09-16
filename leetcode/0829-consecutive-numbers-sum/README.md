@@ -1,5 +1,7 @@
 # 829. Consecutive Numbers Sum
 
+**Commonly asked at:** Google
+
 Given a positive integer `n`, return the number of ways it can be written as the sum of one or more **consecutive positive** integers.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 820. Short Encoding of Words
 
+**Commonly asked at:** Google
+
 You're given a list of words `words`. Build a "reference string" `s` and an array of indices, such that:
 - `s` ends with `'#'`, and each word can be found in `s` starting from one of the indices, reading up to (not including) the next `'#'`.
 - Words can share suffixes: if one word is a suffix of another (e.g. "me" is a suffix of "time"), it doesn't need its own separate entry — it can just point into the middle of the longer word's entry.
