@@ -12,6 +12,7 @@ export interface LeetCodeIndexEntry {
   slug: string;
   title: string;
   excerpt: string;
+  companies: string[];
 }
 
 export const leetcodeIndex: LeetCodeIndexEntry[] = indexData as LeetCodeIndexEntry[];
