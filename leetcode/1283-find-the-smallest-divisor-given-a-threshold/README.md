@@ -1,5 +1,7 @@
 # 1283. Find the Smallest Divisor Given a Threshold
 
+**Commonly asked at:** Google
+
 Given an array `nums` and an integer `threshold`, choose a positive integer `divisor` and divide every element of `nums` by it, rounding each result up to the nearest integer, then sum those rounded values. Find the smallest `divisor` such that this sum is <= `threshold`.
 
 **Example 1:**

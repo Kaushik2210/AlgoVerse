@@ -1,5 +1,7 @@
 # 1482. Minimum Number of Days to Make m Bouquets
 
+**Commonly asked at:** Amazon, Google
+
 Given an integer array `bloomDay`, an integer `m`, and an integer `k`: `bloomDay[i]` is the day the `i`-th flower blooms. You need `m` bouquets, each made of `k` **adjacent** flowers from the garden, and a flower can only be used once it has bloomed. Return the minimum number of days needed to be able to make all `m` bouquets, or `-1` if it's impossible.
 
 **Example 1:**

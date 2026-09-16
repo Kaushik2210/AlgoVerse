@@ -1,5 +1,7 @@
 # 1480. Running Sum of 1d Array
 
+**Commonly asked at:** Amazon
+
 Given an array `nums`, return its running sum, where `runningSum[i] = nums[0] + nums[1] + ... + nums[i]`.
 
 **Example 1:**

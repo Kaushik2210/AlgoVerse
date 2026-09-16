@@ -1,5 +1,7 @@
 # 1552. Magnetic Force Between Two Balls
 
+**Commonly asked at:** Google, Amazon
+
 There are `n` baskets at positions given by array `position`. You have `m` balls, and you must place them into baskets such that the minimum magnetic force between any two balls is maximized. The magnetic force between two balls in baskets at positions `x` and `y` is `|x - y|`. Return the maximum possible value of that minimum force.
 
 **Example 1:**

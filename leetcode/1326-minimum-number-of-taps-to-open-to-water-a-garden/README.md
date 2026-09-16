@@ -1,5 +1,7 @@
 # 1326. Minimum Number of Taps to Open to Water a Garden
 
+**Commonly asked at:** Google
+
 There's a 1-D garden on the x-axis from point 0 to point `n`. There are `n + 1` taps, located at points `0, 1, ..., n`. You're given an array `ranges` of length `n + 1`, where `ranges[i]` (if it's positive) means the tap at point `i` can water the range `[i - ranges[i], i + ranges[i]]`. Return the minimum number of taps needed to water the entire garden `[0, n]`, or -1 if it's impossible.
 
 **Example 1:**

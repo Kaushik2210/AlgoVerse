@@ -1,5 +1,7 @@
 # 1242. Web Crawler Multithreaded
 
+**Commonly asked at:** Google, Meta, Amazon
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. It's normally framed around building a *concurrent* crawler with a thread pool, but here it's solved and verified as a correct sequential BFS crawler (a mock `HtmlParser` built from a directed edge list reproduces the official example exactly), since correctness of the traversal logic is what's actually testable without a live multithreaded judge. See the note at the bottom on how this would be parallelized.
 
 Given a `startUrl` and an `HtmlParser` interface, crawl every URL reachable from `startUrl` that shares the same hostname, and return them all (in any order). Your crawler should:

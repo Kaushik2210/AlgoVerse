@@ -1,5 +1,7 @@
 # 1381. Design a Stack With Increment Operation
 
+**Commonly asked at:** Amazon, Bloomberg
+
 Design a stack that supports a fixed maximum size and an increment operation. Implement the `CustomStack` class:
 
 - `CustomStack(maxSize)` — initializes the stack with maximum size `maxSize`.

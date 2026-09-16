@@ -1,5 +1,7 @@
 # 1277. Count Square Submatrices with All Ones
 
+**Commonly asked at:** Amazon
+
 Given an `m x n` binary matrix, count the total number of square submatrices that contain only `1`s (of every possible size, not just the largest).
 
 **Example 1:**

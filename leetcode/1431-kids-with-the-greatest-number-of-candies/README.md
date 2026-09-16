@@ -1,5 +1,7 @@
 # 1431. Kids With the Greatest Number of Candies
 
+**Commonly asked at:** Amazon
+
 There are kids with candies, given as `candies`, and an extra amount `extraCandies`. For each kid, check whether giving that kid all `extraCandies` would make them have the greatest number of candies among all the kids (ties count). Return a boolean array with the answer for each kid.
 
 **Example 1:**

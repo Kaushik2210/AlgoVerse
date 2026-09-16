@@ -1,5 +1,7 @@
 # 1553. Minimum Number of Days to Eat N Oranges
 
+**Commonly asked at:** Google
+
 There are `n` oranges. Each day you either eat one orange, or — if `n` is divisible by 2 — eat `n/2` oranges, or — if `n` is divisible by 3 — eat `2*n/3` oranges. Return the minimum number of days needed to eat all `n` oranges.
 
 **Example 1:**

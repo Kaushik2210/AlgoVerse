@@ -1,5 +1,7 @@
 # 1461. Check If a String Contains All Binary Codes of Size K
 
+**Commonly asked at:** Google
+
 Given a binary string `s` and an integer `k`, return `true` if every possible binary code of length `k` (there are `2^k` of them, from `000...0` to `111...1`) appears as a substring somewhere in `s`.
 
 **Example 1:**

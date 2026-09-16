@@ -1,5 +1,7 @@
 # 1319. Number of Operations to Make Network Connected
 
+**Commonly asked at:** Amazon, Google
+
 There are `n` computers labeled 0 to `n-1`, connected by ethernet cables given as `connections`, where `connections[i] = [a, b]` is a cable directly connecting computers `a` and `b`. Any computer can reach any other through a chain of cables. You can remove a cable between any two directly connected computers and use it to connect any two computers that currently aren't connected. Return the minimum number of such operations needed to make the whole network connected (every computer reachable from every other), or -1 if it's impossible.
 
 **Example 1:**

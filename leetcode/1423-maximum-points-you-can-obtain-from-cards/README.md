@@ -1,5 +1,7 @@
 # 1423. Maximum Points You Can Obtain from Cards
 
+**Commonly asked at:** Amazon, Google
+
 There are several cards arranged in a row, each with a number of points, given as `cardPoints`. In one step you can take one card from either the beginning or the end of the row. You must take exactly `k` cards total. Return the maximum total points you can get.
 
 **Example 1:**

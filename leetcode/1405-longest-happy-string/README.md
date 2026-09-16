@@ -1,5 +1,7 @@
 # 1405. Longest Happy String
 
+**Commonly asked at:** Google
+
 A string is happy if it doesn't contain `"aaa"`, `"bbb"`, or `"ccc"` as a substring. Given three integers `a`, `b`, `c`, return the longest happy string you can build using at most `a` occurrences of `'a'`, `b` occurrences of `'b'`, and `c` occurrences of `'c'`. If there are multiple longest happy strings, return any of them; if none can be built, return the empty string.
 
 **Example 1:**

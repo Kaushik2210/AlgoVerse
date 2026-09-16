@@ -1,5 +1,7 @@
 # 1493. Longest Subarray of 1's After Deleting One Element
 
+**Commonly asked at:** Amazon, Google
+
 Given a binary array `nums`, you must delete exactly one element from it. Return the length of the longest subarray containing only 1s after that deletion.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 1266. Minimum Time Visiting All Points
 
+**Commonly asked at:** Amazon
+
 You're given an array `points` of integer coordinates on a plane. In one second you can move from a point to any of its 8 neighbors (horizontally, vertically, or diagonally by one unit). Return the minimum number of seconds needed to visit all the points, in the order they're given.
 
 **Example 1:**

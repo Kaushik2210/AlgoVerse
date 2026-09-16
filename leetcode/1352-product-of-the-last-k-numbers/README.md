@@ -1,5 +1,7 @@
 # 1352. Product of the Last K Numbers
 
+**Commonly asked at:** Amazon
+
 Design an algorithm that accepts a stream of integers and supports finding the product of the last `k` integers added so far.
 
 Implement `ProductOfNumbers`:
