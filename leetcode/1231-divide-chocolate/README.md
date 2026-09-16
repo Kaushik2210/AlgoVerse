@@ -1,5 +1,7 @@
 # 1231. Divide Chocolate
 
+**Commonly asked at:** Google
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here because it's the "maximize the minimum" twin of Split Array Largest Sum / Magnetic Force Between Two Balls and rounds out that binary-search-on-the-answer family.*
 
 You have a chocolate bar made of `n` chunks, `sweetness[i]` is the sweetness of the `i`-th chunk. You want to share it with `k` friends, so cut it into `k + 1` pieces using cuts along chunk boundaries — each piece is a contiguous range of chunks. You'll eat the piece with the minimum total sweetness (after giving away the other `k`). Find the maximum total sweetness you can guarantee for your own piece.

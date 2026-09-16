@@ -1,5 +1,7 @@
 # 1029. Two City Scheduling
 
+**Commonly asked at:** Amazon, Google
+
 There are `2n` people, and each person `i` costs `costs[i][0]` to fly to city A or `costs[i][1]` to fly to city B. Find the minimum total cost to fly every person to one of the two cities, such that exactly `n` people arrive in each city.
 
 **Example 1:**

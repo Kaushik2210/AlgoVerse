@@ -1,5 +1,7 @@
 # 1092. Shortest Common Supersequence
 
+**Commonly asked at:** Google
+
 You're given two strings `str1` and `str2`. Return the shortest string that has both `str1` and `str2` as subsequences. If there are multiple valid answers, return any of them.
 
 **Example 1:**

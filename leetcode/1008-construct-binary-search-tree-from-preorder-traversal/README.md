@@ -1,5 +1,7 @@
 # 1008. Construct Binary Search Tree from Preorder Traversal
 
+**Commonly asked at:** Amazon
+
 Given an array `preorder` representing the preorder traversal of a binary search tree, reconstruct that tree and return its root. The tree is guaranteed to have unique values, and the input always corresponds to exactly one valid BST.
 
 **Example 1:**

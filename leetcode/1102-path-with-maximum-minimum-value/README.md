@@ -1,5 +1,7 @@
 # 1102. Path With Maximum Minimum Value
 
+**Commonly asked at:** Google
+
 You're given an `rows x cols` integer matrix `grid`. Find a path from the top-left cell to the bottom-right cell (moving up/down/left/right) that maximizes "the smallest value along the path" — the path's score is the minimum cell value it passes through (including the start and end cells), and you want the path whose score is as large as possible. Return that maximum score.
 
 **Example 1:**

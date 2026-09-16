@@ -1,5 +1,7 @@
 # 1000. Minimum Cost to Merge Stones
 
+**Commonly asked at:** Google
+
 There are `n` piles of stones arranged in a row, with the `i`-th pile holding `stones[i]` stones. In one move you pick exactly `k` **consecutive** piles and merge them into a single new pile, and the cost of that move equals the total number of stones across those `k` piles (the merged pile's size is added to your running cost, and those piles are replaced by one pile holding the sum). Return the minimum total cost to merge all piles into one pile, or `-1` if it's impossible.
 
 **Example 1:**

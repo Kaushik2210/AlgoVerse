@@ -1,5 +1,7 @@
 # 1166. Design File System
 
+**Commonly asked at:** Google, Amazon
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because it's a clean, small illustration of using a trie to model hierarchical paths instead of strings.*
 
 Design a simplified file system that lets you create paths and associate values with them. Implement the `FileSystem` class:

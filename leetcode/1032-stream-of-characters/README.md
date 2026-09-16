@@ -1,5 +1,7 @@
 # 1032. Stream of Characters
 
+**Commonly asked at:** Google
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Design a class `StreamChecker` that receives one character at a time from a stream and, after each character, reports whether the suffix formed by the characters seen so far ends with any complete word from a given list `words`.

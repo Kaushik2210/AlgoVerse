@@ -1,5 +1,7 @@
 # 946. Validate Stack Sequences
 
+**Commonly asked at:** Amazon, Google
+
 Given two integer arrays `pushed` and `popped`, both permutations of the same set of distinct values, return whether this could be the result of a valid sequence of push and pop operations on an initially empty stack.
 
 **Example 1:**

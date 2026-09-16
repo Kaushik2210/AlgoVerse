@@ -1,5 +1,7 @@
 # 1162. As Far from Land as Possible
 
+**Commonly asked at:** Amazon, Google
+
 You're given an `n x n` grid of `0`s (water) and `1`s (land). Find the water cell whose distance to the nearest land cell is as large as possible, and return that distance (measured as Manhattan/4-directional grid steps). If the grid is all land or all water, return `-1`.
 
 **Example 1:**

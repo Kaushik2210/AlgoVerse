@@ -1,5 +1,7 @@
 # 1229. Meeting Scheduler
 
+**Commonly asked at:** Google, Meta, Amazon
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 You're given the availability schedules of two people as lists of non-overlapping time slots (`slots1` and `slots2`, each `[start, end]`), and a meeting `duration`. Return the earliest time slot `[start, end]` that works for both people and is at least `duration` minutes long. If there's no such slot, return an empty array.

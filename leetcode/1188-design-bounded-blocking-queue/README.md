@@ -1,5 +1,7 @@
 # 1188. Design Bounded Blocking Queue
 
+**Commonly asked at:** Amazon, Google
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently with a multi-threaded stress test (real producer/consumer threads, checked that `enqueue` genuinely blocks while full and `dequeue` genuinely blocks while empty using `threading.Thread`).
 
 Implement a thread-safe bounded blocking queue that supports the following methods:

@@ -1,5 +1,7 @@
 # 1047. Remove All Adjacent Duplicates In String
 
+**Commonly asked at:** Amazon, Google
+
 Given a string `s`, repeatedly remove two adjacent and equal letters until no such pair remains, and return the final string. It's guaranteed the answer is unique.
 
 **Example 1:**

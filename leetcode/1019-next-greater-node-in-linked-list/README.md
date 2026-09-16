@@ -1,5 +1,7 @@
 # 1019. Next Greater Node In Linked List
 
+**Commonly asked at:** Amazon
+
 Given the head of a linked list with `n` nodes, for each node find the value of the first node further along the list that's strictly greater than it. If no such node exists, use 0. Return the answers as an array `answer` where `answer[i]` corresponds to the `i`th node (0-indexed).
 
 **Example 1:**

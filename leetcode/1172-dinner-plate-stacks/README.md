@@ -1,5 +1,7 @@
 # 1172. Dinner Plate Stacks
 
+**Commonly asked at:** Google
+
 You have an infinite number of stacks arranged in a row, all with the same fixed `capacity`. Implement the `DinnerPlates` class:
 
 - `DinnerPlates(capacity)` — initializes with the given per-stack capacity.

@@ -1,5 +1,7 @@
 # 1136. Parallel Courses
 
+**Commonly asked at:** Google
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 There are `n` courses, labeled 1 to `n`. You're given `relations`, where `relations[i] = [prevCourse_i, nextCourse_i]` means `prevCourse_i` must be completed before `nextCourse_i`. In one semester, you can take any number of courses as long as all of their prerequisites were completed in a previous semester. Return the minimum number of semesters needed to complete all courses, or -1 if it's impossible (a cycle in the prerequisites).

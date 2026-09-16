@@ -1,5 +1,7 @@
 # 1049. Last Stone Weight II
 
+**Commonly asked at:** Amazon
+
 You have stones with weights given in `stones`. Same smashing rule as before (two stones combine into the absolute difference of their weights, or destroy each other if equal) — but this time you get to choose which pair to smash at each step. Return the smallest possible weight of the final remaining stone (0 if none remain).
 
 **Example 1:**

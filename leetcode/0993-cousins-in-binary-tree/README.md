@@ -1,5 +1,7 @@
 # 993. Cousins in Binary Tree
 
+**Commonly asked at:** Amazon
+
 You're given the root of a binary tree with unique values, and the values of two different nodes `x` and `y`. Return `true` if `x` and `y` are cousins — meaning they're at the same depth but have different parents.
 
 **Example 1:**

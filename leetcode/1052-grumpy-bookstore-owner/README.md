@@ -1,5 +1,7 @@
 # 1052. Grumpy Bookstore Owner
 
+**Commonly asked at:** Amazon
+
 There's a bookstore where `customers[i]` customers arrive during the `i`-th minute, and `grumpy[i]` is 1 if the owner is grumpy during that minute (those customers leave unsatisfied) or 0 if the owner is not grumpy (those customers are satisfied). The owner has one special technique that keeps them from being grumpy for `minutes` consecutive minutes, but it can only be used once. Return the maximum number of customers that can be satisfied throughout the day.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 1209. Remove All Adjacent Duplicates in String II
 
+**Commonly asked at:** Amazon, Google
+
 Given a string `s` and an integer `k`, repeatedly remove `k` adjacent and equal letters until no such run of exactly `k` (or more, collapsing as they merge) identical adjacent letters remains, and return the final string after all such removals.
 
 **Example 1:**

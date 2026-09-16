@@ -1,5 +1,7 @@
 # 1110. Delete Nodes And Return Forest
 
+**Commonly asked at:** Amazon, Google
+
 Given the root of a binary tree and a list `to_delete` of values to delete, delete every node whose value appears in `to_delete`. When a node is deleted, its children (if not also deleted) become roots of their own separate trees. Return the roots of every resulting tree, in any order.
 
 **Example 1:**
