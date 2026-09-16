@@ -1,5 +1,7 @@
 # 331. Verify Preorder Serialization of a Binary Tree
 
+**Commonly asked at:** Google
+
 One way to serialize a binary tree is to record its preorder traversal, writing `#` for every null child. Given a comma-separated string of such a serialization, determine if it could be a valid preorder serialization of *some* binary tree, without actually reconstructing the tree.
 
 **Example 1:**

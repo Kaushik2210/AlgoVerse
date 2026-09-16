@@ -1,5 +1,7 @@
 # 298. Binary Tree Longest Consecutive Sequence
 
+**Commonly asked at:** Amazon, Google, Meta, TikTok
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Given the root of a binary tree, find the length of the longest path where the node values are strictly consecutive increasing integers, and the path only moves from parent to child (a child must be exactly one more than its parent). The path doesn't need to start at the root or end at a leaf.

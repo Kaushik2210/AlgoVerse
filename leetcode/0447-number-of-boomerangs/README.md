@@ -1,5 +1,7 @@
 # 447. Number of Boomerangs
 
+**Commonly asked at:** Google, Bloomberg
+
 You're given `n` points on a plane, all with distinct coordinate pairs (though two different points could still be the same as each other in the input). A boomerang is a tuple of points `(i, j, k)` such that the distance between `i` and `j` equals the distance between `i` and `k` (the order of `j` and `k` matters — `(i, j, k)` and `(i, k, j)` count separately). Return the number of boomerangs.
 
 **Example 1:**

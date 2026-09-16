@@ -1,5 +1,7 @@
 # 536. Construct Binary Tree from String
 
+**Commonly asked at:** Amazon, Meta
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 You're given a string representing a binary tree, made up of a root value followed by zero, one, or two bracketed child expressions in the same recursive format: `value(left subtree)(right subtree)`. If a node has only a left child, the right parenthesis pair is omitted entirely. Values can be negative. Reconstruct and return the tree.

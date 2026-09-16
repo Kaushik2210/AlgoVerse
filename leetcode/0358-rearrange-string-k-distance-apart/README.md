@@ -1,5 +1,7 @@
 # 358. Rearrange String k Distance Apart
 
+**Commonly asked at:** Amazon, Google, TikTok
+
 *Note: this problem is marked premium on LeetCode.*
 
 Given a string `s` and an integer `k`, rearrange `s` such that the same characters are at least distance `k` from each other. If it is not possible to rearrange the string, return an empty string `""`.

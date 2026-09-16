@@ -1,5 +1,7 @@
 # 313. Super Ugly Number
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft
+
 A **super ugly number** is a positive integer whose prime factors are all in a given array `primes`. Given `n` and `primes`, return the `n`th super ugly number. By convention, 1 is the first super ugly number, and `primes` is guaranteed to consist only of primes.
 
 **Example 1:**

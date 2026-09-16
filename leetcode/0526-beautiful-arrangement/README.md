@@ -1,5 +1,7 @@
 # 526. Beautiful Arrangement
 
+**Commonly asked at:** Amazon, Google, Microsoft, Bloomberg
+
 Suppose you have `n` integers labeled 1 to `n`. A permutation of these integers, `perm`, is called a beautiful arrangement if for every position `i` (1-indexed), either `perm[i]` is divisible by `i`, or `i` is divisible by `perm[i]`. Given `n`, return the number of beautiful arrangements you can construct.
 
 **Example 1:**

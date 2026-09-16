@@ -1,5 +1,7 @@
 # 370. Range Addition
 
+**Commonly asked at:** Amazon, Google
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 You're given an integer `length` and a list of `updates`, where each `updates[i] = [startIdx, endIdx, inc]` means: add `inc` to every element of an initially-all-zero array of size `length`, from index `startIdx` to `endIdx` inclusive. Return the array after applying all updates.

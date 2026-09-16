@@ -1,5 +1,7 @@
 # 439. Ternary Expression Parser
 
+**Commonly asked at:** Snap
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it's a compact stack-based parsing exercise that pairs well with expression-evaluation problems.*
 
 You're given a string `expression` representing an arbitrarily nested ternary expression, built from digits `0-9`, `?`, `:`, `T` (true), and `F` (false). Ternary expressions associate from right to left (same as C++), and the result of a well-formed ternary is always exactly one digit or letter. Evaluate the expression and return the result as a string.

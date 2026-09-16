@@ -1,5 +1,7 @@
 # 507. Perfect Number
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 A perfect number equals the sum of its positive divisors, excluding itself. Given an integer `num`, return `true` if it's a perfect number, `false` otherwise.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 566. Reshape the Matrix
 
+**Commonly asked at:** Amazon, Google, Meta
+
 You're given a matrix `mat` of size `m x n` and two integers `r` and `c` representing a desired number of rows and columns for the reshaped matrix. Reshaping fills the new matrix with the same elements, read in row-major order, laid out into the new shape. Return the reshaped matrix if `r * c == m * n`; otherwise return the original matrix unchanged.
 
 **Example 1:**

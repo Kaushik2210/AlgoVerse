@@ -1,5 +1,7 @@
 # 418. Sentence Screen Fitting
 
+**Commonly asked at:** Google
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Given a `rows x cols` screen and a `sentence` (an array of words), the words of the sentence are placed on the screen in order, left to right, top to bottom, wrapping to the next row when a word would overflow the current row (a word is never split across rows — if it doesn't fit, the rest of that row is left blank and the word starts the next row), and the sentence repeats from the beginning once it's fully placed, with a single space separating consecutive words (including across the wrap where the sentence loops back to its first word). Return how many times the entire sentence is fitted on the screen.

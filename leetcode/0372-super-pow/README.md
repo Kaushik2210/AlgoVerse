@@ -1,5 +1,7 @@
 # 372. Super Pow
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft
+
 Given an integer `a` and a huge non-negative integer `b` given as an array of digits (most significant digit first), return `a^b mod 1337`.
 
 **Example 1:**

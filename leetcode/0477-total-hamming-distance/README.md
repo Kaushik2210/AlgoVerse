@@ -1,5 +1,7 @@
 # 477. Total Hamming Distance
 
+**Commonly asked at:** Apple, Meta, Bloomberg
+
 Given an integer array `nums`, return the sum of the Hamming distances between all pairs of numbers in the array. The Hamming distance between two integers is the number of positions at which their bits differ.
 
 **Example 1:**

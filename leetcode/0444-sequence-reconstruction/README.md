@@ -1,5 +1,7 @@
 # 444. Sequence Reconstruction
 
+**Commonly asked at:** Amazon, Google
+
 **Note:** this problem is LeetCode premium (subscriber-only) — no live link to test against, but the statement and expected behavior below are well documented.
 
 You're given an array `nums`, which is a permutation of `1` to `n`, and a list `sequences` of smaller subsequences. Determine whether `nums` is the unique shortest common supersequence of all the arrays in `sequences` — meaning it's the only sequence of length `n` that every array in `sequences` is a subsequence of.

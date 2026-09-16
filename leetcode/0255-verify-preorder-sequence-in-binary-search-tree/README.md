@@ -1,5 +1,7 @@
 # 255. Verify Preorder Sequence in Binary Search Tree
 
+**Commonly asked at:** Microsoft, Salesforce, TikTok
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it's a neat monotonic-stack application distinct from the more common preorder/inorder reconstruction problems.*
 
 Given an array `preorder` of unique integers, return whether it could be the preorder traversal of a valid binary search tree, without actually building the tree.

@@ -1,5 +1,7 @@
 # 486. Predict the Winner
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg, Uber
+
 Two players take turns picking a number from either end of an array `nums`, adding it to their own score, starting with player 1. Both play optimally to maximize their own score. Return `true` if player 1 can end with a score greater than or equal to player 2's score, `false` otherwise.
 
 **Example 1:**

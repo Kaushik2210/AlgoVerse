@@ -1,5 +1,7 @@
 # 549. Binary Tree Longest Consecutive Sequence II
 
+**Commonly asked at:** Google, Meta, Uber
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Given the root of a binary tree, find the length of the longest path where adjacent nodes have consecutive values. Unlike the simpler version of this problem, the path here can go in either direction (increasing or decreasing), and it can "bend" at a node — go up from one child and down into the other — as long as parent and child differ by exactly 1 at every step.
