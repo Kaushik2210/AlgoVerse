@@ -1,5 +1,7 @@
 # 364. Nested List Weight Sum II
 
+**Commonly asked at:** Google
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it's the natural inverse-weight follow-up to "Nested List Weight Sum" (339).*
 
 You're given a nested list of integers `nestedList`, structured the same way as in problem 339. This time the weight is flipped: an integer at the deepest level gets weight 1, and every level closer to the top gets one more. In other words, an integer's weight is `maxDepth - depth + 1`, where `depth` is its own nesting depth and `maxDepth` is the deepest level anything in the whole structure reaches. Return the sum of every integer times its weight.

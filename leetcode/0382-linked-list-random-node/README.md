@@ -1,5 +1,7 @@
 # 382. Linked List Random Node
 
+**Commonly asked at:** Amazon, Google
+
 Given the head of a singly linked list, design a data structure that returns the value of a random node in the list, where every node must have an equal probability of being chosen. Implement the `Solution` class:
 
 - `Solution(head)` — initializes the object with the head of the list.

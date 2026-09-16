@@ -1,5 +1,7 @@
 # 381. Insert Delete GetRandom O(1) - Duplicates allowed
 
+**Commonly asked at:** Amazon, Google
+
 Same as Insert Delete GetRandom O(1) (380), but the collection may now contain duplicate values. `insert(val)` returns whether `val` was *not already present at all* (i.e., true only the first time a given value is inserted), `remove(val)` removes one occurrence of `val` if any exist, and `getRandom()` returns a random element where each individual element (not each distinct value) is equally likely — so a value with more copies should be more likely to come up.
 
 **Example:**

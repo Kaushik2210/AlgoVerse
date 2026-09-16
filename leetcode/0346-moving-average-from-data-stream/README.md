@@ -1,5 +1,7 @@
 # 346. Moving Average from Data Stream
 
+**Commonly asked at:** Google
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because "fixed-size sliding window over a stream" is a fundamental pattern that comes up constantly in interviews.*
 
 Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window, starting from the last `size` values added (or fewer, if fewer than `size` values have been added so far). Implement the `MovingAverage` class:

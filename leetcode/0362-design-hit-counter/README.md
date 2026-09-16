@@ -1,5 +1,7 @@
 # 362. Design Hit Counter
 
+**Commonly asked at:** Google, Amazon
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because "sliding window over a stream of timestamps" is a very common systems-flavored interview question.*
 
 Design a hit counter that counts the number of hits received in the past 5 minutes (300 seconds).

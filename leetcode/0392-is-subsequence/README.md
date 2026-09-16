@@ -1,5 +1,7 @@
 # 392. Is Subsequence
 
+**Commonly asked at:** Amazon
+
 You're given two strings `s` and `t`. Return `true` if `s` is a subsequence of `t` — meaning you can get `s` by deleting some (possibly zero) characters from `t` without changing the order of what's left.
 
 **Example 1:**

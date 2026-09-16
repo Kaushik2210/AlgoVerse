@@ -1,5 +1,7 @@
 # 349. Intersection of Two Arrays
 
+**Commonly asked at:** Meta
+
 Given two integer arrays `nums1` and `nums2`, return an array of their intersection. Each element in the result must be unique, and the result can be returned in any order.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 383. Ransom Note
 
+**Commonly asked at:** Amazon
+
 You're given two strings `ransomNote` and `magazine`. Return `true` if `ransomNote` can be built using the letters from `magazine`, where each letter in `magazine` can only be used once.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 384. Shuffle an Array
 
+**Commonly asked at:** Amazon, Google
+
 Design an algorithm to shuffle an array of unique numbers, uniformly at random over all possible permutations. Implement `Solution(nums)` (store the original), `reset()` (return the original configuration), and `shuffle()` (return a random shuffle, each permutation equally likely).
 
 **Example:**

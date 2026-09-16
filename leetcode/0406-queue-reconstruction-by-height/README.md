@@ -1,5 +1,7 @@
 # 406. Queue Reconstruction by Height
 
+**Commonly asked at:** Amazon, Google
+
 Given a list of people described as `[height, k]`, where `k` is the number of people in front of this person who have a height greater than or equal to theirs, reconstruct the queue so every person's `k` value is satisfied.
 
 **Example 1:**

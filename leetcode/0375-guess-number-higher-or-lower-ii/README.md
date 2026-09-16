@@ -1,5 +1,7 @@
 # 375. Guess Number Higher or Lower II
 
+**Commonly asked at:** Google
+
 You're playing a guessing game against a number picked from `[1, n]`, but this time it costs money. Each time you guess `x` and it's wrong, you pay `x` dollars. Return the minimum amount of money you need to guarantee you can win, no matter which number was picked — meaning you have to budget for the worst case, not just an average or lucky case.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 348. Design Tic-Tac-Toe
 
+**Commonly asked at:** Amazon, Google
+
 *Note: this problem is LeetCode Premium — the description below is reconstructed from the public problem statement for reference.*
 
 Design a Tic-Tac-Toe game played on an `n x n` board by two players. Implement `TicTacToe` with:

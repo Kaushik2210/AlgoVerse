@@ -1,5 +1,7 @@
 # 398. Random Pick Index
 
+**Commonly asked at:** Amazon, Google
+
 Given an integer array `nums` with possible duplicates, implement `pick(target)` which returns a random index where `nums[index] == target`, with each qualifying index equally likely to be returned.
 
 **Example:**

@@ -1,5 +1,7 @@
 # 376. Wiggle Subsequence
 
+**Commonly asked at:** Amazon
+
 A sequence is called a **wiggle sequence** if the differences between consecutive elements strictly alternate between positive and negative — the first difference (if any) can be either. Given an integer array `nums`, return the length of the longest wiggle subsequence you can obtain by deleting some (possibly zero) elements.
 
 **Example 1:**

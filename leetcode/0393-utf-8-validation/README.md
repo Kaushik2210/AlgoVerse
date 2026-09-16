@@ -1,5 +1,7 @@
 # 393. UTF-8 Validation
 
+**Commonly asked at:** Google
+
 Given an integer array `data` representing a sequence of bytes, return whether it forms a valid UTF-8 encoding. Each integer in `data` represents one byte, so only the 8 least significant bits should be used to represent that byte.
 
 A valid UTF-8 character can be 1 to 4 bytes long, following these rules:

@@ -1,5 +1,7 @@
 # 340. Longest Substring with At Most K Distinct Characters
 
+**Commonly asked at:** Google, Meta, Amazon
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because it's a very common sliding-window interview question, and a close relative of the well-known "at most 2 distinct characters" and "minimum window substring" problems.*
 
 Given a string `s` and an integer `k`, return the length of the longest substring of `s` that contains at most `k` distinct characters.

@@ -1,5 +1,7 @@
 # 343. Integer Break
 
+**Commonly asked at:** Amazon
+
 Given an integer `n`, break it into the sum of at least two positive integers and maximize the product of those integers. Return the maximum product you can get.
 
 **Example 1:**

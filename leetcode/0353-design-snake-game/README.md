@@ -1,5 +1,7 @@
 # 353. Design Snake Game
 
+**Commonly asked at:** Amazon, Google
+
 *Note: this problem is LeetCode Premium — the description below is reconstructed from the public problem statement for reference.*
 
 Design a Snake game that runs on a `width x height` board. The snake starts at `(0, 0)` with length 1. Implement `SnakeGame` with:
