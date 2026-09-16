@@ -37,6 +37,16 @@ function readSafe(p) {
   }
 }
 
+/** Pull the "**Commonly asked at:** Amazon, Microsoft, ..." line, if present. */
+function parseCompanies(readme) {
+  const m = /^\*\*Commonly asked at:\*\*\s*(.+)$/im.exec(readme);
+  if (!m) return [];
+  return m[1]
+    .split(",")
+    .map((c) => c.trim())
+    .filter(Boolean);
+}
+
 /** Pull "# 68. Text Justification" -> title, and the excerpt paragraph after it. */
 function parseReadme(readme, fallbackSlug) {
   const lines = readme.split("\n");
@@ -116,12 +126,14 @@ function main() {
     const cpp = readSafe(path.join(dir, "solution.cpp"));
 
     const { title, excerpt } = parseReadme(readme, slugTitle);
+    const companies = parseCompanies(readme);
 
     const problem = {
       number,
       slug: folder,
       title,
       excerpt,
+      companies,
       readme,
       code: { python, java, cpp },
     };
@@ -132,7 +144,7 @@ function main() {
       "utf8"
     );
 
-    index.push({ number, slug: folder, title, excerpt });
+    index.push({ number, slug: folder, title, excerpt, companies });
   }
 
   index.sort((a, b) => a.number - b.number);
