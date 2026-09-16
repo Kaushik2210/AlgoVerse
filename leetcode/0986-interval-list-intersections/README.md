@@ -1,5 +1,7 @@
 # 986. Interval List Intersections
 
+**Commonly asked at:** Facebook, LinkedIn
+
 You're given two lists of closed intervals, `firstList` and `secondList`, where each list is sorted by start time and each list's own intervals are already disjoint (non-overlapping). Return the intersection of the two interval lists — every interval that's covered by both lists — sorted.
 
 **Example 1:**

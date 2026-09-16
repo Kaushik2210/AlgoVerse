@@ -1,5 +1,7 @@
 # 934. Shortest Bridge
 
+**Commonly asked at:** Google, Amazon
+
 You're given an `n x n` binary grid containing exactly two islands (groups of `1`s connected 4-directionally, with the two islands not touching each other). You may flip any number of `0`s to `1`s. Return the minimum number of `0`s you must flip to connect the two islands into one.
 
 **Example 1:**

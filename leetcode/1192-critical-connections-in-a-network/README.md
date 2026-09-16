@@ -1,5 +1,7 @@
 # 1192. Critical Connections in a Network
 
+**Commonly asked at:** Google, Amazon
+
 There are `n` servers numbered `0` to `n-1` connected by `connections`, an undirected, connected graph with no repeated edges. A critical connection is an edge that, if removed, would split the network into two or more disconnected pieces. Return all critical connections, in any order.
 
 **Example 1:**

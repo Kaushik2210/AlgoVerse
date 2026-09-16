@@ -1,5 +1,7 @@
 # 904. Fruit Into Baskets
 
+**Commonly asked at:** Google, Amazon
+
 You're walking along a row of fruit trees, given as `fruits` where `fruits[i]` is the type of fruit at tree `i`. You have exactly 2 baskets, and each basket can only hold a single type of fruit — there's no limit on the amount of fruit each basket can hold. Starting from any tree you like, you must pick exactly one fruit from every tree while moving to the right, stopping once you'd have to put a fruit into a basket it doesn't fit in. Return the maximum number of fruits you can pick.
 
 **Example 1:**

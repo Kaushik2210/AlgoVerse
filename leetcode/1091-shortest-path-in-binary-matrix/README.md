@@ -1,5 +1,7 @@
 # 1091. Shortest Path in Binary Matrix
 
+**Commonly asked at:** Google, Amazon
+
 Given an `n x n` binary matrix `grid`, return the length of the shortest **clear path** from top-left `(0, 0)` to bottom-right `(n-1, n-1)`. A clear path only passes through cells with value `0`, and moves in any of the 8 directions (including diagonals) between adjacent cells. The path length is the number of visited cells. Return `-1` if no such path exists.
 
 **Example 1:**

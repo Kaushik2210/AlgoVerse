@@ -1,5 +1,7 @@
 # 973. K Closest Points to Origin
 
+**Commonly asked at:** Facebook, Amazon, Google
+
 You're given an array of points on the X-Y plane, `points`, and an integer `k`. Return the `k` points closest to the origin `(0, 0)`, in any order.
 
 **Example 1:**

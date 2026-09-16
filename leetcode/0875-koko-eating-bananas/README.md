@@ -1,5 +1,7 @@
 # 875. Koko Eating Bananas
 
+**Commonly asked at:** Google, Amazon
+
 Koko has `piles` piles of bananas, `piles[i]` bananas in the `i`-th pile. The guards leave for `h` hours. Each hour Koko picks one pile and eats up to `k` bananas from it — if that pile has fewer than `k`, she finishes it and doesn't eat from another pile that same hour. Find the minimum integer eating speed `k` such that she can eat all the bananas within `h` hours.
 
 **Example 1:**

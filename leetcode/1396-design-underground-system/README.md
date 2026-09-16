@@ -1,5 +1,7 @@
 # 1396. Design Underground System
 
+**Commonly asked at:** Amazon, Facebook
+
 *Note: this problem is LeetCode Premium — the description below is reconstructed from the public problem statement for reference.*
 
 Design an underground railway system that tracks customer travel times between stations. Implement `UndergroundSystem` with:

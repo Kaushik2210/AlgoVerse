@@ -1,5 +1,7 @@
 # 1244. Design A Leaderboard
 
+**Commonly asked at:** Amazon
+
 Design a leaderboard for a game that supports:
 
 - `Leaderboard()` — initializes an empty leaderboard.

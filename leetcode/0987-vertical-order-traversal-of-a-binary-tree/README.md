@@ -1,5 +1,7 @@
 # 987. Vertical Order Traversal of a Binary Tree
 
+**Commonly asked at:** Amazon, Facebook
+
 You're given the root of a binary tree. Assign every node a `(row, col)` coordinate: the root is at `(0, 0)`, a left child is at `(row + 1, col - 1)`, and a right child is at `(row + 1, col + 1)`. Group nodes by column from leftmost to rightmost; within each column, order top to bottom by row, and if multiple nodes land on the exact same `(row, col)`, order them by increasing value. Return the grouped values as a list of columns.
 
 **Example 1:**

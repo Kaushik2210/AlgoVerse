@@ -1,5 +1,7 @@
 # 1167. Minimum Cost to Connect Sticks
 
+**Commonly asked at:** Amazon, Google
+
 You have some sticks, each with a positive length, given in the array `sticks`. Connecting two sticks costs their combined length, and produces one new stick of that combined length. Keep connecting sticks until only one remains, and return the minimum total cost to do so.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 990. Satisfiability of Equality Equations
 
+**Commonly asked at:** Google, Amazon
+
 You're given an array of strings `equations`, each of the form `"xi==yi"` or `"xi!=yi"` where `xi` and `yi` are single lowercase letters. Return `true` if it's possible to assign integer values to the variables satisfying all the equations simultaneously.
 
 **Example 1:**

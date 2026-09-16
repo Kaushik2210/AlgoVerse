@@ -1,5 +1,7 @@
 # 1143. Longest Common Subsequence
 
+**Commonly asked at:** Amazon, Google, Microsoft
+
 You're given two strings `text1` and `text2`. Return the length of their longest common subsequence — a sequence that appears in both strings in the same relative order, but not necessarily contiguously. If there's no common subsequence, return 0.
 
 **Example 1:**

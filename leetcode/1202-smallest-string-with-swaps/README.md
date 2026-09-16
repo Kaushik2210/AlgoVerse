@@ -1,5 +1,7 @@
 # 1202. Smallest String With Swaps
 
+**Commonly asked at:** Amazon, Facebook
+
 You're given a string `s` and an array `pairs`, where `pairs[i] = [a, b]` means you're allowed to swap the characters at indices `a` and `b` in `s`, any number of times, in any order. Return the lexicographically smallest string that `s` can be rearranged into using these allowed swaps.
 
 **Example 1:**

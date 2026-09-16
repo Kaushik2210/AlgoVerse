@@ -1,5 +1,7 @@
 # 1109. Corporate Flight Bookings
 
+**Commonly asked at:** Amazon
+
 There are `n` flights numbered from 1 to `n`. You're given a list of bookings, `bookings[i] = [firsti, lasti, seatsi]`, meaning `seatsi` seats were reserved on every flight from `firsti` to `lasti` inclusive. Return an array of length `n` giving the total seats reserved on each flight.
 
 **Example 1:**

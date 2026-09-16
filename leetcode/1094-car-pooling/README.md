@@ -1,5 +1,7 @@
 # 1094. Car Pooling
 
+**Commonly asked at:** Amazon, Google
+
 There's a car with `capacity` empty seats that only ever drives east (in one direction, never turns around). You're given `trips`, where `trips[i] = [numPassengers, from, to]` means that trip picks up `numPassengers` at location `from` and drops them off at location `to`. Return `true` if it's possible to pick up and drop off all passengers for all the given trips without the car's passenger count ever exceeding `capacity`.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 1046. Last Stone Weight
 
+**Commonly asked at:** Amazon, Google
+
 You have a collection of stones, each with a positive weight, given in `stones`. Repeatedly take the two heaviest stones and smash them together: if they're equal weight, both are destroyed; otherwise the lighter one is destroyed and the heavier one's new weight is the difference of the two. Keep going until at most one stone remains, and return its weight (or 0 if none remain).
 
 **Example 1:**

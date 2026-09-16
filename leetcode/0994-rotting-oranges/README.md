@@ -1,5 +1,7 @@
 # 994. Rotting Oranges
 
+**Commonly asked at:** Amazon, Facebook
+
 You're given an `m x n` grid where each cell is `0` (empty), `1` (fresh orange), or `2` (rotten orange). Every minute, any fresh orange adjacent (4-directionally) to a rotten orange also becomes rotten. Return the minimum number of minutes until no fresh orange remains. If that's impossible, return -1.
 
 **Example 1:**

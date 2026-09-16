@@ -1,5 +1,7 @@
 # 1146. Snapshot Array
 
+**Commonly asked at:** Amazon, Google
+
 Design an array that supports taking a snapshot of its state and can retrieve the value at any given index as it was at any past snapshot:
 
 - `SnapshotArray(int length)` — initializes an array-like data structure with `length` indices, all starting at 0.

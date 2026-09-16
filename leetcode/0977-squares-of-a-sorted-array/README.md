@@ -1,5 +1,7 @@
 # 977. Squares of a Sorted Array
 
+**Commonly asked at:** Amazon
+
 You're given an integer array `nums` sorted in non-decreasing order. Return an array of the squares of each number, also sorted in non-decreasing order.
 
 **Example 1:**
