@@ -1,5 +1,7 @@
 # 116. Populating Next Right Pointers in Each Node
 
+**Commonly asked at:** Amazon, Meta, Microsoft
+
 You're given a **perfect** binary tree (every level is completely filled, and every parent has exactly two children) where each node also has a `next` pointer. Populate each `next` pointer to point to its next right node on the same level. If there is no next right node, that node's `next` should stay `null`. Initially, every `next` pointer is set to `null`.
 
 You should solve it using only O(1) extra space, not counting the recursion stack.

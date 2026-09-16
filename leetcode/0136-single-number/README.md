@@ -1,5 +1,7 @@
 # 136. Single Number
 
+**Commonly asked at:** Amazon, Airbnb
+
 You're given a non-empty array of integers `nums` where every element appears exactly twice except for one, which appears only once. Find that single element. You must do it with linear runtime and without using extra memory beyond a constant amount.
 
 **Example 1:**

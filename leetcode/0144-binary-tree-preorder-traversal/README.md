@@ -1,5 +1,7 @@
 # 144. Binary Tree Preorder Traversal
 
+**Commonly asked at:** Microsoft, Amazon
+
 Given the root of a binary tree, return the preorder traversal of its node values (visit the node itself, then its left subtree, then its right subtree).
 
 **Example 1:**

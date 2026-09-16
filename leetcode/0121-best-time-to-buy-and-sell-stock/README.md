@@ -1,5 +1,7 @@
 # 121. Best Time to Buy and Sell Stock
 
+**Commonly asked at:** Amazon, Meta, Microsoft, Bloomberg
+
 You're given an array `prices` where `prices[i]` is the price of a stock on day `i`. You want to buy on one day and sell on a later day to maximize profit. You can only make one transaction (one buy, then one sell). Return the maximum profit you could make — or `0` if there's no way to make a profit.
 
 **Example 1:**

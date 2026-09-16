@@ -1,5 +1,7 @@
 # 122. Best Time to Buy and Sell Stock II
 
+**Commonly asked at:** Amazon, Microsoft
+
 You're given an array `prices` where `prices[i]` is the price of a stock on day `i`. You can buy and sell as many times as you want, but you can only hold one share at a time (you have to sell before you buy again). Find the maximum profit you can make.
 
 **Example 1:**

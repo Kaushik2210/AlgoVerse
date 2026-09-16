@@ -1,5 +1,7 @@
 # 120. Triangle
 
+**Commonly asked at:** Amazon
+
 You're given a triangular array of numbers, where row `i` has `i + 1` elements. Starting at the top, on each step you move to an adjacent number in the row below — from index `j` you can move to index `j` or `j + 1`. Find the minimum possible sum along any path from the top to the bottom row.
 
 **Example 1:**

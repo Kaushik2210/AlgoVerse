@@ -1,5 +1,7 @@
 # 138. Copy List with Random Pointer
 
+**Commonly asked at:** Amazon, Microsoft, Bloomberg, Meta
+
 A linked list where each node has an extra `random` pointer that can point to any node in the list (or to `null`). Construct a deep copy of the list — the new list must be made entirely of new nodes, with `next` and `random` pointers set to point at nodes *within the new list*, matching the structure of the original.
 
 **Example 1:**

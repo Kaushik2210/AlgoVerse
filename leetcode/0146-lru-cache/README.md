@@ -1,5 +1,7 @@
 # 146. LRU Cache
 
+**Commonly asked at:** Amazon, Microsoft, Bloomberg, Uber, Meta, Google
+
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache, supporting these operations in **O(1) average time each**:
 
 - `LRUCache(int capacity)` — initialize the cache with a positive size limit.

@@ -1,5 +1,7 @@
 # 98. Validate Binary Search Tree
 
+**Commonly asked at:** Amazon, Microsoft, Meta, Bloomberg
+
 Given the root of a binary tree, determine if it's a valid binary search tree. A valid BST means: every node in a left subtree is strictly less than the node, every node in a right subtree is strictly greater than the node, and both subtrees are themselves valid BSTs.
 
 **Example 1:**

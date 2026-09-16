@@ -1,5 +1,7 @@
 # 114. Flatten Binary Tree to Linked List
 
+**Commonly asked at:** Amazon, Microsoft, Meta
+
 You're given the root of a binary tree. Flatten it into a "linked list" in place:
 
 - The linked list should use the same `TreeNode` objects, just via the `right` pointer.

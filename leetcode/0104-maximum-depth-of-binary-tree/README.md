@@ -1,5 +1,7 @@
 # 104. Maximum Depth of Binary Tree
 
+**Commonly asked at:** Amazon, Google, LinkedIn
+
 Given the root of a binary tree, find its maximum depth — the number of nodes along the longest path from the root down to the farthest leaf.
 
 **Example 1:**

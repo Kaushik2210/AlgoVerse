@@ -1,5 +1,7 @@
 # 101. Symmetric Tree
 
+**Commonly asked at:** Amazon, Bloomberg
+
 Given the root of a binary tree, check whether it is a mirror of itself around its center (i.e., whether the left and right subtrees are mirror images of each other).
 
 **Example 1:**

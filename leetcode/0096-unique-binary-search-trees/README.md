@@ -1,5 +1,7 @@
 # 96. Unique Binary Search Trees
 
+**Commonly asked at:** Amazon
+
 Given an integer `n`, return the number of structurally unique binary search trees that store values `1` through `n`.
 
 **Example 1:**

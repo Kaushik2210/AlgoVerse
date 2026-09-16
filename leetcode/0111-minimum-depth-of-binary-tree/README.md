@@ -1,5 +1,7 @@
 # 111. Minimum Depth of Binary Tree
 
+**Commonly asked at:** Amazon
+
 Given a binary tree, find its minimum depth — the number of nodes along the shortest path from the root down to the nearest leaf node.
 
 **Example 1:**

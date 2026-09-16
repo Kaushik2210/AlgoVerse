@@ -1,5 +1,7 @@
 # 131. Palindrome Partitioning
 
+**Commonly asked at:** Amazon, Google
+
 Given a string `s`, partition it so that every substring in the partition is a palindrome. Return all possible partitions.
 
 **Example 1:**

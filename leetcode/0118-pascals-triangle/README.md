@@ -1,5 +1,7 @@
 # 118. Pascal's Triangle
 
+**Commonly asked at:** Amazon, Apple
+
 Given an integer `numRows`, return the first `numRows` rows of Pascal's triangle. In Pascal's triangle, each number is the sum of the two numbers directly above it (with rows indexed from the top, starting at row 0).
 
 **Example 1:**

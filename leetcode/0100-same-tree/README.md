@@ -1,5 +1,7 @@
 # 100. Same Tree
 
+**Commonly asked at:** Amazon, Bloomberg
+
 You're given the roots of two binary trees `p` and `q`. Return `true` if the two trees are structurally identical and every corresponding node holds the same value, otherwise return `false`.
 
 **Example 1:**

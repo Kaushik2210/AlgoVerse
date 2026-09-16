@@ -1,5 +1,7 @@
 # 128. Longest Consecutive Sequence
 
+**Commonly asked at:** Google, Amazon, Meta
+
 Given an unsorted array of integers, find the length of the longest run of consecutive integers (e.g. `[100, 4, 200, 1, 3, 2]` contains the run `1, 2, 3, 4`). Must run in O(n) time.
 
 **Example 1:**

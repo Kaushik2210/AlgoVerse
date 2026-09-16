@@ -1,5 +1,7 @@
 # 112. Path Sum
 
+**Commonly asked at:** Amazon, Microsoft
+
 Given the root of a binary tree and an integer `targetSum`, return `true` if the tree has a root-to-leaf path such that the values along that path add up to `targetSum`.
 
 A leaf is a node with no children.

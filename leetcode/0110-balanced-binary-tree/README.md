@@ -1,5 +1,7 @@
 # 110. Balanced Binary Tree
 
+**Commonly asked at:** Amazon, Microsoft, Meta
+
 Given a binary tree, determine if it is height-balanced. A binary tree is height-balanced if, for every node in the tree, the heights of its left and right subtrees differ by no more than 1.
 
 **Example 1:**

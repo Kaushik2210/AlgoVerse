@@ -1,5 +1,7 @@
 # 124. Binary Tree Maximum Path Sum
 
+**Commonly asked at:** Microsoft, Google, Amazon
+
 A **path** in a binary tree is any sequence of nodes connected by parent-child edges, where each node appears at most once — the path does not need to pass through the root, and doesn't need to go in any particular direction (it can go up through a node and back down into a different subtree, forming a "V" shape at that node). The path sum is the sum of the node values along the path. Given the `root` of a binary tree, return the maximum path sum of any non-empty path.
 
 **Example 1:**

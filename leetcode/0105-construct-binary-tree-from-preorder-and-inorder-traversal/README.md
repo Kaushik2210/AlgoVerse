@@ -1,5 +1,7 @@
 # 105. Construct Binary Tree from Preorder and Inorder Traversal
 
+**Commonly asked at:** Amazon, Microsoft, Meta
+
 You're given two integer arrays `preorder` and `inorder`, representing the preorder and inorder traversal of the same binary tree (values are unique). Rebuild the tree and return its root.
 
 **Example 1:**
