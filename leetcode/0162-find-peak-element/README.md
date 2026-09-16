@@ -1,5 +1,7 @@
 # 162. Find Peak Element
 
+**Commonly asked at:** Amazon, Google, Meta
+
 A peak element is one that's strictly greater than both of its neighbors. You're given an array `nums` where `nums[i] != nums[i+1]` for all valid `i`. Find any peak and return its index — if the array has multiple peaks, returning the index of any one of them is fine. Imagine `nums[-1]` and `nums[n]` are both `-infinity`, so an element at either end just needs to beat its single real neighbor.
 
 **Example 1:**

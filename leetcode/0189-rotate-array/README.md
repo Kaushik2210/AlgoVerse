@@ -1,5 +1,7 @@
 # 189. Rotate Array
 
+**Commonly asked at:** Amazon, Microsoft
+
 Given an integer array `nums`, rotate it to the right by `k` steps, where `k` is non-negative. Do it in place, modifying `nums` directly.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 173. Binary Search Tree Iterator
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft
+
 Implement an iterator over the in-order traversal of a binary search tree. `BSTIterator(root)` initializes the iterator with the root node. `next()` returns the next smallest number in the BST. `hasNext()` returns `true` if there are more numbers left. Both `next()` and `hasNext()` should run in O(1) average time and use O(h) memory, where h is the tree height.
 
 **Example 1:**

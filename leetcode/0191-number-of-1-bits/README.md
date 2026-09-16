@@ -1,5 +1,7 @@
 # 191. Number of 1 Bits
 
+**Commonly asked at:** Apple, Microsoft
+
 Given a positive integer `n`, write a function that returns the number of set bits (the Hamming weight) in its binary representation.
 
 **Example 1:**

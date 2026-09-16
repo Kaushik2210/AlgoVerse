@@ -1,5 +1,7 @@
 # 151. Reverse Words in a String
 
+**Commonly asked at:** Microsoft, Meta, Amazon
+
 Given an input string `s`, reverse the order of the words. A word is a sequence of non-space characters. Return a string with words in reverse order, joined by a single space — collapse any leading, trailing, or multiple spaces between words down to single spaces between words.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 152. Maximum Product Subarray
 
+**Commonly asked at:** Amazon, LinkedIn
+
 Given an integer array `nums`, find a contiguous non-empty subarray that has the largest product, and return that product.
 
 **Example 1:**

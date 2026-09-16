@@ -1,5 +1,7 @@
 # 169. Majority Element
 
+**Commonly asked at:** Amazon, Adobe
+
 Given an array `nums` of size `n`, find the element that appears more than `n / 2` times. It's guaranteed that the majority element always exists in the array.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 198. House Robber
 
+**Commonly asked at:** Amazon, Google, Adobe, LinkedIn
+
 You're a robber planning to hit a row of houses, each with some amount of money (`nums[i]` for house i). The catch: any two houses that are directly adjacent have connected security systems, so if you rob both of them on the same night, an alarm goes off. Given the amounts in each house, find the maximum amount you can rob without ever robbing two adjacent houses.
 
 **Example 1:**

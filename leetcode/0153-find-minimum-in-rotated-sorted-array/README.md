@@ -1,5 +1,7 @@
 # 153. Find Minimum in Rotated Sorted Array
 
+**Commonly asked at:** Amazon, Microsoft, Meta
+
 Suppose an array of length n, sorted in ascending order with **distinct values**, gets rotated between 1 and n times. For example, `[0,1,2,4,5,6,7]` rotated 4 times becomes `[4,5,6,7,0,1,2]`. Given the rotated array `nums`, return the minimum element, in O(log n) time.
 
 **Example 1:**
