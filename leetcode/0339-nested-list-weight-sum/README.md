@@ -1,5 +1,7 @@
 # 339. Nested List Weight Sum
 
+**Commonly asked at:** Google, Meta
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it pairs naturally with "Flatten Nested List Iterator" (341) and is a clean warm-up for the depth-aware variant (364).*
 
 You're given a nested list of integers `nestedList`, where each element is either an integer or a list that can itself contain integers and further nested lists. The **depth** of an integer is how many lists it's nested inside, starting at 1 for the outermost level. Return the sum of every integer multiplied by its depth.

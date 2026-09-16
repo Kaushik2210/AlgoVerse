@@ -1,5 +1,7 @@
 # 315. Count of Smaller Numbers After Self
 
+**Commonly asked at:** Google
+
 You're given an integer array `nums`. Return a new array `counts` where `counts[i]` is the number of elements to the right of `nums[i]` that are strictly smaller than `nums[i]`.
 
 **Example 1:**

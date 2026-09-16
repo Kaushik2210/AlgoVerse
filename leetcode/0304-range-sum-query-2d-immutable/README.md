@@ -1,5 +1,7 @@
 # 304. Range Sum Query 2D - Immutable
 
+**Commonly asked at:** Amazon
+
 Given a 2D matrix `matrix`, handle multiple queries of the form: calculate the sum of the elements inside the rectangle defined by its upper-left corner `(row1, col1)` and lower-right corner `(row2, col2)`. Implement `NumMatrix`: `NumMatrix(int[][] matrix)` initializes the object, and `sumRegion(row1, col1, row2, col2)` returns the sum of the rectangle.
 
 **Example 1:**

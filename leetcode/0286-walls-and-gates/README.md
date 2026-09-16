@@ -1,5 +1,7 @@
 # 286. Walls and Gates
 
+**Commonly asked at:** Google, Meta
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway because it's a classic multi-source BFS interview question, and it's basically the direct ancestor of the free "Rotting Oranges" problem.*
 
 You're given an `m x n` grid of rooms initialized with one of three values:

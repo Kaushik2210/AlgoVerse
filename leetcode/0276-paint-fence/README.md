@@ -1,5 +1,7 @@
 # 276. Paint Fence
 
+**Commonly asked at:** Google
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it pairs naturally with Paint House as another small-fixed-state DP, but with a "no more than two in a row" twist instead of "no two adjacent the same."*
 
 There's a fence with `n` posts, and `k` different colors of paint. Paint every post so that no more than two adjacent posts have the same color (three or more consecutive posts the same color is not allowed; two in a row is fine). Return the number of ways to paint the fence.

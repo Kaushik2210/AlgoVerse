@@ -1,5 +1,7 @@
 # 325. Maximum Size Subarray Sum Equals k
 
+**Commonly asked at:** Meta
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Given an integer array `nums` and an integer `k`, return the length of the longest subarray that sums to `k`. If there isn't one, return 0.

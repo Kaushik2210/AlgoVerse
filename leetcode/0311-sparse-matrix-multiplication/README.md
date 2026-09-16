@@ -1,5 +1,7 @@
 # 311. Sparse Matrix Multiplication
 
+**Commonly asked at:** Meta
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 You're given two sparse matrices `mat1` (dimensions `m x k`) and `mat2` (dimensions `k x n`), where most entries are zero. Return the product `mat1 x mat2`, a matrix of dimensions `m x n`.

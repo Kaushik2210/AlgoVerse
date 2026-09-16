@@ -1,5 +1,7 @@
 # 274. H-Index
 
+**Commonly asked at:** Meta
+
 Given an array `citations` where `citations[i]` is the number of citations a researcher's i-th paper has, return their h-index. The h-index is the largest number `h` such that the researcher has at least `h` papers with at least `h` citations each (and the remaining papers have no more than `h` citations).
 
 **Example 1:**

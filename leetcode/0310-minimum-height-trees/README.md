@@ -1,5 +1,7 @@
 # 310. Minimum Height Trees
 
+**Commonly asked at:** Google, Amazon
+
 A tree is an undirected graph with `n` nodes labeled `0` to `n - 1` and `n - 1` edges. Given the graph as `edges`, pick any node as the root and the tree gets a height (the max distance from the root to any leaf). Return all the roots that give the **minimum possible height** — there can be one or two such roots.
 
 **Example 1:**

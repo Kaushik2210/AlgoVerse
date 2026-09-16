@@ -1,5 +1,7 @@
 # 277. Find the Celebrity
 
+**Commonly asked at:** Google, Meta
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Suppose you're at a party with `n` people, labeled 0 to `n-1`. There might be a celebrity among them, defined by two properties: the celebrity is known by everyone else, and the celebrity knows nobody else. You're given a helper API `knows(a, b)` that returns whether `a` knows `b`. Find the celebrity's label using the fewest possible calls to `knows`, or return -1 if there's no celebrity.

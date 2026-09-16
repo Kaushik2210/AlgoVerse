@@ -1,5 +1,7 @@
 # 303. Range Sum Query - Immutable
 
+**Commonly asked at:** Amazon
+
 Given an integer array `nums`, handle multiple queries of the form: calculate the sum of the elements between indices `left` and `right` inclusive. Implement `NumArray`: `NumArray(int[] nums)` initializes the object, and `sumRange(int left, int right)` returns the sum of `nums[left..right]`.
 
 **Example 1:**

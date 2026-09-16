@@ -1,5 +1,7 @@
 # 290. Word Pattern
 
+**Commonly asked at:** Amazon
+
 You're given a pattern string `pattern` and a string `s` containing words separated by single spaces. Return `true` if `s` follows the same pattern, meaning there's a bijection between each letter in `pattern` and each word in `s` — the same letter always maps to the same word, and the same word always maps to the same letter.
 
 **Example 1:**

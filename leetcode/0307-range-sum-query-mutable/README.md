@@ -1,5 +1,7 @@
 # 307. Range Sum Query - Mutable
 
+**Commonly asked at:** Google
+
 Design a data structure that supports two operations on an integer array `nums`: updating the value at an index, and querying the sum of a range `[left, right]`, both efficiently and interleaved in any order.
 
 **Example 1:**

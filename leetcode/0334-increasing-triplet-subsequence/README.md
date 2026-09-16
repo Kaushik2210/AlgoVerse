@@ -1,5 +1,7 @@
 # 334. Increasing Triplet Subsequence
 
+**Commonly asked at:** Amazon
+
 Given an integer array `nums`, return `true` if there exists a triple of indices `i < j < k` such that `nums[i] < nums[j] < nums[k]`. Otherwise return `false`. You need to do this in O(n) time and O(1) space.
 
 **Example 1:**

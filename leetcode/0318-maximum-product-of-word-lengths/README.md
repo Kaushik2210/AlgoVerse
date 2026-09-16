@@ -1,5 +1,7 @@
 # 318. Maximum Product of Word Lengths
 
+**Commonly asked at:** Google
+
 You're given a string array `words`. Find the maximum value of `length(words[i]) * length(words[j])` over all pairs of indices `i != j`, where `words[i]` and `words[j]` don't share any common letters. If no such pair exists, return 0.
 
 **Example 1:**
