@@ -1,5 +1,7 @@
 # 34. Find First and Last Position of Element in Sorted Array
 
+**Commonly asked at:** Amazon, Google, Meta
+
 Given a sorted array of integers `nums` (which may contain duplicates) and a `target`, return the starting and ending index of `target` in the array. If `target` isn't found, return `[-1, -1]`. Must run in O(log n) time.
 
 **Example 1:**

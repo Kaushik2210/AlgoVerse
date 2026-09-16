@@ -1,5 +1,7 @@
 # 73. Set Matrix Zeroes
 
+**Commonly asked at:** Amazon, Microsoft, Meta
+
 You're given an `m x n` matrix. If an element is 0, set its entire row and column to 0. Do it in place, modifying the matrix directly.
 
 **Example 1:**

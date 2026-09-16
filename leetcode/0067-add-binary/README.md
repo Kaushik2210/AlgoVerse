@@ -1,5 +1,7 @@
 # 67. Add Binary
 
+**Commonly asked at:** Meta, Amazon
+
 You're given two binary strings `a` and `b`. Return their sum, also as a binary string.
 
 **Example 1:**

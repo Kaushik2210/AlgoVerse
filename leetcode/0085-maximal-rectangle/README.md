@@ -1,5 +1,7 @@
 # 85. Maximal Rectangle
 
+**Commonly asked at:** Google, Meta
+
 You're given an `m x n` binary matrix filled with `'0'` and `'1'`. Find the largest rectangle containing only `'1'`s and return its area.
 
 **Example 1:**

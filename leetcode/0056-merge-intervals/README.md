@@ -1,5 +1,7 @@
 # 56. Merge Intervals
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 You're given an array of intervals `intervals`, where `intervals[i] = [start_i, end_i]`. Merge all overlapping intervals and return the resulting set of non-overlapping intervals that covers all the ranges in the input.
 
 **Example 1:**

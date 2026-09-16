@@ -1,5 +1,7 @@
 # 69. Sqrt(x)
 
+**Commonly asked at:** Bloomberg, Adobe
+
 Given a non-negative integer `x`, return the square root of `x` rounded **down** to the nearest integer. The result should be an integer — no built-in exponent or square root functions like `x ** 0.5` are allowed.
 
 **Example 1:**

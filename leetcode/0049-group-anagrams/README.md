@@ -1,5 +1,7 @@
 # 49. Group Anagrams
 
+**Commonly asked at:** Amazon, Uber, Meta, Bloomberg
+
 Given an array of strings `strs`, group the anagrams together. You can return the groups in any order, and the strings within each group can be in any order too.
 
 **Example 1:**

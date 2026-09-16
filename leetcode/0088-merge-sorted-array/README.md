@@ -1,5 +1,7 @@
 # 88. Merge Sorted Array
 
+**Commonly asked at:** Meta, Microsoft, Bloomberg
+
 You're given two sorted integer arrays `nums1` and `nums2`, with `m` and `n` representing the number of real elements in each. `nums1` has a length of `m + n`, with the last `n` slots padded with zeros to leave room for `nums2`'s elements. Merge `nums2` into `nums1` in place so the result is one sorted array.
 
 **Example 1:**

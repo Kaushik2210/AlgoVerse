@@ -1,5 +1,7 @@
 # 58. Length of Last Word
 
+**Commonly asked at:** Microsoft
+
 Given a string `s` made of words separated by spaces, return the length of the last word — the last maximal substring of non-space characters.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 36. Valid Sudoku
 
+**Commonly asked at:** Amazon, Uber
+
 Given a 9x9 Sudoku board (partially filled, with `'.'` for empty cells), determine if the filled-in cells so far are valid according to the rules: each row, each column, and each of the nine 3x3 sub-boxes must contain the digits 1-9 with no repeats. Empty cells are ignored — you're only checking that what's already placed doesn't violate the rules, not that the board is solvable or complete.
 
 **Example 1:**

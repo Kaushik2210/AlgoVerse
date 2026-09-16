@@ -1,5 +1,7 @@
 # 48. Rotate Image
 
+**Commonly asked at:** Amazon, Microsoft, Apple
+
 You're given an `n x n` 2D matrix representing an image. Rotate it 90 degrees clockwise, in place — you can't allocate another 2D matrix to do the rotation.
 
 **Example 1:**

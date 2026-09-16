@@ -1,5 +1,7 @@
 # 76. Minimum Window Substring
 
+**Commonly asked at:** Meta, Uber, LinkedIn, Google, Amazon
+
 Given two strings `s` and `t`, return the smallest substring of `s` that contains every character of `t` (including duplicates — if `t` has two `'a'`s, the window needs at least two `'a'`s). If no such substring exists, return an empty string.
 
 **Example 1:**

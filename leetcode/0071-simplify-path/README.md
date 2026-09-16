@@ -1,5 +1,7 @@
 # 71. Simplify Path
 
+**Commonly asked at:** Meta, Amazon
+
 You're given an absolute Unix-style file path as a string `path`. Convert it to the simplified canonical path.
 
 The rules: the path starts with `/`, directories are separated by `/`, a single `.` refers to the current directory, `..` refers to the parent directory, and multiple consecutive slashes (`//`) are treated as one. The canonical path should start with a single `/`, directories are separated by exactly one `/`, it doesn't end with a trailing `/` (unless it's the root `/`), and it doesn't contain `.` or `..` as path components. If `..` would go above the root, it's simply ignored (root has no parent).

@@ -1,5 +1,7 @@
 # 62. Unique Paths
 
+**Commonly asked at:** Amazon, Meta, Google, Bloomberg
+
 A robot sits at the top-left corner of an `m x n` grid. It can only move down or right, one cell at a time, and it's trying to reach the bottom-right corner. How many distinct paths can it take?
 
 **Example 1:**

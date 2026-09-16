@@ -1,5 +1,7 @@
 # 43. Multiply Strings
 
+**Commonly asked at:** Amazon, Meta
+
 You're given two non-negative integers `num1` and `num2` represented as strings. Return the product of `num1` and `num2`, also as a string. You can't convert the inputs directly to integers or use any built-in big-integer library.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 50. Pow(x, n)
 
+**Commonly asked at:** LinkedIn, Meta
+
 Implement `pow(x, n)`, which computes `x` raised to the power `n` (i.e. `x^n`). `n` can be negative or zero.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 70. Climbing Stairs
 
+**Commonly asked at:** Amazon, Adobe, Apple
+
 You're climbing a staircase with `n` steps. Each move you can climb either 1 or 2 steps. How many distinct ways are there to reach the top?
 
 **Example 1:**

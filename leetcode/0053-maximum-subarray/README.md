@@ -1,5 +1,7 @@
 # 53. Maximum Subarray
 
+**Commonly asked at:** Amazon, Microsoft, LinkedIn, Bloomberg
+
 Given an integer array `nums`, find the contiguous subarray (containing at least one number) that has the largest sum, and return that sum.
 
 **Example 1:**

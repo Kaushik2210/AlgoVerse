@@ -1,5 +1,7 @@
 # 42. Trapping Rain Water
 
+**Commonly asked at:** Amazon, Google, Meta, Goldman Sachs
+
 You're given `n` non-negative integers `height` representing an elevation map, where each bar has width 1. Compute how much rainwater it can trap after raining.
 
 **Example 1:**

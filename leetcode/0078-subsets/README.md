@@ -1,5 +1,7 @@
 # 78. Subsets
 
+**Commonly asked at:** Amazon, Meta, Bloomberg
+
 You're given an array `nums` of unique integers. Return every possible subset (the power set), with no duplicate subsets. Subsets can be returned in any order.
 
 **Example 1:**

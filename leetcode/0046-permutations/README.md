@@ -1,5 +1,7 @@
 # 46. Permutations
 
+**Commonly asked at:** Amazon, Microsoft, Meta
+
 You're given an array of distinct integers `nums`. Return every possible permutation of the array, in any order.
 
 **Example 1:**

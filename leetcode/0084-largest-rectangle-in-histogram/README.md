@@ -1,5 +1,7 @@
 # 84. Largest Rectangle in Histogram
 
+**Commonly asked at:** Amazon, Google, Meta
+
 Given an array `heights` representing the heights of histogram bars, each with width 1, find the area of the largest rectangle that can fit within the histogram's outline.
 
 **Example 1:**

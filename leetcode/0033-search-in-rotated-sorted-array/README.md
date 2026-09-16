@@ -1,5 +1,7 @@
 # 33. Search in Rotated Sorted Array
 
+**Commonly asked at:** Amazon, Microsoft, Meta, Google
+
 You're given a sorted array `nums` that's been rotated at some unknown pivot (e.g. `[0,1,2,4,5,6,7]` might become `[4,5,6,7,0,1,2]`). All values are distinct. Given a `target`, return its index, or `-1` if it isn't in the array. You must do it in O(log n) time.
 
 **Example 1:**

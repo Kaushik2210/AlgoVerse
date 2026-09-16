@@ -1,5 +1,7 @@
 # 81. Search in Rotated Sorted Array II
 
+**Commonly asked at:** Amazon, Meta
+
 You're given an integer array `nums`, sorted in non-decreasing order but then rotated at some unknown pivot, and it may contain duplicates. Given a `target`, return `true` if it exists in `nums`, `false` otherwise.
 
 **Example 1:**
