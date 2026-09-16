@@ -1,5 +1,7 @@
 # 530. Minimum Absolute Difference in BST
 
+**Commonly asked at:** Amazon, Microsoft
+
 You're given the root of a binary search tree. Return the minimum absolute difference between the values of any two distinct nodes in the tree.
 
 **Example 1:**

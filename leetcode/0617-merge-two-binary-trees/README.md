@@ -1,5 +1,7 @@
 # 617. Merge Two Binary Trees
 
+**Commonly asked at:** Amazon, Microsoft
+
 You're given the roots of two binary trees, `root1` and `root2`. Merge them into a new tree: where both trees have a node at the same position, sum their values into the merged node; where only one tree has a node, that node (and its whole subtree) is used as-is. Return the merged tree's root.
 
 **Example 1:**

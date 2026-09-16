@@ -1,5 +1,7 @@
 # 493. Reverse Pairs
 
+**Commonly asked at:** Google, Amazon
+
 You're given an integer array `nums`. Return the number of "reverse pairs" — pairs of indices `(i, j)` where `i < j` and `nums[i] > 2 * nums[j]`.
 
 **Example 1:**

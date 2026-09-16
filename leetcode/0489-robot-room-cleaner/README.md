@@ -1,5 +1,7 @@
 # 489. Robot Room Cleaner
 
+**Commonly asked at:** Google, Amazon
+
 *Note: this is a LeetCode Premium (subscriber-only) problem, not freely accessible on LeetCode. It's included here anyway since it's a distinctive DFS-with-no-global-coordinates exercise not covered by any other traversal problem in this set.*
 
 You control a robot cleaner in a room modeled as an `m x n` grid, where `1` marks open floor and `0` marks a wall or obstacle. The robot starts at an unknown open cell facing an unknown direction, but you don't get the grid, your position, or your orientation directly — you can only interact with the robot through four API calls:

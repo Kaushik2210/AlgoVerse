@@ -1,5 +1,7 @@
 # 502. IPO
 
+**Commonly asked at:** Amazon, Google
+
 A company wants to pick at most `k` distinct projects to maximize its capital before an IPO. You're given `profits[i]` and `capital[i]` for each project — you need at least `capital[i]` on hand to *start* project `i`, and completing it adds `profits[i]` to your capital. Starting with `w` capital, pick up to `k` projects (each at most once) to maximize the final capital. Return the maximum capital achievable.
 
 **Example 1:**

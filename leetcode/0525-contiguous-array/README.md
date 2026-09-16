@@ -1,5 +1,7 @@
 # 525. Contiguous Array
 
+**Commonly asked at:** Amazon, Facebook
+
 Given a binary array `nums`, return the maximum length of a contiguous subarray that contains an equal number of 0s and 1s.
 
 **Example 1:**

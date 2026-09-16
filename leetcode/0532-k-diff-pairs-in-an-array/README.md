@@ -1,5 +1,7 @@
 # 532. K-diff Pairs in an Array
 
+**Commonly asked at:** Facebook
+
 Given an array of integers `nums` and an integer `k`, return the number of unique `(i, j)` pairs where `|nums[i] - nums[j]| == k`. A pair is counted once regardless of how many times its values repeat in `nums`.
 
 **Example 1:**

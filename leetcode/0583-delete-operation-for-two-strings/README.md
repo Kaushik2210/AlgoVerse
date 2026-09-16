@@ -1,5 +1,7 @@
 # 583. Delete Operation for Two Strings
 
+**Commonly asked at:** Amazon
+
 You're given two strings `word1` and `word2`. In one step you can delete exactly one character from either string. Return the minimum number of steps needed to make `word1` and `word2` the same.
 
 **Example 1:**

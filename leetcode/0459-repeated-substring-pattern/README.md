@@ -1,5 +1,7 @@
 # 459. Repeated Substring Pattern
 
+**Commonly asked at:** Amazon
+
 You're given a string `s`. Return `true` if it can be built by taking some substring of it and repeating that substring two or more times, one after another.
 
 **Example 1:**

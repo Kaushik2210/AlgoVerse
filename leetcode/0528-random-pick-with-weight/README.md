@@ -1,5 +1,7 @@
 # 528. Random Pick with Weight
 
+**Commonly asked at:** Amazon, Google, Facebook
+
 Given an array of positive integers `w`, `w[i]` describes the weight of index `i`. Implement `pickIndex()` which returns a random index, where the probability of picking index `i` is `w[i] / sum(w)`.
 
 **Example:**

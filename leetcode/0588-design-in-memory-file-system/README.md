@@ -1,5 +1,7 @@
 # 588. Design In-Memory File System
 
+**Commonly asked at:** Google, Amazon
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-worked test cases, including nested `mkdir` auto-creating intermediate directories and appending content to an already-existing file.
 
 Design a data structure that simulates an in-memory file system:

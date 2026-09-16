@@ -1,5 +1,7 @@
 # 461. Hamming Distance
 
+**Commonly asked at:** Amazon
+
 Given two integers `x` and `y`, return the Hamming distance between them — the number of positions at which their binary representations differ.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 535. Encode and Decode TinyURL
 
+**Commonly asked at:** Amazon, Google, Facebook, Uber
+
 Design a class to encode a URL and decode a tiny URL back to the original.
 
 - `Codec()` — initializes the object.

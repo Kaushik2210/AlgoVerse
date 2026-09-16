@@ -1,5 +1,7 @@
 # 472. Concatenated Words
 
+**Commonly asked at:** Google, Amazon
+
 You're given a list of distinct strings `words` (no duplicates, no empty strings). Return every word in the list that can be formed entirely by concatenating **at least two** other, shorter words from the same list. Order of the returned words doesn't matter.
 
 **Example 1:**
