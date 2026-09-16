@@ -1,5 +1,7 @@
 # 450. Delete Node in a BST
 
+**Commonly asked at:** Microsoft, Meta, Google
+
 You're given the root of a binary search tree and a value `key`. Delete the node with that value from the tree and return the new root, keeping the BST property intact. If no node has that value, return the tree unchanged.
 
 **Example 1:**

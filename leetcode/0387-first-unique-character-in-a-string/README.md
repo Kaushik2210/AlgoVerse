@@ -1,5 +1,7 @@
 # 387. First Unique Character in a String
 
+**Commonly asked at:** Amazon, Microsoft, Bloomberg
+
 Given a string `s`, find the first non-repeating character in it and return its index. If it doesn't exist, return `-1`.
 
 **Example 1:**

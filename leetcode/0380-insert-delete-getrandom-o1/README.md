@@ -1,5 +1,7 @@
 # 380. Insert Delete GetRandom O(1)
 
+**Commonly asked at:** Amazon, Meta
+
 Design a data structure supporting, all in average O(1) time: `insert(val)` (adds `val` if not already present, returns whether it was added), `remove(val)` (removes `val` if present, returns whether it was removed), and `getRandom()` (returns a uniformly random element from the current set of elements).
 
 **Example:**

@@ -1,5 +1,7 @@
 # 416. Partition Equal Subset Sum
 
+**Commonly asked at:** Amazon, Meta
+
 Given an integer array `nums` containing only positive integers, return `true` if the array can be split into two subsets such that the sum of elements in both subsets is equal.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 350. Intersection of Two Arrays II
 
+**Commonly asked at:** Meta, Amazon
+
 Given two integer arrays `nums1` and `nums2`, return an array of their intersection. Each element in the result must appear as many times as it shows up in both arrays (so duplicates matter here, unlike problem 349). The result can be in any order.
 
 **Example 1:**

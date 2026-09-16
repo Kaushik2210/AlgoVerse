@@ -1,5 +1,7 @@
 # 341. Flatten Nested List Iterator
 
+**Commonly asked at:** Google, Meta, LinkedIn
+
 *Note: this is a LeetCode premium (subscriber-only) problem, so it can't be verified against the live judge, but it's implemented and tested against the interface described in the official problem statement below.*
 
 You're given a nested list of integers `nestedList`, where each element is either an integer or a list whose elements may also be integers or other lists (arbitrary depth). Implement an iterator to flatten it: `NestedIterator(nestedList)` initializes the iterator, `next()` returns the next integer, and `hasNext()` returns whether there are more integers left.

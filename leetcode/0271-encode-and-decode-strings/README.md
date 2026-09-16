@@ -1,5 +1,7 @@
 # 271. Encode and Decode Strings
 
+**Commonly asked at:** Google, Meta
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Design an algorithm to encode a list of strings into a single string, and decode that string back into the original list of strings. The strings can contain any possible character (including commas, delimiters, or even the encoding scheme's own special characters), so a naive join-with-a-delimiter approach isn't safe.

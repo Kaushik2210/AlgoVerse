@@ -1,5 +1,7 @@
 # 300. Longest Increasing Subsequence
 
+**Commonly asked at:** Amazon, Microsoft, Google
+
 You're given an integer array `nums`. Find the length of the longest strictly increasing subsequence — a subsequence keeps the relative order of the original array but doesn't need to be contiguous.
 
 **Example 1:**

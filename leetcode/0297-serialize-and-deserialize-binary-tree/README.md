@@ -1,5 +1,7 @@
 # 297. Serialize and Deserialize Binary Tree
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft
+
 Design an algorithm to serialize a binary tree to a single string, and deserialize that string back into the original tree structure. There's no constraint on the specific format, as long as a tree serialized by your algorithm can be deserialized back to the same tree by your algorithm.
 
 **Example 1:**

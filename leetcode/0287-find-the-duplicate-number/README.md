@@ -1,5 +1,7 @@
 # 287. Find the Duplicate Number
 
+**Commonly asked at:** Amazon, Microsoft
+
 Given an array of integers `nums` containing `n + 1` integers where each integer is in the range `[1, n]` inclusive, there's exactly one repeated number (it may repeat more than once). Find that repeated number, without modifying the array, and using only O(1) extra space.
 
 **Example 1:**

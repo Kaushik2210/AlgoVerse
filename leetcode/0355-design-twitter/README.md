@@ -1,5 +1,7 @@
 # 355. Design Twitter
 
+**Commonly asked at:** Amazon, Bloomberg
+
 Design a simplified version of Twitter where users can post tweets, follow/unfollow other users, and see the 10 most recent tweets in their news feed. Implement the `Twitter` class:
 
 - `Twitter()` — initializes the object.

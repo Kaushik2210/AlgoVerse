@@ -1,5 +1,7 @@
 # 443. String Compression
 
+**Commonly asked at:** Amazon, Meta
+
 You're given an array of characters `chars`. Compress it in place using this rule: for each group of consecutive repeating characters, write the character once, then (if the group length is more than 1) write the length as separate digit characters right after it. Return the new length of the array; the first that many characters of `chars` should hold the compressed result.
 
 **Example 1:**

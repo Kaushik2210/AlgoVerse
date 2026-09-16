@@ -1,5 +1,7 @@
 # 378. Kth Smallest Element in a Sorted Matrix
 
+**Commonly asked at:** Amazon, Meta
+
 You're given an `n x n` matrix where each row and each column is sorted in ascending order. Return the `k`th smallest element in the matrix (counting duplicates as separate entries).
 
 **Example 1:**

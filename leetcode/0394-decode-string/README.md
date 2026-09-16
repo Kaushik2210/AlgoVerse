@@ -1,5 +1,7 @@
 # 394. Decode String
 
+**Commonly asked at:** Amazon, Meta, Google
+
 Given an encoded string, return its decoded string. The encoding rule is `k[encoded_string]`, meaning the `encoded_string` inside the square brackets is repeated exactly `k` times. `k` is guaranteed to be a positive integer. Encodings can nest, e.g. `2[a2[bc]]` means "repeat `a2[bc]` twice", i.e. `abcbcabcbc`. Assume the input is always valid: no extra spaces, brackets are well-formed, and digits only appear for repeat counts (never as literal digits in the string).
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 312. Burst Balloons
 
+**Commonly asked at:** Google, LinkedIn
+
 You're given `n` balloons in a row, indexed 0 to n-1, each with a number on it given by array `nums`. Bursting balloon `i` earns `nums[left] * nums[i] * nums[right]` coins, where `left` and `right` are the balloons currently adjacent to `i` (after previously burst balloons, treat out-of-bounds neighbors as a balloon with value 1). Return the maximum coins obtainable by bursting all the balloons in some order.
 
 **Example 1:**
