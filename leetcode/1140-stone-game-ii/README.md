@@ -1,5 +1,7 @@
 # 1140. Stone Game II
 
+**Commonly asked at:** Google
+
 Alice and Bob are playing a game with piles of stones arranged in a row, `piles[i]` being the number of stones in the `i`-th pile. Alice moves first, and both players play optimally to maximize their **own** total stones. On each turn a player can take the first `X` piles remaining, where `1 <= X <= 2M`, and `M` starts at 1. Whatever `X` was actually taken, `M` then becomes `max(M, X)` for the *next* player's turn. Return the maximum number of stones Alice can end up with.
 
 **Example 1:**

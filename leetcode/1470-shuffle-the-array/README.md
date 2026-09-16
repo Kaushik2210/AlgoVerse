@@ -1,5 +1,7 @@
 # 1470. Shuffle the Array
 
+**Commonly asked at:** Amazon
+
 Given an array `nums` of length `2n`, consisting of the pattern `[x1, x2, ..., xn, y1, y2, ..., yn]`, return the array in the shuffled form `[x1, y1, x2, y2, ..., xn, yn]`.
 
 **Example 1:**

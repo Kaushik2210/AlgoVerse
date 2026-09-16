@@ -1,5 +1,7 @@
 # 932. Beautiful Array
 
+**Commonly asked at:** Google
+
 Call an array `nums` (containing each integer from 1 to `n` exactly once) beautiful if there is no triple of indices `i < k < j` such that `nums[k] * 2 == nums[i] + nums[j]` (i.e. no element is exactly the average of some earlier and some later element). Given `n`, return any beautiful array of length `n`.
 
 **Example 1:**

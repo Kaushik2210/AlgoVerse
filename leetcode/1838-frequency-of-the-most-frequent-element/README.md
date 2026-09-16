@@ -1,5 +1,7 @@
 # 1838. Frequency of the Most Frequent Element
 
+**Commonly asked at:** Amazon
+
 You're given an integer array `nums` and an integer `k`. In one operation you can choose an index of `nums` and increment its value by 1. Return the maximum possible frequency of an element after performing at most `k` operations.
 
 **Example 1:**

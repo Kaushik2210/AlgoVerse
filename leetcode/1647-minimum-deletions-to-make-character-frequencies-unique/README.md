@@ -1,5 +1,7 @@
 # 1647. Minimum Deletions to Make Character Frequencies Unique
 
+**Commonly asked at:** Amazon
+
 Given a string, you can delete any number of characters from it. Return the minimum number of deletions needed so that no two distinct characters left in the string have the same frequency (a frequency of 0, i.e. a character deleted entirely, doesn't count as a conflict).
 
 **Example 1:**

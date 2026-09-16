@@ -1,5 +1,7 @@
 # 1598. Crawler Log Folder
 
+**Commonly asked at:** Amazon
+
 A file system crawler starts in the main folder and executes a sequence of folder-change operations, given as a string array `logs`. Each operation is one of:
 - `"../"`: move to the parent folder (stays in the main folder if already there).
 - `"./"`: stay in the current folder.

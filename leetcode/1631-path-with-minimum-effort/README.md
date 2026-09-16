@@ -1,5 +1,7 @@
 # 1631. Path With Minimum Effort
 
+**Commonly asked at:** Google, Amazon
+
 You're given a `rows x cols` matrix `heights`. You start at the top-left cell and want to reach the bottom-right cell, moving up/down/left/right. A path's "effort" is the maximum absolute difference in heights between two consecutive cells along it. Return the minimum possible effort over all paths.
 
 **Example 1:**

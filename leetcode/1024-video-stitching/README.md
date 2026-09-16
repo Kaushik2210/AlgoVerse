@@ -1,5 +1,7 @@
 # 1024. Video Stitching
 
+**Commonly asked at:** Google
+
 You have a video of length `time` seconds you want to cover completely, from second 0 to second `time`. You're given `clips`, where `clips[i] = [start_i, end_i]` means you have a clip that plays from `start_i` to `end_i`. You can cut each clip to use any subrange of it, and you can use clips in any order (including not using some at all). Return the minimum number of clips needed to cover the entire `[0, time]` range, or -1 if it's impossible.
 
 **Example 1:**

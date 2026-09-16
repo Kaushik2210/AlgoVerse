@@ -1,5 +1,7 @@
 # 1603. Design Parking System
 
+**Commonly asked at:** Amazon
+
 Design a parking system for a parking lot with three kinds of parking spaces: big, medium, and small, with a fixed number of slots for each. Implement `ParkingSystem`:
 - `ParkingSystem(big, medium, small)`: initializes the number of free slots for each car type (1 = big, 2 = medium, 3 = small).
 - `addCar(carType)`: checks whether there's a parking space of `carType` available. If available, park the car (decrement the count) and return `true`, otherwise return `false`.

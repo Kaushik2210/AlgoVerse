@@ -1,5 +1,7 @@
 # 1007. Minimum Domino Rotations For Equal Row
 
+**Commonly asked at:** Amazon
+
 You're given `tops` and `bottoms`, each of length `n`, representing `n` dominoes: the `i`-th domino has `tops[i]` on top and `bottoms[i]` on bottom. In one move you can swap the top and bottom of any domino. Return the minimum number of moves needed so that every value in `tops` is the same, or every value in `bottoms` is the same — whichever is achievable with fewer moves (either counts). If it's impossible, return -1.
 
 **Example 1:**

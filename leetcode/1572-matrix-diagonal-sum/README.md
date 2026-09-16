@@ -1,5 +1,7 @@
 # 1572. Matrix Diagonal Sum
 
+**Commonly asked at:** Amazon
+
 Given a square matrix `mat`, return the sum of the elements on the primary diagonal (top-left to bottom-right) plus the elements on the secondary diagonal (top-right to bottom-left). If a cell belongs to both diagonals (which only happens at the exact center of an odd-sized matrix), it should only be counted once.
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 1232. Check If It Is a Straight Line
 
+**Commonly asked at:** Google, Amazon
+
 You're given an array of `coordinates`, where `coordinates[i] = [x, y]`. Return `true` if these points all lie on one straight line.
 
 **Example 1:**

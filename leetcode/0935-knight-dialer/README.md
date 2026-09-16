@@ -1,5 +1,7 @@
 # 935. Knight Dialer
 
+**Commonly asked at:** Google, Facebook
+
 The chess knight has a unique movement, it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an L). The possible movements of chess knight are shown in this diagram.
 
 A chess knight can move as indicated in the chess diagram below. We have a chess knight and a phone pad as shown below, the knight can only stand on a numeric cell (i.e. blue cell).

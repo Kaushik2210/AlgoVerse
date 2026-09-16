@@ -1,5 +1,7 @@
 # 1557. Minimum Number of Vertices to Reach All Nodes
 
+**Commonly asked at:** Amazon
+
 You're given a directed acyclic graph (DAG) of `n` nodes labeled 0 to `n-1`, described by a list of directed `edges`. Find the smallest set of vertices such that, starting from them and following the directed edges, every node in the graph is reachable. Return this set (it's guaranteed to be unique).
 
 **Example 1:**
