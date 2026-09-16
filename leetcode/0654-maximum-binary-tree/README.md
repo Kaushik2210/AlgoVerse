@@ -1,5 +1,7 @@
 # 654. Maximum Binary Tree
 
+**Commonly asked at:** Google, Meta, Microsoft, Bloomberg
+
 Given an integer array `nums` with distinct values, build a "maximum binary tree" recursively: the root is the maximum value in `nums`, its left subtree is built the same way from the elements to the left of that maximum, and its right subtree is built the same way from the elements to the right of it. Return the root.
 
 **Example 1:**

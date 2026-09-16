@@ -1,5 +1,7 @@
 # 611. Valid Triangle Number
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, LinkedIn, Goldman Sachs
+
 Given an array of non-negative integers, count how many triplets can form the three sides of a triangle with positive area (the triangle inequality must hold: the sum of any two sides must exceed the third).
 
 **Example 1:**

@@ -1,5 +1,7 @@
 # 693. Binary Number with Alternating Bits
 
+**Commonly asked at:** Amazon, Google, Microsoft
+
 Given a positive integer `n`, check whether its binary representation has adjacent bits that always alternate — no two consecutive bits are the same.
 
 **Example 1:**

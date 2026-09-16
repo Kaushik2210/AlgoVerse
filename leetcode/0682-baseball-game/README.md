@@ -1,5 +1,7 @@
 # 682. Baseball Game
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 You're keeping score of a baseball game with unusual rules, given as a list of operations `ops`, one per round:
 - An integer `x`: record a new score of `x`.
 - `"+"`: record a score that's the sum of the previous two scores.

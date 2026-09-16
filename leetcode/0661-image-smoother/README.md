@@ -1,5 +1,7 @@
 # 661. Image Smoother
 
+**Commonly asked at:** Amazon, Apple, Meta, Microsoft
+
 You're given an `m x n` integer matrix `img` representing a grayscale image. Build a smoothed version where each cell's new value is the average, rounded down, of itself and all of its existing neighbors (up to 8 surrounding cells, fewer near edges and corners).
 
 **Example 1:**

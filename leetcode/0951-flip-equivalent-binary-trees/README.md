@@ -1,5 +1,7 @@
 # 951. Flip Equivalent Binary Trees
 
+**Commonly asked at:** Amazon, Google, Microsoft
+
 A binary tree can be transformed by picking any nodes and swapping their left and right children, any number of times. Given the roots of two binary trees `root1` and `root2`, return whether one can be turned into the other through some sequence of such flips.
 
 **Example 1:**

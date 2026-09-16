@@ -1,5 +1,7 @@
 # 631. Design Excel Sum Formula
 
+**Commonly asked at:** Amazon, Google, Microsoft, Airbnb
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently, including a chained-formula test (A1 feeds a `sum` formula in B2, which feeds another `sum` formula in C3, and changing A1 correctly propagates all the way through to C3).
 
 Design the basic functionality of Excel and implement a sum formula:

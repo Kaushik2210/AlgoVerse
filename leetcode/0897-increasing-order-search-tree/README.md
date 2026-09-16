@@ -1,5 +1,7 @@
 # 897. Increasing Order Search Tree
 
+**Commonly asked at:** Amazon, Google
+
 Given the root of a binary search tree, rearrange it so that the tree is a straight right-leaning chain: every node has no left child, and the nodes appear in ascending sorted order following the right pointers, with the leftmost node of the original tree becoming the new root.
 
 **Example 1:**

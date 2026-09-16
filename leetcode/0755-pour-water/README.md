@@ -1,5 +1,7 @@
 # 755. Pour Water
 
+**Commonly asked at:** Airbnb, Oracle
+
 **Note: this is a LeetCode premium (paid-only) problem — the statement below is reconstructed from the public problem description.**
 
 You're given `heights`, an elevation map of unit-width columns, an integer `volume` (the number of water drops to pour), and an index `k` (where each drop is poured). Each drop falls straight down from above `heights[k]`, then repeatedly tries to move to a lower neighboring column: first checking left, then right, moving as long as the next column isn't higher. If neither direction offers anywhere lower, the drop settles in place, raising that column's height by 1. Return the final heights after pouring all the water.

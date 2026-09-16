@@ -1,5 +1,7 @@
 # 725. Split Linked List in Parts
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 Given the head of a singly linked list and an integer `k`, split the list into `k` consecutive parts. Every part's length must be as equal as possible — no two parts can differ in size by more than 1 — and earlier parts must be at least as large as later ones. If the list has fewer than `k` nodes, some parts will simply be empty (`null`). Return the parts as an array of `k` list heads.
 
 **Example 1:**

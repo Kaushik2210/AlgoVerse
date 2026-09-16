@@ -1,5 +1,7 @@
 # 790. Domino and Tromino Tiling
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Goldman Sachs, Bloomberg
+
 You have a board that's 2 rows tall and `n` columns wide. You want to tile it completely using two shapes: a 2x1 domino (which can be placed vertically or horizontally) and an L-shaped tromino covering 3 cells (which can be rotated into any of 4 orientations). Return the number of distinct ways to fully tile the 2xn board, modulo `10^9 + 7`.
 
 **Example 1:**

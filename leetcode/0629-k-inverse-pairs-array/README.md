@@ -1,5 +1,7 @@
 # 629. K Inverse Pairs Array
 
+**Commonly asked at:** Google, Meta, Microsoft, Bloomberg
+
 For an integer `n`, consider all permutations of the numbers `1` to `n`. An inverse pair is a pair of indices `(i, j)` with `i < j` where `nums[i] > nums[j]`. Given `n` and `k`, return the number of permutations of `1` to `n` that have exactly `k` inverse pairs, modulo `10^9 + 7`.
 
 **Example 1:**

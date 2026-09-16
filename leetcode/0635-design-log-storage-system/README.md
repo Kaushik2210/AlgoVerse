@@ -1,5 +1,7 @@
 # 635. Design Log Storage System
 
+**Commonly asked at:** Amazon, Apple, Snap, Snowflake
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-worked test cases at multiple granularities.
 
 Design a log storage system that stores logs by `(id, timestamp)` and can retrieve log ids within a time range at a given precision:

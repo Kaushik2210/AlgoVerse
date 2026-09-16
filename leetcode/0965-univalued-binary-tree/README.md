@@ -1,5 +1,7 @@
 # 965. Univalued Binary Tree
 
+**Commonly asked at:** Amazon, Google
+
 A binary tree is univalued if every node in it has the same value. Given the root of a binary tree, return whether it's univalued.
 
 **Example 1:**

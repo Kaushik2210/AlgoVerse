@@ -1,5 +1,7 @@
 # 671. Second Minimum Node In a Binary Tree
 
+**Commonly asked at:** Amazon, LinkedIn, Meta
+
 Given a binary tree where every node has either 0 or 2 children, and where a node's value is always less than or equal to the value of each of its children, find the second smallest **distinct** value in the whole tree. Return -1 if it doesn't exist (i.e. every value in the tree is the same).
 
 **Example 1:**

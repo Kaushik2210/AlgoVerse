@@ -1,5 +1,7 @@
 # 867. Transpose Matrix
 
+**Commonly asked at:** Amazon, Google, Meta, Microsoft, Bloomberg
+
 You're given a 2D integer array `matrix`. Return its transpose, meaning the matrix flipped over its main diagonal so rows become columns and columns become rows.
 
 **Example 1:**

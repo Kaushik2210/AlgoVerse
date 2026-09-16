@@ -1,5 +1,7 @@
 # 737. Sentence Similarity II
 
+**Commonly asked at:** Amazon, Apple, Google
+
 > **Note:** This is a LeetCode premium problem, so it can't be opened or submitted on a free account. Solved and verified independently against hand-built test cases.
 
 Given two sentences `sentence1` and `sentence2`, each an array of words, and a list `similarPairs` of word pairs that are considered similar, determine whether the two sentences are similar. This is the same setup as Sentence Similarity (734), except similarity **is transitive** here: if `"great"` is similar to `"fine"` and `"fine"` is similar to `"good"`, then `"great"` and `"good"` are also considered similar, even without a direct pair for them.
