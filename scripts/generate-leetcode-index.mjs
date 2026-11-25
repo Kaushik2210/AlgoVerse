@@ -41,10 +41,13 @@ function readSafe(p) {
 function parseCompanies(readme) {
   const m = /^\*\*Commonly asked at:\*\*\s*(.+)$/im.exec(readme);
   if (!m) return [];
-  return m[1]
+  const companies = m[1]
     .split(",")
-    .map((c) => c.trim())
-    .filter(Boolean);
+    .map((company) => company.trim())
+    .filter(Boolean)
+    .map((company) => company.toLowerCase() === "facebook" ? "Meta" : company);
+
+  return [...new Set(companies)];
 }
 
 /** Pull "# 68. Text Justification" -> title, and the excerpt paragraph after it. */
